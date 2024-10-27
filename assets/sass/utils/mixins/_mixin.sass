@@ -1,0 +1,52 @@
+// transform
+=transform($transform)
+    -webkit-transform: $transform
+    -moz-transform: $transform 
+    -ms-transform: $transform  
+    -o-transform: $transform 
+    transform: $transform 
+
+// animation frame
+=animation($animation, $time, $transition)
+    -webkit-animation: $animation $time $transition 
+    -o-animation: $animation $time $transition
+    -moz-animation: $animation $time $transition
+    animation: $animation $time $transition
+
+// transition
+=transition($transition)
+    -webkit-transition: $transition
+    -moz-transition: $transition 
+    -ms-transition: $transition  
+    -o-transition: $transition 
+    transition: $transition 
+
+// border radius
+=radius($radius)
+    -webkit-border-radius: $radius
+    -moz-border-radius: $radius 
+    -ms-border-radius: $radius  
+    border-radius: $radius
+
+// sticky element
+=sticky
+    position: -webkit-sticky !important
+    position: -moz-sticky !important
+    position: -ms-sticky !important
+    position: -o-sticky !important
+    position: sticky !important
+
+
+// box shadow
+=box-shadow($box-shadow)
+    -webkit-box-shadow: $box-shadow
+    -moz-box-shadow: $box-shadow
+    -ms-box-shadow: $box-shadow  
+    -o-box-shadow: $box-shadow 
+    box-shadow: $box-shadow  
+
+=icomoon($code,$color,$size)
+    content: $code
+    font-family: 'icomoon'
+    font-size: $size 
+    color: $color

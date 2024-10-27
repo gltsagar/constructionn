@@ -1,0 +1,65 @@
+.breadcrumb-wrapper
+    padding: 60px 0
+    position: relative
+    &::before
+        content: ''
+        position: absolute
+        inset: 0
+        background: linear-gradient(0deg, rgba(10, 32, 78, 0.92) 0%, rgba(10, 32, 78, 0.92) 100%)
+    .container
+        position: relative
+    .entry-header
+        margin-bottom: 40px
+        h1
+            color: rgba(255, 255, 255, 0.56)
+            line-height: 140%
+            text-align: center
+            font-size: 34px 
+            @extend %bold
+            text-transform: uppercase
+            +sm 
+                font-size: 46px
+            +lg 
+                font-size: 56px 
+            span 
+                font-size: 34px 
+                color: rgba(255, 255, 255, 0.56)
+                +sm 
+                    font-size: 46px
+                +lg 
+                    font-size: 56px 
+    #crumbs
+        +flex 
+        +flex-just(center)
+        gap: 12px 
+        +flex-align(center)
+        flex-wrap: wrap
+        .separator
+            margin-left: 8px
+        &>span 
+            &>a span
+                color: var(--cnt-white-color)
+                font-size: 14px 
+                @extend %medium
+                @extend %uppercase
+        &>.current
+            &>a 
+                pointer-events: none
+                span 
+                    color: rgba(255, 255, 255, 0.56)
+        .trail-items 
+            li::after
+                content: ''
+                background-image: url('data:image/svg+xml,<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.76103 13.0344C9.60325 12.8741 9.5889 12.6232 9.718 12.4464L9.76103 12.3957L13.5947 8.50002L9.76103 4.60431C9.60325 4.44397 9.5889 4.19308 9.718 4.01628L9.76103 3.96563C9.91882 3.8053 10.1657 3.79072 10.3397 3.9219L10.3896 3.96563L14.5377 8.18068C14.6955 8.34101 14.7099 8.59191 14.5808 8.76871L14.5377 8.81936L10.3896 13.0344C10.216 13.2108 9.9346 13.2108 9.76103 13.0344Z" fill="white"/><path d="M1.46416 13.0344C1.30637 12.8741 1.29203 12.6232 1.42113 12.4464L1.46416 12.3957L5.29784 8.50002L1.46416 4.60431C1.30637 4.44397 1.29203 4.19308 1.42113 4.01628L1.46416 3.96563C1.62195 3.8053 1.86886 3.79072 2.04285 3.9219L2.0927 3.96563L6.24085 8.18068C6.39863 8.34101 6.41298 8.59191 6.28388 8.76871L6.24085 8.81936L2.0927 13.0344C1.91913 13.2108 1.63773 13.2108 1.46416 13.0344Z" fill="white"/><path d="M5.6126 13.0344C5.45481 12.8741 5.44046 12.6232 5.56956 12.4464L5.6126 12.3957L9.44627 8.50002L5.6126 4.60431C5.45481 4.44397 5.44046 4.19308 5.56956 4.01628L5.6126 3.96563C5.77038 3.8053 6.0173 3.79072 6.19129 3.9219L6.24114 3.96563L10.3893 8.18068C10.5471 8.34101 10.5614 8.59191 10.4323 8.76871L10.3893 8.81936L6.24114 13.0344C6.06757 13.2108 5.78616 13.2108 5.6126 13.0344Z" fill="white"/></svg>')
+                background-position: center
+                background-repeat: no-repeat
+                background-size: cover
+                margin-left: 8px
+            li 
+                margin-right: 12px
+            .trail-item span
+                color: var(--cnt-white-color)
+                text-transform: uppercase
+                font-weight: 500
+            .trail-end span
+                color: #FFFFFF8F

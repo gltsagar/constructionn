@@ -1,0 +1,34 @@
+.video-block
+    width: 100%
+    position: relative
+    &::before
+        content: ''
+        position: absolute
+        inset: 0
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.12) 100%)
+    .container
+        position: relative
+    .video-block-wrap
+        position: relative
+        padding: 180px 0
+        @extend %display-center
+        .video-control-btn
+            @extend %display-center
+            svg 
+                +radius(50%)
+                box-shadow: 0 0 0px 2px #1414145e
+                animation: playBtnBounce 1s infinite
+                border: 4px solid #1414145e
+                path 
+                    fill: #1414145e
+            &:hover 
+                svg 
+                    border-color: var(--cnt-secondary-color)
+                    path 
+                        fill: var(--cnt-secondary-color)
+
+@keyframes playBtnBounce 
+    0%
+        box-shadow: 0 0 0px 2px #1414145e
+    100%
+        box-shadow: 0 0 0px 20px #14141400

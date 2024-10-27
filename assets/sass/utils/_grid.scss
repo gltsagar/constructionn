@@ -1,0 +1,215 @@
+@use "sass:math";
+
+.container {
+	width: 100%;
+	max-width: var(--cnt-container-width);
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 20px;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	@include grid-system('all');
+}
+
+@include sm {
+	.row {
+		@include grid-system('sm');
+	}
+}
+
+@include md {
+	.row {
+		@include grid-system('md');
+	}
+}
+
+@include lg {
+	.row {
+		@include grid-system('lg');
+	}
+}
+
+@include xl {
+	.row {
+		@include grid-system('xl');
+	}
+}
+
+@include xxl {
+	.row {
+		@include grid-system('xxl');
+	}
+}
+
+@include xxl {
+	.row {
+		@include grid-system('xxl');
+	}
+}
+
+$grid-gaps: ("0": 0, "1": 16px, "2": 32px, "3": 40px, "4": 46px, "5": 50px, "6": 72px, "7": 90px);
+
+// grid gaps
+@each $key, $val in $grid-gaps {
+	.gap-#{$key} > * {
+		padding: $val;
+	}
+	.gap-#{$key} {
+		margin-left: -$val;
+		margin-right: -$val;
+	}
+}
+
+$order: 1, 2, 3, 4, 5;
+
+@each $val in $order {
+	.order-#{$val} {
+		order: #{$val};
+	}
+}
+
+@include sm {
+	@each $val in $order {
+		.order-sm-#{$val} {
+			order: #{$val};
+		}
+	}
+	@each $key, $val in $grid-gaps {
+		.gap-sm-#{$key} > * {
+			padding: $val;
+		}
+		.gap-sm-#{$key} {
+			margin-left: -$val;
+			margin-right: -$val;
+		}
+	}
+}
+@include md {
+	@each $val in $order {
+		.order-md-#{$val} {
+			order: #{$val};
+		}
+	}
+	@each $key, $val in $grid-gaps {
+		.gap-md-#{$key} > * {
+			padding: $val;
+		}
+		.gap-md-#{$key} {
+			margin-left: -$val;
+			margin-right: -$val;
+		}
+	}
+}
+@include lg {
+	@each $val in $order {
+		.order-lg-#{$val} {
+			order: #{$val};
+		}
+	}
+	@each $key, $val in $grid-gaps {
+		.gap-lg-#{$key} > * {
+			padding: $val;
+		}
+		.gap-lg-#{$key} {
+			margin-left: -$val;
+			margin-right: -$val;
+		}
+	}
+}
+@include xl {
+	@each $val in $order {
+		.order-xl-#{$val} {
+			order: #{$val};
+		}
+	}
+	@each $key, $val in $grid-gaps {
+		.gap-xl-#{$key} > * {
+			padding: $val;
+		}
+		.gap-xl-#{$key} {
+			margin-left: -$val;
+			margin-right: -$val;
+		}
+	}
+}
+@include xxl {
+	@each $val in $order {
+		.order-xxl-#{$val} {
+			order: #{$val};
+		}
+	}
+	@each $key, $val in $grid-gaps {
+		.gap-xxl-#{$key} > * {
+			padding: $val;
+		}
+		.gap-xxl-#{$key} {
+			margin-left: -$val;
+			margin-right: -$val;
+		}
+	}
+}
+@include xxxl {
+	@each $val in $order {
+		.order-xxxl-#{$val} {
+			order: #{$val};
+		}
+	}
+	@each $key, $val in $grid-gaps {
+		.gap-xxxl-#{$key} > * {
+			padding: $val;
+		}
+		.gap-xxxl-#{$key} {
+			margin-left: -$val;
+			margin-right: -$val;
+		}
+	}
+}
+
+.page-grid {
+	@include flex;
+	@include flex-dir(column);
+	gap: var(--cnt-gap-sm);
+	@extend .section-spacing;
+	@include lg {
+		gap: var(--cnt-gap-xxl);
+		@include flex-dir(row);
+	}
+	#secondary {
+		section.widget {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	.leftsidebar {
+		& {
+			-webkit-box-direction: reverse;
+			-webkit-box-orient: horizontal;
+			-webkit-flex-direction: row-reverse;
+			-moz-flex-direction: row-reverse;
+			-ms-flex-direction: row-reverse;
+			flex-direction: row-reverse;
+		}
+	}
+}
+
+#secondary {
+    max-width: 100%;
+    flex: 0 0 100%;
+    @include lg{
+        flex: 0 0 30.977%;
+        max-width: 30.977%;
+    }
+}
+
+.leftsidebar {
+    .page-grid {
+        @include flex-direction(column);
+        @include lg{
+            @include flex-direction(row-reverse)
+        }
+    }
+}

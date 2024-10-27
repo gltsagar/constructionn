@@ -1,0 +1,380 @@
+.banner-section.style-one
+    .swiper
+        .swiper-wrapper
+            .swiper-slide
+                .banner-item
+                    position: relative
+                    padding-top: 120px
+                    background-size: cover
+                    +flex 
+                    +flex-dir(column)
+                    +flex-just(space-between)
+                    height: 560px
+                    +sm 
+                        height: 600px
+                    +md 
+                        height: 670px
+                    +lg 
+                        height: 720px 
+                        
+                    &::before
+                        content: ''
+                        position: absolute
+                        inset: 0
+                        background: linear-gradient(0deg, rgba(0, 0, 0, 0.48) 0%, rgba(0, 0, 0, 0.48) 100%)
+                    .container
+                        position: relative
+                        @extend %display-center
+                        
+                    .banner__text
+                        @extend %display-center
+                        +flex-dir(column)
+                        max-width: 808px
+                        .banner__title
+                            font-size: 42px
+                            color: var(--cnt-white-color)
+                            @extend %bolder
+                            text-align: center
+                            line-height: 140%
+                            +sm 
+                                font-size: 58px
+                            +md 
+                                font-size: 72px
+                            +lg 
+                                font-size: 80px 
+                            .banner__title-highlight
+                                font-size: inherit
+                                font-weight: inherit
+                                line-height: inherit
+                                color: var(--cnt-white-color)
+                                -webkit-text-fill-color: transparent
+                                -webkit-text-stroke: 1px var(--cnt-white-color)
+
+                                // color: #000
+                                // text-shadow: 1px 1px 0 #ffffff,-1px 1px 0 #ffffff,-1px -1px 0 #ffffff, 1px -1px 0 #ffffff
+                    .banner-notification
+                        position: relative
+                        bottom: 0
+                        right: 0
+                        background: var(--cnt-white-color)
+                        padding: 12px
+                        +flex 
+                        +flex-align(start)
+                        max-width: 100%
+                        +flex-dir(column)
+                        gap: 12px
+                        +md 
+                            gap: 24px
+                            padding: 32px
+                            +flex-align(center)
+                            gap: 0
+                            +flex-dir(row)
+                        +lg 
+                            position: absolute
+                            max-width: 746px
+                        p 
+                            padding-right: 0
+                            border-right: 0
+                            +md 
+                                border-right: 1px solid var(--cnt-text-tertiary)
+                                padding-right: 40px 
+
+                        a 
+                            margin-left: 0px
+                            min-width: fit-content
+                            +md 
+                                margin-left: 40px
+
+
+.banner-section.style-two
+    position: relative
+    .banner-swiper-two__view.swiper
+        .swiper-wrapper
+            .swiper-slide
+                .banner-item
+                    position: relative
+                    &::before 
+                        content: ""
+                        position: absolute
+                        inset: 0
+                        background: linear-gradient(0deg, rgba(20, 20, 20, 0.40) 0%, rgba(20, 20, 20, 0.40) 100%)
+                    .container
+                        position: relative
+                        .banner-content-wrap
+                            padding-top: 120px
+                            padding-bottom: 348px
+                            @extend %display-center
+                        .banner__text
+                            @extend %display-center
+                            +flex-dir(column)
+                            max-width: 90%
+                            +lg 
+                                max-width: 855px
+                            .banner__title
+                                @extend .h1
+                                color: var(--cnt-white-color)
+                                text-align: center
+                                position: relative
+                                z-index: 2
+                                margin-bottom: 48px
+                                &::before
+                                    content: ""
+                                    position: absolute
+                                    background-image: url('../../images/banner2-line.png')
+                                    width: 252px
+                                    height: 33px
+                                    background-repeat: no-repeat
+                                    left: 50%
+                                    bottom: 0
+                                    transform: translateX(-50%)
+                                    z-index: -1
+
+                            .btn__wrap
+                                +flex 
+                                +flex-just(center)
+                                gap: 32px
+                                flex-wrap: wrap
+
+
+    .banner-swiper-two__thumb
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        +breakpoint(856px)
+            bottom: 57px
+        +breakpoint(736px)
+            bottom: 0
+        
+        .swiper-wrapper
+            .swiper-slide.swiper-slide-thumb-active
+                .banner-item.banner-slider
+                    background-color: rgba(20, 20, 20, 0.72)
+            .swiper-slide
+                .banner-item.banner-slider
+                    padding: 32px
+                    cursor: pointer
+                    background-color: rgba(20, 20, 20, 0.32)
+                    .banner-tag
+                        font-size: 12px 
+                        text-transform: uppercase
+                        color: var(--cnt-white-color)
+                        letter-spacing: 0.96px
+                        margin-bottom: 16px 
+                        display: inline-block
+                    .banner-title
+                        @extend .h4
+                        @extend %medium
+                        color: var(--cnt-white-color)
+                        overflow: hidden
+                        margin-bottom: 0
+                        text-overflow: ellipsis
+                        display: -webkit-box
+                        -webkit-line-clamp: 2
+                        -webkit-box-orient: vertical
+            
+            .swiper-slide:not(:last-child)
+                .banner-slider
+                    position: relative
+                    &::after 
+                        content: ""
+                        position: absolute
+                        width: 0.5px
+                        height: 72px
+                        right: 0
+                        top: 50%
+                        transform: translate(-50%, -50%)
+                        background-color: #FFFFFF
+            .swiper-slide-thumb-active
+                .banner-slider
+                    position: relative
+                    &::after 
+                        display: none
+
+.banner-section.style-three
+    padding: 52px 0
+    border-bottom: 1px solid var(--text-tertiary, #EEE)
+    border-top: 1px solid var(--text-tertiary, #EEE)
+    .banner-container
+        width: 100%
+        max-width: 1418px
+        margin-left: auto
+        padding: 20px 
+        // padding-right: 20
+        +md 
+            padding-right: 0
+        .banner-wrapper
+            +flex
+            gap: var(--cnt-gap-xxl)
+            +flex-dir(column)
+            +md 
+                +flex-dir(row)
+                gap: var(--cnt-gap-md) 
+            +lg 
+                gap: var(--cnt-gap-xxl)
+
+            .banner-left
+                flex: 1
+                max-width: 498px
+                .banner__tag
+                    padding: 6px 16px
+                    background-color: #0a204e12
+                    color: var(--cnt-primary-color)
+                    margin-bottom: 24px
+                    display: inline-block
+                .banner__title
+                    @extend .h1
+                    margin-bottom: 40px
+                    .banner__title-highlight
+                        @extend .h1
+                p
+                .btn-wrap
+                    margin-top: 64px
+                    +flex 
+                    +flex-align(center)
+                    gap: 32px
+                    flex-wrap: wrap
+            .banner-right
+                flex: 1
+                .video-block
+                    max-height: 440px
+                .banner-counter
+                    +flex
+                    +flex-just(space-between)
+                    margin-top: 56px
+                    flex-wrap: wrap
+                    gap: var(--cnt-gap-sm)
+                    .counter-card
+                        flex: 1
+                        min-width: 200px
+                        background: transparent
+                        padding: 0
+                        .counter-number
+                            color: var(--cnt-secondary-color)
+                            @extend %medium
+                            &::after 
+                                display: none
+                        .counter-label 
+                            text-transform: uppercase
+                            letter-spacing: 1.12px
+                            font-size: 14px
+
+.banner-section.style-three.layout-one
+    .banner-wrapper
+        .banner-left
+            .banner__tag
+                display: none 
+            .banner__title
+                .banner__title-highlight
+                    font-size: inherit
+                    font-weight: inherit
+                    line-height: inherit
+                    color: var(--cnt-text-primary)
+                    -webkit-text-fill-color: transparent
+                    -webkit-text-stroke: 1px var(--cnt-text-primary)
+
+
+.banner-section.style-three.layout-two
+    .banner-wrapper
+        .banner__tag
+            display: none !important
+        .banner__title
+            .banner__title-highlight
+                color: rgba(104, 104, 104, 0.48) !important
+
+.banner-section.style-three.layout-three
+    .banner-wrapper
+        .banner__tag
+            background-color: rgba(252, 163, 17, 0.16) !important
+            color: var(--cnt-secondary-color) !important
+        .banner__title
+            position: relative
+            &::after
+                content: ''
+                width: 96px 
+                border: 2px solid var(--cnt-secondary-color)
+                position: absolute
+                top: 100%
+                left: 0
+
+
+.banner-section.style-four
+    .banner-swiper-four
+        .swiper-wrapper
+            .swiper-slide
+                height: 620px 
+                +flex
+                .banner-item
+                    width: calc(100% / 3)
+                    +transition(width ease 0.6s)
+                    position: relative
+                    .banner-image
+                        height: 100%
+                        &::before
+                            content: ''
+                            position: absolute
+                            inset: 0
+                            background: linear-gradient(0deg, rgba(0, 0, 0, 0.48) 0%, rgba(0, 0, 0, 0.48) 100%)
+                            opacity: 1
+                            +transition(opacity ease 0.6s)
+                        img 
+                            width: 100%
+                            height: 100%
+                            object-fit: cover
+                    .banner-text
+                        background: transparent
+                        padding: 32px
+                        +flex 
+                        +flex-dir(column)
+                        gap: 12px
+                        position: absolute
+                        left: 32px 
+                        bottom: 32px
+                        right: 32px
+                        .banner-title
+                            @extend .h3
+                            color: var(--cnt-white-color)
+                            display: none
+                            width: 0
+                            overflow: hidden
+                            +transition(all ease 0.6s)
+                            verflow: hidden
+                            text-overflow: ellipsis
+                            -webkit-line-clamp: 1
+                            -webkit-box-orient: vertical
+                            &:hover 
+                                color: var(--cnt-secondary-color)
+                        .banner-tag
+                            @extend .h5
+                            color: var(--cnt-white-color)
+                            @extend %regular
+                .banner-item.active
+                    .banner-image
+                        &::before
+                            opacity: 0
+                    .banner-text
+                        background: rgba(20, 20, 20, 0.64) 
+                        .banner-title
+                            width: 100%
+                            display: -webkit-box
+                    
+        .swiper-button-prev,.swiper-button-next
+            &::after 
+                content: '\e924'
+                font-family: 'icomoon'
+                font-size: 24px
+                background: rgba(255, 255, 255, 0.12)
+                color: var(--cnt-white-color)
+                padding: 16px
+        .swiper-button-prev
+            left: 10px
+            +md 
+                left: 32px
+            &::after 
+                transform: rotate(180deg)
+        .swiper-button-next
+            right: 10px
+            +md 
+                right: 32px
+                            
+                

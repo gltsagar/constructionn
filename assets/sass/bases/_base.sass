@@ -1,0 +1,33 @@
+@import '../utils/global'
+@import './typography'
+@import './normalize'
+@import './reset'
+    
+*:focus 
+    outline: none
+
+*, ::after, ::before 
+    box-sizing: border-box
+    line-height: 160%
+    // outline: 0.5px solid red
+
+
+
+.entry-content ul 
+    margin-bottom: 56px
+    li
+        padding-left: 16px + 16px
+        position: relative
+        &::before
+            content: '\e90a'
+            font-family: "icomoon"
+            font-size: 16px
+            // display: block
+            color: var(--cnt-secondary-color)
+            position: absolute
+            top: 0
+            left: 0
+
+#page.site
+    overflow-x: hidden
+    

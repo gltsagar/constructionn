@@ -1,0 +1,177 @@
+.btn
+    padding: 12px 32px
+    border: 1px solid var(--cnt-text-primary)
+    color: var(--cnt-text-primary)
+    font-size: 16px
+    cursor: pointer
+    +radius(0)
+    &:hover 
+        color: var(--cnt-secondary-color)
+        border-color: var(--cnt-secondary-color)
+    &:focus 
+        color: var(--cnt-text-primary)
+        border-color: var(--cnt-text-primary)
+    &.has-icon
+        +flex 
+        +flex-align(center)
+        gap: 8px
+        width: fit-content
+        &::after 
+            +icomoon('\e90a',var(--cnt-text-primary),16px)
+            +transition(all ease 0.35s)
+        &:hover 
+            &::after 
+                color: var(--cnt-secondary-color)
+        &:focus 
+            &::after 
+                color: var(--cnt-text-primary)
+    &__text
+        border: 0
+        padding: 0
+        position: relative
+        &::before
+            content: '' 
+            height: 0.5px
+            width: 76%
+            display: inline-block
+            background: var(--cnt-text-primary)
+            // border: 0.5px solid var(--cnt-text-primary)
+            position: absolute
+            top: 90%
+            left: 0
+            +transition(all ease 0.35s)
+        &:hover 
+            &::before 
+                background: var(--cnt-secondary-color) !important
+        &:focus 
+            color: var(--cnt-text-primary)
+            &::before 
+                background: var(--cnt-text-primary) !important
+        &.has-primary-color
+            color: var(--cnt-primary-color)
+            &::before
+                background: var(--cnt-primary-color)
+            &::after
+                color: var(--cnt-primary-color)
+            &:hover 
+                color: var(--cnt-secondary-color)
+            &:focus 
+                color: var(--cnt-primary-color)
+                &::before
+                    background: var(--cnt-primary-color) !important
+                &::after 
+                    color: var(--cnt-primary-color)
+        &.has-secondary-color
+            color: var(--cnt-secondary-color)
+            &::before
+                background: var(--cnt-secondary-color)
+            &::after
+                color: var(--cnt-secondary-color)
+            &:hover 
+                color: var(--cnt-primary-color)
+                &::before
+                    background: var(--cnt-primary-color) !important
+                &::after 
+                    color: var(--cnt-primary-color)
+            &:focus 
+                color: var(--cnt-secondary-color)
+                &::before
+                    background: var(--cnt-secondary-color) !important
+                &::after 
+                    color: var(--cnt-secondary-color)
+
+    &__primary 
+        background-color: var(--cnt-primary-color)
+        color: var(--cnt-white-color)
+        border-color: var(--cnt-primary-color)
+        &::after 
+            color: var(--cnt-white-color) !important
+        &:hover 
+            background-color: transparent
+            color: var(--cnt-primary-color)
+            border-color: var(--cnt-primary-color)
+            &::after 
+                color: var(--cnt-primary-color) !important
+        &:focus 
+            background-color: var(--cnt-primary-color)
+            color: var(--cnt-white-color)
+            border-color: var(--cnt-primary-color)
+            &::after 
+                color: var(--cnt-white-color) !important
+    &__primary-outline
+        background-color: transparent
+        border-color: var(--cnt-primary-color)
+        color: var(--cnt-primary-color)
+        &::after 
+            color: var(--cnt-primary-color) !important
+        &:hover 
+            background-color: var(--cnt-primary-color)
+            border-color: var(--cnt-primary-color)
+            color: var(--cnt-white-color)
+            &::after 
+                color: var(--cnt-white-color) !important
+        &:focus 
+            background-color: transparent
+            border-color: var(--cnt-primary-color)
+            color: var(--cnt-primary-color)
+            &::after 
+                color: var(--cnt-primary-color) !important
+    &__secondary 
+        background-color: var(--cnt-secondary-color)
+        color: var(--cnt-white-color)
+        border-color: var(--cnt-secondary-color)
+        &::after 
+            color: var(--cnt-white-color) !important
+        &:hover 
+            background-color: transparent
+            color: var(--cnt-secondary-color)
+            border-color: var(--cnt-secondary-color)
+            &::after 
+                color: var(--cnt-secondary-color) !important
+        &:focus 
+            background-color: var(--cnt-secondary-color)
+            color: var(--cnt-white-color)
+            border-color: var(--cnt-secondary-color)
+            &::after 
+                color: var(--cnt-white-color) !important
+    &__white
+        background-color: var(--cnt-white-color)
+        border-color: var(--cnt-white-color)
+        color: var(--cnt-primary-color)
+        &::after 
+            color: var(--cnt-primary-color) !important
+        &:hover 
+            background-color: transparent 
+            border-color: var(--cnt-white-color)
+            color: var(--cnt-white-color)
+            &::after 
+                color: var(--cnt-white-color) !important
+        &:focus 
+            background-color: var(--cnt-white-color)
+            border-color: var(--cnt-white-color)
+            color: var(--cnt-primary-color)
+            &::after 
+                color: var(--cnt-primary-color) !important
+    &__white-outline
+        background-color: transparent
+        border-color: var(--cnt-white-color)
+        color: var(--cnt-white-color)
+        &::after 
+            color: var(--cnt-white-color) !important
+        &:hover 
+            background-color: var(--cnt-white-color) 
+            border-color: var(--cnt-white-color)
+            color: var(--cnt-primary-color)
+            &::after 
+                color: var(--cnt-primary-color) !important
+        &:focus 
+            background-color: transparent
+            border-color: var(--cnt-white-color)
+            color: var(--cnt-white-color)
+            &::after 
+                color: var(--cnt-white-color) !important
+
+        
+
+a.btn 
+    display: inline-block

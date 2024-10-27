@@ -1,0 +1,113 @@
+
+
+.social-wrap
+    +flex 
+    +flex-just(start)
+    +flex-align(start)
+    +flex-dir(column)
+    gap: 16px
+    .label
+        @extend .h4
+    .social-networks
+        +flex 
+        gap: 20px
+        li
+            a
+                @extend %display-center
+                font-size: 20px
+                color: var(--cnt-text-primary)
+                &:hover
+                    color: var(--cnt-primary-color)
+    
+    .social-networks.is-circled
+        li 
+            a
+                height: 32px
+                min-width: 32px 
+                @extend %display-center
+                +radius(50%)
+                border: 1px solid var(--cnt-text-primary)
+                &:hover
+                    border-color: var(--cnt-text-primary)
+    .social-networks.has-fills
+        li 
+            a
+                background: var(--cnt-text-primary)
+                color: var(--cnt-white-color)
+                transition: all 0.35s ease !important
+                &:hover 
+                    background: var(--cnt-white-color)
+                    color: var(--cnt-text-primary)
+
+    .social-networks.has-primary-color
+        li
+            a
+                border-color: var(--cnt-primary-color)
+                color: var(--cnt-primary-color)
+                &:hover
+                    background-color: var(--cnt-primary-color)
+                    color: var(--cnt-white-color)
+    
+
+
+.contact-links
+    +flex
+    +flex-align(center)
+    gap: 16px
+    li 
+        +flex 
+        +flex-align(center)
+        gap: 16px
+        a
+            font-size: 14px
+            color: var(--cnt-white-color)
+            &:hover 
+                color: var(--cnt-secondary-color)
+        &::after 
+            content: ''
+            width: 16px 
+            height: 0
+            display: inline-block
+            border: 1px solid var(--cnt-white-color)
+    li:last-child
+        &::after 
+            display: none
+    li.phone 
+        a
+            +flex 
+            +flex-align(center)
+            gap: 8px
+            &::before
+                +transition(0.35s ease)
+                +icomoon('\e922',var(--cnt-white-color),16px)
+            &:hover 
+                &::before 
+                    color: var(--cnt-secondary-color)
+    li.mail 
+        a
+            +flex 
+            +flex-align(center)
+            gap: 8px
+            &::before
+                +transition(0.35s ease)
+                +icomoon('\e923',var(--cnt-white-color),16px)
+            &:hover 
+                &::before 
+                    color: var(--cnt-secondary-color)
+    li.location 
+        a
+            +flex 
+            +flex-align(center)
+            gap: 8px
+            pointer-events: none
+            &::before
+                +transition(0.35s ease)
+                +icomoon('\e921',var(--cnt-white-color),16px)
+            &:hover 
+                &::before 
+                    color: var(--cnt-secondary-color)
+
+.site-footer 
+    .footer-top .social-wrap .social-networks li a
+        background-color: #FFFFFF3D
+        border: none

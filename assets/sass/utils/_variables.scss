@@ -1,0 +1,106 @@
+$primary-color: #0A204E;
+
+$secondary-color: #FCA311;
+
+$white-color: #FFF;
+
+$bg-gray: #FAFBFB;
+
+$text-primary: #141414;
+$text-secondary: #686868;
+$text-tertiary: #EEEEEE;
+
+$container-width: 1296px;
+$section-padding: 96px;
+
+$gap: 16px;
+$gap-sm:32px;
+$gap-md: 40px;
+$gap-lg: 48px;
+$gap-xl: 50px;
+$gap-xxl: 72px;
+$gap-xxxl: 90px;
+
+
+$fs-h1: 56px;
+$fs-h2: 40px; 
+$fs-h3: 32px; 
+$fs-h4: 24px; 
+$fs-h5: 18px; 
+
+$s-32: 32px;
+$s-24: 24px;
+$s-20: 20px;
+$s-18: 18px; 
+$s-16: 16px;
+$s-12: 12px;
+
+ 
+$primary-font: 'Manrope', sans-serif;
+
+$fonts-map:(
+  'primary-font': $primary-font,
+);
+
+$color-map: (
+  'primary-color': $primary-color,
+  'secondary-color': $secondary-color,
+  'white-color': $white-color,
+  'text-primary': $text-primary,
+  'text-secondary': $text-secondary,
+  'text-tertiary': $text-tertiary,
+  'bg-gray': $bg-gray,
+);
+
+$section-gap:(
+    'section-padding': $section-padding,
+);
+
+$view-width:(
+    'container-width': $container-width
+);
+
+$spacing-map: (
+  'gap': 16px,
+  'gap-sm': 32px,
+  'gap-md': 40px,
+  'gap-lg': 46px,
+  'gap-xl': 50px,
+  'gap-xxl': 72px,
+  'gap-xxxl': 90px,
+);
+
+$font-map: (
+  'fs-h1': $fs-h1,
+  'fs-h2': $fs-h2,
+  'fs-h3': $fs-h3,
+  'fs-h4': $fs-h4,
+  'fs-h5': $fs-h5,
+  'fs-h6': 16px
+);
+
+$theme-variables: (
+  'cnt': (
+    'color': $color-map,
+    'gap': $spacing-map,
+    'fonts': $font-map,
+    'section-padding': $section-gap,
+    'container-width': $view-width,
+    'font': $fonts-map
+  )
+);
+
+:root {
+  @each $theme-name, $theme-maps in $theme-variables {
+    @each $category-name, $category-map in $theme-maps {
+      @each $variable, $value in $category-map {
+        --#{$theme-name}-#{$variable}: #{$value};
+      }
+    }
+  }
+}
+
+
+
+
+

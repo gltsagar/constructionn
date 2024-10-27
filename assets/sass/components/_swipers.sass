@@ -1,0 +1,168 @@
+.swiper
+    
+    
+.banner-swiper-one
+    .swiper-button-prev,.swiper-button-next
+        &::after 
+            content: '\e924'
+            font-family: 'icomoon'
+            font-size: 24px
+            background: rgba(255, 255, 255, 0.12)
+            color: var(--cnt-white-color)
+            padding: 16px
+    .swiper-button-prev
+        left: 10px
+        +md 
+            left: 72px
+        &::after 
+            transform: rotate(180deg)
+    .swiper-button-next
+        right: 10px
+        +md 
+            right: 72px
+    .swiper-pagination
+        display: none
+        +flex-dir(column)
+        +flex-align(center)
+        width: auto
+        left: 72px 
+        bottom: 72px
+        gap: 32px
+        +lg 
+            +flex
+    .swiper-pagination-bullet 
+        width: 32px
+        height: 32px
+        line-height: 150%
+        font-size: 18px
+        color:  rgba(255, 255, 255, 0.72)
+        opacity: 1
+        background: transparent
+        margin: 0 !important
+        +radius(0)
+        @extend %bold
+        font-family: var(--cnt-primary-font)
+        @extend %display-center
+        border-bottom: 4px solid rgba(255, 255, 255, 0.72)
+        &::before
+            content: '0'
+    .swiper-pagination-bullet-active 
+        width: 52px
+        height: 52px
+        color: var(--cnt-white-color)
+        background: transparent
+        font-size: 32px
+        border-bottom-color: var(--cnt-white-color)
+
+.projects-swiper
+    padding-bottom: 72px
+    .swiper-button-next,.swiper-button-prev
+        color: var(--cnt-text-primary)
+        font-size: 16px
+        +flex 
+        +flex-align(center)
+        width: fit-content
+        top: auto 
+        bottom: 0px
+        gap: 8px
+        @extend %bold
+        &::after
+            content: '\e911'
+            font-family: icomoon
+            font-size: 22px 
+            color: var(--cnt-text-primary)
+            @extend %regular
+    .swiper-button-next
+        right: 0
+    .swiper-button-prev
+        padding-left: 31px
+        left: 0
+        &::after
+            position: absolute
+            top: 50%
+            transform: translateY(-50%) rotate(180deg)
+            left: 0
+
+.testimonial-swiper
+    @extend .projects-swiper
+
+.teams-swiper
+    @extend .projects-swiper
+
+.blogs-swiper
+    @extend .projects-swiper
+
+.partners-swiper
+    @extend .projects-swiper
+
+.banner-swiper-two__view
+    .swiper-button-prev,.swiper-button-next
+        display: none
+        &::after 
+            content: '\e924'
+            font-family: 'icomoon'
+            font-size: 24px
+            background: rgba(255, 255, 255, 0.12)
+            color: var(--cnt-white-color)
+            padding: 16px
+    .swiper-button-prev
+        left: 10px
+        +md 
+            left: 72px
+        &::after 
+            transform: rotate(180deg)
+    .swiper-button-next
+        right: 10px
+        +md 
+            right: 72px
+    .swiper-pagination
+        z-index: 999
+        width: auto
+        // transform: rotate(90deg)
+        +flex 
+        +flex-align(center)
+        top: 70%
+        +flex-dir(row)
+        left: 50%
+        transform: translateX(-50%)
+        gap: 12px
+        height: fit-content
+        +sm 
+            top: 61%
+        +md 
+            gap: 16px
+            +flex-dir(column)
+            transform: translateY(-50%)
+            top: 50%
+            right: 20px
+            left: auto
+        +lg 
+            right: 72px
+        .swiper-pagination-bullet
+            height: 12px 
+            width: 12px
+            background: rgba(255, 255, 255, 1.48)
+            +md 
+                height: 16px 
+                width: 16px
+
+        .swiper-pagination-bullet.swiper-pagination-bullet-active
+            height: 22px 
+            width: 22px
+            background: transparent
+            @extend %display-center
+            border: 1px solid var(--cnt-white-color)
+            +md 
+                height: 32px 
+                width: 32px
+                border: 2px solid var(--cnt-white-color)
+            &::after 
+                content: ''
+                height: 12px
+                width: 12px 
+                display: inline-block
+                background: var(--cnt-white-color)
+                +radius(50%)
+                +md 
+                    height: 16px 
+                    width: 16px 

@@ -1,0 +1,122 @@
+.case_studies-section
+    @extend .section-spacing
+    .section-meta-wrap
+        margin-bottom: var(--cnt-gap-md)
+        max-width: 384px
+        +lg 
+            margin-bottom: var(--cnt-gap-xxl)
+    .case_studies-wrapper
+        .case_studies-top
+            padding-bottom: 48px 
+            border-bottom: 1px solid var(--cnt-text-tertiary)
+            margin-bottom: 48px
+            .blog__card
+                +flex
+                gap: var(--cnt-gap-md)
+                +flex-dir(column)
+                +md 
+                    +flex-dir(row)
+                +lg 
+                    gap: var(--cnt-gap-xxl)
+                .blog__img 
+                    flex: 1
+                    margin: 0
+                    img 
+                        height: 345px
+                .blog__info
+                    flex: 1
+                    &>a 
+                        @extend .h3
+                        margin-bottom: 20px
+                    &>.btn
+                        font-size: 16px 
+                        @extend %regular
+                        margin-bottom: 0
+                        margin-top: 0
+                        &::after
+                            font-size: 16px
+                    &>.btn.has-primary-color
+                        color: var(--cnt-primary-color)
+                    &>p 
+                        margin-bottom: 32px - 8px
+
+        .case_studies-bottom
+            +flex 
+            gap: var(--cnt-gap-md)
+            +flex-dir(column)
+            +lg 
+                +flex-dir(row)
+                gap: var(--cnt-gap-xxl)
+            .projects-wrapper
+                flex: 1
+                +flex 
+                gap: var(--cnt-gap-md)
+                +flex-dir(column)
+                +sm 
+                    +flex-dir(row)
+                +lg 
+                    gap: var(--cnt-gap-xxl)
+                .blog__card
+                    flex: 1
+                    .blog__img 
+                        display: none
+                    .blog__info
+                        &>a 
+                            @extend .h5
+                        &>.btn
+                            font-size: 16px 
+                            @extend %regular
+                            margin-bottom: 0
+                            margin-top: 0
+                            &::after
+                                font-size: 16px
+                        &>.btn.has-primary-color
+                            color: var(--cnt-primary-color)
+                        &>p 
+                            // padding: 16px 0
+            .projects-listing
+                min-width: auto
+                +lg 
+                    min-width: 384px
+                ul 
+                    +flex 
+                    +flex-dir(column)
+                    gap: 24px
+                    li
+                        a
+                            @extend .h5
+                            position: relative
+                            &::after 
+                                content: ''
+                                height: 0
+                                width: 100%
+                                border-bottom: 0.5px solid var(--cnt-text-primary)
+                                display: inline-block
+                                position: absolute
+                                top: 100%
+                                left: 0
+
+
+.case_studies-section.has-tabs
+    .case_studies-top
+        +flex 
+        margin-bottom: var(--cnt-gap-md)
+        +flex-dir(column)
+        +lg 
+            margin-bottom: var(--cnt-gap-xxl)
+            +flex-dir(row)
+        .section-meta-wrap
+        .tab-btn-wrap
+            flex: 1
+            +flex-just(start)
+            +lg 
+                +flex-just(end)
+            .btn-wrapper
+                padding: 0
+                gap: 24px
+                button,.tab-btn
+                    height: fit-content
+                    @extend .btn__primary-outline
+                    &.active
+                        background-color: var(--cnt-primary-color)
+                        color: var(--cnt-white-color)

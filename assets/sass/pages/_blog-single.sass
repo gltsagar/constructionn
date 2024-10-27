@@ -1,0 +1,59 @@
+.single,.single-post
+    .content-area
+        .site-main
+            .post-image
+                margin-bottom: 48px
+                .entry-header
+                    margin-bottom: 32px
+                    +flex 
+                    +flex-just(space-between)
+                    +flex-align(center)
+                    .entry-meta
+                        margin-bottom: 0
+                    .author-details
+                        +flex 
+                    .header-right
+                        +flex
+                        .blog__date
+                            padding-left: 4px
+                            a
+                                time 
+                                    font-size: 10px
+                        .category-wrap
+                            padding-right: 4px
+                            &::after 
+                                content: '/'
+                                font-size: 10px 
+                                padding-left: 4px
+                            .category-list
+                                a
+                                    font-size: 10px
+            .post-navigation
+                padding: 72px 0
+                .nav-links
+                    .nav-previous,.nav-next
+                        border: 1px solid var(--cnt-text-tertiary)
+                        padding: 16px 0
+                        flex: 1
+                        @extend %display-center
+            .entry-footer
+                padding: var(--cnt-gap-sm) 0
+                .widget
+                    ul 
+                        +flex 
+                        gap: 12px
+                        li 
+                            &::before
+                                display: none
+                            a 
+                                font-size: 14px 
+                                padding: 8px 16px 
+                                border: 1px solid var(--cnt-text-tertiary)
+            .related-post
+                .section-meta-wrap
+                    margin-bottom: var(--cnt-gap-md)
+                .grid-layout-wrap
+                    .row
+                        +grid(1,var(--cnt-gap-md))
+                        +md 
+                            +grid(2,var(--cnt-gap-xxl))

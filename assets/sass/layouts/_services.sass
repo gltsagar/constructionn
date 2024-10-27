@@ -1,0 +1,41 @@
+.services-section
+    @extend .section-spacing
+    .services-section-wrapper
+        +flex 
+        +flex-dir(column)
+        gap: var(--cnt-gap-xxl)
+        .services-content
+            +grid(1,var(--cnt-gap-lg))
+            +lg 
+                +grid(2,var(--cnt-gap-xxl))
+            .content-left
+                +flex 
+                +flex-dir(column)
+                gap: 22px
+                +lg 
+                    gap: 40px 
+                .project
+                    +flex 
+                    +flex-just(space-between)
+                    gap: var(--cnt-gap-md)
+                    border-bottom: 1px solid var(--cnt-text-tertiary)
+                    padding-bottom: 22px
+                    +lg 
+                        padding-bottom: 40px
+                    .project-text
+                        .project-title
+                            margin-bottom: 16px
+                    .btn.btn__text.has-icon
+                        font-size: 0
+                        +flex-align(start)
+                        &::before
+                           display: none 
+                    
+            .content-right
+                img
+                    width: 100%
+                    height: 100%
+                    object-fit: cover
+                    max-height: 450px
+                    +lg 
+                        max-height: 680px 

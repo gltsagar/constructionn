@@ -1,0 +1,67 @@
+.faqs-section
+    @extend .section-spacing
+    .section-meta-wrap
+        margin-bottom: var(--cnt-gap-md)
+        +lg 
+            margin-bottom: var(--cnt-gap-xxl)
+
+    .faq-wapper
+        .tab-wrapper
+            +flex
+            gap: var(--cnt-gap)
+            +flex-dir(column)
+            +sm 
+                +flex-dir(row)
+            +lg 
+                gap: var(--cnt-gap-xxl)
+            .tab-btn-wrap
+                .btn-wrapper
+                    +flex 
+                    +flex-dir(row)
+                    row-gap: 16px
+                    +flex-just(center)
+                    +flex-align(center)
+
+                    +sm 
+                        row-gap: 0
+                        +flex-just(start)
+                        +flex-align(start)
+                        +flex-dir(column)
+                    button,.tab-btn
+                        background: transparent
+                        color: var(--cnt-text-secondary)
+                        padding: 0
+                        border: 0
+                        margin-bottom: 16px
+                        font-size: 14px
+                        position: relative
+                        &::after
+                            content: ''
+                            width: 100%
+                            position: absolute
+                            top: 100%
+                            left: 0
+                            border-bottom: 2px solid var(--cnt-text-secondary)
+                            width: 0%
+                            +transition(width ease 0.35s)
+                        &:hover 
+                            &::after 
+                                width: 100%
+                        &.active
+                            color: var(--cnt-text-primary)
+                            &::after 
+                                border-color: var(--cnt-text-primary)
+                                width: 100%
+            .tab-content-wrap
+                .tab-content
+                    .content-wrapper
+                        padding-left: 0
+                        .title
+                            color: var(--cnt-primary-color)
+                        .accordion
+                            .accordion-item
+                                padding: 16px 0
+                                border-bottom: 1px solid var(--cnt-text-tertiary)
+                                +sm 
+                                    padding: 16px 32px
+                                    padding-left: 0

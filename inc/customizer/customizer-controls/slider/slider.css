@@ -1,0 +1,148 @@
+.customize-control-constructionn-pro-slider input[type=range] {
+	-webkit-appearance: none;
+	-webkit-transition: background .3s;
+	-moz-transition: background .3s;
+	transition: background .3s;
+	background-color: rgba(0, 0, 0, 0.1);
+	height: 5px;
+	width: calc(100% - 70px);
+	padding: 0;
+}
+.customize-control-constructionn-pro-slider input[type=range]:focus {
+	box-shadow: none;
+	outline: none;
+}
+.customize-control-constructionn-pro-slider input[type=range]:hover {
+	background-color: rgba(0, 0, 0, 0.25);
+}
+.customize-control-constructionn-pro-slider input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	background-color: #3498D9;
+}
+.customize-control-constructionn-pro-slider input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 15px;
+	height: 15px;
+	border: none;
+	border-radius: 50%;
+	background-color: #3498D9;
+}
+.customize-control-constructionn-pro-slider input[type=range]::-moz-range-thumb {
+	width: 15px;
+	height: 15px;
+	border: none;
+	border-radius: 50%;
+	background-color: #3498D9;
+}
+.customize-control-constructionn-pro-slider input[type=range]::-ms-thumb {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	border: 0;
+	background-color: #3498D9;
+}
+.customize-control-constructionn-pro-slider input[type=range]::-moz-range-track {
+	border: inherit;
+	background: transparent;
+}
+.customize-control-constructionn-pro-slider input[type=range]::-ms-track {
+	border: inherit;
+	color: transparent;
+	background: transparent;
+}
+.customize-control-constructionn-pro-slider input[type=range]::-ms-fill-lower, .customize-control-constructionn-pro-slider input[type=range]::-ms-fill-upper {
+	background: transparent;
+}
+.customize-control-constructionn-pro-slider input[type=range]::-ms-tooltip {
+	display: none;
+}
+.customize-control-constructionn-pro-slider .range_value {
+	display: inline-block;
+	font-size: 14px;
+	padding: 0 5px;
+	font-weight: 400;
+	position: relative;
+	top: 2px;
+}
+.customize-control-constructionn-pro-slider .range_value {
+	display: inline-block;
+	font-size: 14px;
+	padding: 0 5px;
+	font-weight: 400;
+	position: relative;
+	top: 2px;
+}
+.customize-control-constructionn-pro-slider .slider-reset {
+	color: rgba(0, 0, 0, 0.2);
+	float: right;
+	-webkit-transition: color .5s ease-in;
+	-moz-transition: color .5s ease-in;
+	-ms-transition: color .5s ease-in;
+	-o-transition: color .5s ease-in;
+	transition: color .5s ease-in;
+}
+.customize-control-constructionn-pro-slider .slider-reset span {
+	font-size: 16px;
+	line-height: 22px;
+}
+.customize-control-constructionn-pro-slider .slider-reset:hover {
+	color: red;
+}
+
+/* customizer  */
+.customize-control-constructionn-pro-slider{
+	position: relative;
+	padding: 12px 0;
+}
+.customize-control-constructionn-pro-slider .customize-control-title{
+	margin-bottom: 12px;
+}
+.customize-control-constructionn-pro-slider input[type=range]{
+	background-color: #fff;
+	width: calc(100% - 46px);
+	cursor: pointer;
+}
+.customize-control-constructionn-pro-slider input[type=range]:hover{
+	background-color: #fff;
+}
+
+.customize-control-constructionn-pro-slider input[type="range"]::-webkit-slider-thumb{
+	border: 1px solid #13297E;
+	outline: 1px solid #13297E;
+	outline-offset: 0.145rem;
+	height: 12px;
+	width: 12px;
+	background-color: #0F5299;
+}
+
+.customize-control-constructionn-pro-slider .range_value{
+	position: absolute;
+	background-color: #fff;
+	padding: 4px 12px;
+	top: 12px;
+	right: 0;
+	font-weight: 500;
+}
+
+.customize-control-constructionn-pro-slider .wrapper{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.customize-control-constructionn-pro-slider .slider-reset .dashicons.dashicons-image-rotate{
+	font-size: 17px;
+}
+.customize-control-constructionn-pro-slider .slider-reset{
+	cursor: pointer;
+	color: #0F5299;
+	opacity: 0.6;
+	transition: all ease 0.35s;
+}
+.customize-control-constructionn-pro-slider .slider-reset:hover{
+	opacity: 1;
+	color: #0F5299;
+}

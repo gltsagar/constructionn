@@ -1,0 +1,22 @@
+.projects-section
+    @extend .section-spacing
+    .projects-wrapper
+        display: block
+        +lg 
+            gap: var(--cnt-gap-xxl)
+            +flex
+        .projects-text__box 
+            max-width: 384px
+            margin-bottom: var(--cnt-gap-xxl)
+            +lg 
+                margin-bottom: 0
+            .section-meta-wrap
+                margin-bottom: 48px
+                .section-heading
+                    margin-bottom: 28px
+        .projects-swiper
+            .blog__card
+                .blog__img
+                    a 
+                        img 
+                            height: 320px

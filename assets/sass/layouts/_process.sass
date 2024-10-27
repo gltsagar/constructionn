@@ -1,0 +1,28 @@
+.process-section
+    @extend .section-spacing
+    .section-meta-wrap
+        margin-bottom: var(--cnt-gap-xxl)
+    .process-wrapper
+        +grid(1,var(--cnt-gap-md))
+        +md 
+            +grid(2,var(--cnt-gap-md))
+        +lg 
+            +grid(3,var(--cnt-gap-xxl))
+        .process__card 
+            .feature-image
+                padding-bottom: 32px 
+
+
+.process-section.bg-black
+    .section-meta-wrap
+        .section-heading,.section-desc
+            color: var(--cnt-white-color)
+    .process-wrapper
+        .icon
+            color: var(--cnt-white-color)
+        .title
+            color: var(--cnt-white-color)
+            .sn 
+                color: inherit
+        .desc
+            color: var(--cnt-text-tertiary)

@@ -1,0 +1,37 @@
+.post-navigation
+    padding-top: calc(72px / 2)
+    +md 
+        padding-top: 72px
+    .nav-links
+        +flex 
+        +flex-just(space-between)
+        +flex-align(center)
+        .nav-next,.nav-previous
+            .meta-nav
+                border: 0
+                padding: 0
+                text-transform: capitalize
+                @extend %bold
+                +transition(all ease 0.35s)
+                &:hover 
+                    color: var(--cnt-secondary-color)
+                    &::before,&::after 
+                        color: var(--cnt-secondary-color)
+        .nav-previous
+            .meta-nav
+                font-size: 16px
+                &::before
+                    +icomoon('\e911',var(--cnt-text-primary),16px)
+                    @extend %bold
+                    display: inline-block
+                    transform: rotate(180deg)
+                    margin-right: 8px
+                    +transition(all ease 0.35s)
+        .nav-next
+            .meta-nav
+                font-size: 16px
+                &::after
+                    +icomoon('\e911',var(--cnt-text-primary),16px)
+                    @extend %bold
+                    margin-left: 8px
+                    +transition(all ease 0.35s)

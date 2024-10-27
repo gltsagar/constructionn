@@ -1,0 +1,62 @@
+//font-weight 
+%bolder
+    font-weight: 800
+%bold
+    font-weight: 700
+%semi-bold
+    font-weight: 600
+%medium
+    font-weight: 500
+%regular
+    font-weight: 400
+%light
+    font-weight: 300
+
+// height and width
+%w-100
+    width: 100%
+%h-100
+    height: 100%
+
+// text transform
+%uppercase
+    text-transform: uppercase
+%capitalise
+    text-transform: capitalize
+
+// overflow
+%overflow
+    overflow: hidden
+    &-x
+        overflow-x: hidden
+    &-y
+        overflow-y: hidden
+
+// position
+%relative
+    position: relative
+
+%absolute 
+    position: absolute
+
+
+// transform center
+%transform-center
+    top: 50%
+    left: 50%
+    +transform(translate(-50%,-50%))
+
+// flex center
+%display-center
+    +flex
+    +flex-just(center) 
+    +flex-align(center)
+
+%border-btm
+    border-bottom: 0.5px solid var(--cnt-text-tertiary)
+
+%primary-font-travel
+    font-family: var(--cnt-primary-font)
+
+// %box-shadow
+//     box-shadow: $box-shadow-color

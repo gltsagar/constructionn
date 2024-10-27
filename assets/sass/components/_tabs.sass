@@ -1,0 +1,48 @@
+.tab-btn-wrap
+    +flex 
+    +flex-just(center)
+    .btn-wrapper
+        +flex 
+        +flex-just(center)
+        gap: 32px
+        // background-color: var(--travel-bg-sky)
+        padding: 16px 
+        flex-wrap: wrap
+        .tab-btn
+            background-color: var(--cnt-white-color)
+            border: 0.5px solid var(--cnt-white-color)
+            color: var(--cnt-text-secondary)
+            font-size: 16px 
+            @extend %regular
+            @extend .btn
+            +transition(ease .35s)
+            &:hover
+                background-color: var(--cnt-primary-color)
+                border-color-color: var(--cnt-primary-color)
+                color: var(--cnt-white-color)
+        .tab-btn.active
+            background-color: var(--cnt-primary-color)
+            border-color: var(--cnt-primary-color)
+            color: var(--cnt-white-color)
+
+
+.tab-content-wrap
+    .tab-content
+        width: 100%
+        display: none
+        animation: fadeEffect 1s
+        // .tabs-tour
+        //     +grid(1,var(--travel-gap-xl))
+        //     +md 
+        //         +grid(2, var(--travel-gap-xl))
+        //     +lg 
+        //         +grid(3,var(--travel-gap-xxl))
+            
+    .tab-content.active
+        display: block
+
+@keyframes fadeEffect 
+    from 
+        opacity: 0
+    to
+        opacity: 1

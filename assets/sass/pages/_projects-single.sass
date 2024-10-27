@@ -1,0 +1,73 @@
+.single-projects
+    .project-single
+        padding-top: var(--cnt-gap-md)
+        +sm 
+            padding-top: var(--cnt-gap-lg)
+        +md 
+            padding-top: var(--cnt-gap-xxl)
+        +lg 
+            padding-top: var(--cnt-section-padding)
+        .project-single-section
+            .project-single-wrap
+                +flex
+                gap: var(--cnt-gap-md)
+                +flex-dir(column)
+                +lg 
+                    gap: var(--cnt-gap-xxl)
+                    +flex-dir(row)
+                .project-image
+                    flex: 1
+                    img 
+                        width: 100%
+                        height: 472px
+                        object-fit: cover
+                .project-single-info
+                    flex: 1
+                    max-width: 100%
+                    +lg 
+                        max-width: 384px
+                    ul 
+                        +flex 
+                        +flex-dir(column)
+                        gap: 24px
+                        li
+                            padding-bottom: 24px
+                            border-bottom: 1px solid var(--cnt-text-tertiary)
+                            &>p 
+                                @extend .h5
+                                @extend %medium
+                            &>span 
+                                letter-spacing: 1.12px
+                                font-size: 14px
+                                padding-bottom: 6px
+
+
+        .content-wrap
+            padding-top: 48px
+            .entry-content
+                .wp-block-gallery
+                    .blocks-gallery-grid
+                        +grid(1,var(--cnt-gap-md))
+                        +md 
+                            +grid(2,var(--cnt-gap-lg))
+                        +lg 
+                            +grid(3,var(--cnt-gap-xxl))
+                        img 
+                            height: 216px
+        .content-wrap.has-two-grid
+            .entry-content
+                .wp-block-gallery
+                    .blocks-gallery-grid
+                        +grid(1,var(--cnt-gap-md))
+                        +md 
+                            +grid(2,var(--cnt-gap-lg))
+                        +lg 
+                            +grid(2,var(--cnt-gap-xxl))
+                        img 
+                            height: 240px
+                            +sm 
+                                height: 280px
+                            +md 
+                                height: 280px
+                            +lg 
+                                height: 344px

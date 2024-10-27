@@ -1,0 +1,51 @@
+.testimonial-section
+    @extend .section-spacing
+    border-bottom: 2px solid var(--cnt-text-tertiary)
+    .section-meta-wrap
+        margin-bottom: var(--cnt-gap-xxl)
+    .testimonial-swiper
+        .client-review
+            padding-left: 0
+            padding-top: 94px
+            position: relative
+            +sm 
+                padding-left: 86px
+            +md 
+                padding-left: 118px
+            +lg 
+                padding-left: 156px
+            &::before
+                +icomoon('\e913',var(--cnt-text-secondary),52px)
+                height: 120px
+                width: 120px 
+                @extend %display-center 
+                +radius(50%)
+                border: 1px solid var(--cnt-text-tertiary)
+                position: absolute
+                top: 0
+                left: 0
+                +md 
+                    font-size: 62px 
+                    height: 140px 
+                    width: 140px
+                +lg 
+                    height: 177px 
+                    width: 177px 
+                    font-size: 72px
+
+            .message-wrapper
+                border-bottom: 1px solid var(--cnt-text-tertiary)
+                margin-bottom: 40px
+                position: relative
+                padding-left: 46px 
+                +sm 
+                    padding-left: 0
+                p 
+                    font-size: 22px
+                    color: var(--cnt-text-primary)
+                    +md 
+                        font-size: 24px
+                    +lg 
+                        font-size: 32px
+                p:not(:last-child)
+                    padding-bottom: 40px

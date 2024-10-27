@@ -1,0 +1,44 @@
+.contact-section
+    @extend .section-spacing
+    .contact-wrapper
+        +flex 
+        gap: var(--cnt-gap-xxl)
+        +flex-dir(column)
+        +lg 
+            // gap: var(--cnt-gap-xxl)
+            +flex-dir(row)
+        .contact-typo
+            max-width: 100%
+            +lg 
+                max-width: 384px
+            .section-meta-wrap
+                padding-bottom: 40px 
+                border-bottom: 1px solid var(--cnt-text-tertiary)
+                margin-bottom: 40px
+                .section-desc
+                    margin-top: 24px
+            .social-networks
+                gap: 16px
+                li
+                    a
+                        span 
+                            font-size: 14px
+                            height: 32px 
+                            min-width: 32px
+        .contact-form-wrapper
+            flex: 1
+
+    &.layout-2
+        .contact-wrapper
+            +flex-dir(column-reverse)
+            +md 
+                +flex-dir(row-reverse)
+            .contact-typo
+                +flex 
+                +flex-dir(column)
+                gap: 48px
+                width: 100%
+                +md 
+                    max-width: 322px
+                +lg 
+                    max-width: 384px

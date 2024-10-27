@@ -1,0 +1,86 @@
+.single,.single-case-studies
+    .case-studies-single
+        @extend .section-spacing
+        .case-studies-single-section
+            .case-studies-single-wrap
+                .case-studies-image
+                    img 
+                        width: 100%
+                        max-height: 472px
+                .case-studies-single-content
+                    padding: 48px 0
+                    +flex 
+                    gap: var(--cnt-gap-sm)
+                    +flex-dir(column)
+                    +lg 
+                        gap: var(--cnt-gap-xxl)
+                        +flex-dir(row)
+                    .content
+                        flex: 1
+                        p
+                            padding-bottom: 32px
+                        p.has-drop-cap:first-letter
+                            font-size: 48px
+                            line-height: 100%
+                            margin: 0.2em 0.3em 0 0
+                            float: left
+                            background: var(--cnt-text-primary)
+                            color: var(--cnt-white-color)
+                            padding: 12px 14px
+                            text-transform: uppercase
+                            @extend %bold
+                    .info
+                        flex: 1
+                        max-width: 100%
+                        +lg 
+                            max-width: 384px
+                        ul 
+                            +flex 
+                            +flex-dir(column)
+                            gap: 24px
+                            li
+                                padding-bottom: 24px
+                                border-bottom: 1px solid var(--cnt-text-tertiary)
+                                &>p 
+                                    @extend .h5
+                                    @extend %medium
+                                &>span 
+                                    letter-spacing: 1.12px
+                                    font-size: 14px
+                                    padding-bottom: 6px
+                        .social-wrap
+                            ul 
+                                +flex-dir(row)
+                                padding-top: 24px
+                                li 
+                                    padding-bottom: 0
+                                    border-bottom: 0
+        .content-wrap
+            .entry-content
+                .wp-block-media-text
+                    .wp-block-media-text__media
+                        img
+                            height: auto
+                            max-height: 344px
+                .wp-block-gallery
+                    ul 
+                        +grid(1,var(--cnt-gap-md))
+                        +md 
+                            +grid(2,var(--cnt-gap-md))
+                        +lg 
+                            +grid(2,var(--cnt-gap-xxl))
+                    figure 
+                        img 
+                            height: 300px  
+        .related-post
+            .section-meta-wrap
+                margin-bottom: 48px
+            .grid-layout-wrap
+                .row
+                    +grid(1,var(--cnt-gap-md))
+                    +sm 
+                        +grid(2,var(--cnt-gap-md))
+                    +md 
+                        +grid(3,var(--cnt-gap-md))
+                    +lg 
+                        +grid(3,var(--cnt-gap-xxl))

@@ -1,0 +1,25 @@
+.blog
+    .site-main 
+        .grid-layout 
+            +grid(1,var(--cnt-gap-sm))
+            +md 
+                +grid(2,var(--cnt-gap-xxl))
+            +lg 
+                +grid(2,var(--cnt-gap-md))
+            +xxl 
+                +grid(2,var(--cnt-gap-xxl))
+.blog.layout-two
+    .content-area
+        .site-main 
+            .grid-layout 
+                +grid(1,var(--cnt-gap-sm))
+                +sm
+                    +grid(2,var(--cnt-gap-md))
+                +md 
+                    +grid(2,var(--cnt-gap-xxl))
+                +lg 
+                    +grid(3,var(--cnt-gap-md))
+                +xxl 
+                    +grid(3,var(--cnt-gap-xxl))
+        #secondary.widget-area
+            display: none

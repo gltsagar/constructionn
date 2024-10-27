@@ -1,0 +1,134 @@
+* 
+    font-family: var(--cnt-primary-font)
+    font-size: 16px
+    
+p,span,li,a
+    color: var(--cnt-text-secondary)
+    font-size: 16px
+    
+span
+    line-height: 150%
+
+figcaption
+    font-size: 14px
+    margin-top: 12px
+    text-align: center
+
+
+
+a:hover 
+    color: var(--cnt-primary-color)
+
+
+
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6
+    line-height: 160%
+    font-style: normal
+    color: var(--cnt-text-primary)
+    font-family: var(--cnt-primary-font)
+    text-transform: capitalize
+    @extend %bold
+
+h1,.h1
+    font-size: 32px
+    margin-bottom: 32px
+  
+h2,.h2
+    font-size: 24px
+    margin-bottom: 24px
+  
+h3,.h3
+    font-size: 20px
+    margin-bottom: 20px
+  
+h4,.h4
+    font-size: 18px
+    margin-bottom: 18px
+  
+h5,.h5
+    font-size: 16px
+    margin-bottom: 16px
+
++sm 
+    h1,.h1 
+        font-size: 36px
+  
+    h2,.h2
+        font-size: 28px
+  
+    h3,.h3
+        font-size: 24px
+  
+    h4,.h4
+        font-size: 20px
+  
+    h5,.h5
+        font-size: 18px
+
++lg 
+    h1,.h1
+        font-size: var(--cnt-fs-h1)
+
+    h2,.h2
+        font-size: var(--cnt-fs-h2)
+
+    h3,.h3
+        font-size: var(--cnt-fs-h3)
+
+    h4,.h4
+        font-size: var(--cnt-fs-h4)
+
+    h5,.h5
+        font-size: var(--cnt-fs-h5)
+
+    h6,.h6
+        font-size: var(--cnt-fs-h6)
+
+    
+.text
+    &-1
+        line-height: 1.36 //60px
+        font-size: 2.75rem //44px
+    &-2
+        line-height: 1.38 /50px
+        font-size: 2.25rem //36px
+    &-3
+        line-height: 1.5 //36px
+        font-size: 1.5rem //24px 
+    &-4
+        line-height: 1.7 //34px
+        font-size: 1.25rem //20px
+    &-5
+        line-height: 1.77 //32px
+        font-size: 1.13rem //18px
+    &-6
+        line-height: 1.4 //22px
+        font-size: 1rem //16px
+    &-7
+        line-height: 1
+        font-size: 0.88rem //14px
+    &-small
+        line-height: 1.5 //15px
+        font-size: 0.63rem //10px
+    &-center
+        text-align: center
+    &-left
+        text-align: left
+    &-right 
+        text-align: right
+    //font-weight 
+    &-bolder
+        font-weight: 800
+    &-bold
+        font-weight: 700
+    &-sbold
+        font-weight: 600
+    &-medium
+        font-weight: 500
+    &-regular
+        font-weight: 400
+    &-light
+        font-weight: 300
+
+.flex-just-center
+    +flex-just(center)

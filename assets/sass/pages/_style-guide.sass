@@ -1,0 +1,278 @@
+.content-area
+    .widget-area
+        +flex 
+        +flex-dir(column)
+        gap: 64px
+        a:hover 
+            color: var(--cnt-secondary-color)
+        .wp-block-heading
+            margin-bottom: 24px
+        .widget_search
+            form
+                label 
+                    @extend .h5
+                    margin-bottom: 32px
+                    display: inline-block
+                .wp-block-search__inside-wrapper
+                    +flex 
+                    +flex-align(center)
+                    gap: 12px
+                    border-bottom: 1px solid var(--cnt-text-tertiary)
+                    input 
+                        height: 50px
+                        order: 2 
+                        flex: 1
+                        border: 0
+                        font-size: 14px
+                        &::placeholder
+                            font-size: 14px
+                    button
+                        border: 0
+                        height: 50px
+                        min-width: 22px
+                        order: 1
+                        padding: 0
+                        font-size: 0
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='15' viewBox='0 0 14 15' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.741 0.833313C10.2743 0.833313 13.1482 3.64389 13.1482 7.09921C13.1482 8.72941 12.5085 10.2162 11.4616 11.3321L13.5215 13.3424C13.7143 13.5309 13.715 13.8359 13.5222 14.0244C13.4261 14.1197 13.2992 14.1666 13.1728 14.1666C13.0472 14.1666 12.9208 14.1197 12.8241 14.0257L10.7393 11.9926C9.64266 12.8515 8.25213 13.3657 6.741 13.3657C3.20776 13.3657 0.33313 10.5545 0.33313 7.09921C0.33313 3.64389 3.20776 0.833313 6.741 0.833313ZM6.741 1.79848C3.75189 1.79848 1.32007 4.17602 1.32007 7.09921C1.32007 10.0224 3.75189 12.4006 6.741 12.4006C9.72946 12.4006 12.1613 10.0224 12.1613 7.09921C12.1613 4.17602 9.72946 1.79848 6.741 1.79848Z' fill='%23141414'/%3E%3C/svg%3E")
+                        background-repeat: no-repeat
+                        background-position: center
+        .wp-block-heading
+            font-size: 18px
+        .widget_newsletter
+            background: var(--cnt-text-primary)
+            padding: 48px 32px
+            .wp-block-heading
+                color: var(--cnt-text-tertiary)
+                text-align: center
+            form
+                label 
+                    font-size: 14px
+                    color: var(--cnt-text-tertiary)
+                    transform: translateY(25px)
+                    display: inline-block
+                    // font-size: 0
+                    +transition(all ease 0.35s)
+                label.active 
+                    transform: translateY(0)
+                .wp-block-newsletter__inside-wrapper
+                    +flex 
+                    +flex-dir(column)
+                    gap: 32px
+                    input 
+                        height: 50px
+                        flex: 1
+                        border: 0
+                        font-size: 14px
+                        border-bottom: 1px solid var(--cnt-text-tertiary)
+                        background-color: transparent
+                        padding-bottom: 16px 
+                        color: var(--cnt-text-tertiary)
+                        +transition(all ease 0.35s)
+                        &::placeholder
+                            font-size: 0
+                            color: var(--cnt-text-tertiary)
+                        &:focus 
+                            border-color: var(--cnt-secondary-color)
+                    button
+                        color: var(--cnt-text-tertiary)
+                        +flex 
+                        +flex-align(center)
+                        gap: 8px
+                        border: 1px solid var(--cnt-text-tertiary)
+                        +radius(0)
+                        padding: 12px 32px
+                        +flex-just(center)
+                        +transition(all ease 0.35s)
+                        &::after
+                            +icomoon('\e90a',var(--cnt-text-tertiary),16px)
+                            +transition(all ease 0.35s)
+                        &:hover 
+                            border-color: var(--cnt-secondary-color)
+                            color: var(--cnt-secondary-color)
+                            &::after 
+                                color: var(--cnt-secondary-color)
+                                transform: translateX(18px)
+        .widget_block:has(.wp-block-categories-list)
+            li
+                display: flex
+                gap: 8px
+                font-size: 14px
+        .widget_block:has(.wp-block-latest-posts__list)
+            .wp-block-latest-posts__list
+                display: flex
+                flex-direction: column
+                gap: 32px
+
+                li
+                    display: flex
+                    flex-direction: column
+                    gap: 12px
+                    a
+                        color: var(--con-text-primary)
+                        font-weight: 500
+                    .wp-block-latest-posts__post-date
+                        font-size: 10px
+            
+        .widget_block:has(.wp-block-tag-cloud)
+            .wp-block-tag-cloud
+                display: flex
+                flex-wrap: wrap
+                gap: 12px
+                max-width: 343px
+                a
+                    letter-spacing: 8%
+                    font-size: 14px !important
+                    padding: 8px 16px
+                    border: 1px solid var(--con-text-tertiary)
+        
+    
+                        
+        .wp-block-gallery-img__list,.wp-block-gallery-images
+            +flex 
+            gap: 24px
+            flex-wrap: wrap
+            li 
+                figure
+                    margin: 0
+                img 
+                    min-width: 112px 
+                    max-width: 112px 
+                    height: 112px
+
+
+// .page
+//     .site-main 
+.entry-content
+    img 
+        width: 100%
+    figure
+        margin-bottom: 56px
+    p
+        margin-bottom: calc(32px / 2)
+        +md 
+            margin-bottom: 32px
+    .post-thumbnail
+        margin-bottom: 80px
+        figcaption
+            color: var(--cnt-text-secondary)
+    p.has-drop-cap:first-letter
+        font-size: 48px
+        line-height: 100%
+        margin: 0.2em 0.3em 0 0
+        float: left
+        background: var(--cnt-text-primary)
+        color: var(--cnt-white-color)
+        padding: 12px 14px
+        text-transform: uppercase
+        @extend %bold
+    .wp-block-quote
+        background: var(--cnt-bg-gray)
+        padding: 48px
+        text-align: start
+        margin: 56px 0
+        font-style: normal
+        position: relative
+        @extend %regular
+        &::before
+            +icomoon('\e913',var(--cnt-text-secondary),80px)
+            position: absolute
+            top: -64px
+            left: 48px
+            
+        p 
+            font-size: 24px
+            letter-spacing: 0.48px
+            color: var(--cnt-text-primary)
+            // text-align: start
+        cite 
+            font-size: 16px 
+            color: var(--cnt-text-secondary)
+            position: relative
+            padding-left: 38px
+            font-style: normal
+            &::before
+                content: ''
+                height: 0px 
+                width: 30px
+                border: 0.5px solid var(--cnt-text-secondary)
+                display: inline-block
+                position: absolute
+                left: 0
+                top: 50%
+                transform: translateY(-50%)
+    .wp-block-table
+        overflow-x: auto
+        img
+            width: auto
+        table 
+            min-width: 600px
+            tr,th,td
+                border: 0
+                text-align: center
+                // padding: 16px
+            tr 
+                th 
+                    background: var(--cnt-primary-color)
+                    color: var(--cnt-text-tertiary)
+                    padding: 16px 24px 
+                td 
+                    padding: 16px 24px
+            thead 
+            tbody 
+                border: 1px solid var(--cnt-text-tertiary)
+                border-top: 0
+                tr:nth-child(even)
+                    td 
+                        background: var(--cnt-text-tertiary)
+    .wp-block-media-text
+        box-sizing: border-box
+        direction: ltr
+        display: grid
+        grid-gap: 32px
+        grid-template-columns: 37% 1fr
+        grid-template-rows: auto
+        margin-bottom: 32px
+        +md 
+            margin-bottom: 56px
+            grid-gap: 50px
+        figure 
+            margin-bottom: 0
+            img 
+                width: 100%
+                height: 280px 
+                object-fit: cover
+                +md 
+                    height: 180px
+    .wp-block-media-text.has-media-on-the-right
+        grid-template-columns: 1fr 37%
+        .wp-block-media-text__media
+            grid-column: 1
+            grid-row: 1
+            +md 
+                grid-column: 2
+        .wp-block-media-text__content
+            grid-column: 1
+            grid-row: 2
+            +md 
+                grid-row: 1
+    .wp-block-media-text.is-stacked-on-mobile
+        +breakpoint(767px)
+            grid-template-columns: 100%
+    .wp-block-gallery
+        .blocks-gallery-grid
+            +grid(2,32px)
+            padding: 0
+            +sm 
+                +grid(3,32px)
+            .blocks-gallery-item
+                padding: 0
+                margin: 0
+                &::before 
+                    display: none
+                figure
+                    margin: 0
+                    width: 100%
+                    img
+                        width: 100%
+                        height: 145px 
+                        object-fit: cover

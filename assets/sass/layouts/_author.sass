@@ -1,0 +1,46 @@
+.author-section
+    padding: 32px 0
+    border: 1px solid var(--cnt-text-tertiary)
+    border-left: 0
+    border-right: 0
+    margin-bottom: var(--cnt-gap-xxxl)
+    .author-wrapper
+        +flex
+        +flex-dir(column)
+        gap: 32px
+        +md 
+            +flex-dir(row)
+        .author-img 
+            margin: 0
+            img 
+                height: 100% 
+                min-width: 200px 
+                width: 100%
+                object-fit: cover
+                max-height: 320px
+                +md 
+                    width: 200px
+
+                
+        .author-wrap
+            .author-meta
+                +flex
+                +flex-align(center)
+                gap: 8px
+                margin-bottom: 24px
+                .author-name
+                    margin-bottom: 0
+                    @extend .h5
+                .author-count
+                    font-size: 14px
+            .author-content
+                margin-bottom: 48px 
+
+            .author-social
+                .social-wrap
+                    .social-networks
+                        li 
+                            &::before
+                                display: none
+                            a 
+                                span

@@ -1,0 +1,64 @@
+* 
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+    &::before, &::after 
+        box-sizing: inherit
+
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea 
+    font-size: 18px
+    line-height: 1.778
+    
+a 
+    text-decoration: none
+    color: var(--cnt-text-secondary)
+    -webkit-transition: all ease 0.35s
+    -moz-transition: all ease 0.35s
+    transition: all ease 0.35s
+
+svg
+    transition: all 0.1s ease !important
+    path 
+        transition: all 0.1s ease !important
+li 
+    list-style: none
+
+.entry-content
+    h1,h2,h3,h4,h5,h6
+        font-weight: 700 !important
+    h1
+        margin: 0 0 32px 0
+    h2
+        margin: 0 0 24px 0
+    h3
+        margin: 0 0 20px 0
+    h4
+        margin: 0 0 18px 0
+    h5
+        margin: 0 0 16px 0
+    h6
+        margin: 0 0 12px 0
+    p
+        margin-bottom: 32px
+
+    ul,ol 
+        margin: 0 0 72px 0
+        li
+            margin-bottom: 20px
+            padding-left: 6px
+            +md 
+                padding-left: 32px
+
+// .content-area
+//     img
+//         +radius(8px)
+
+.entry-content figure
+    margin: 0

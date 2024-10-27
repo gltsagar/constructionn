@@ -1,0 +1,66 @@
+.cta-section
+    position: relative
+    padding: var(--cnt-gap-md) 0
+    overflow: hidden
+    +md
+        padding: var(--cnt-gap-xxl)
+    &::after 
+        +icomoon('\e91e',rgba(255, 255, 255, 0.12),397px)
+        position: absolute
+        // background: red 
+        line-height: 1
+        z-index: 8
+        display: none 
+        +sm 
+            display: block
+            right: -10%
+            font-size: 280px
+            top: 30%
+        +md 
+            right: -5%
+            top: 40%
+            font-size: 300px
+        +lg 
+            top: 36px
+            font-size: 397px
+
+    &::before
+        content: ''
+        position: absolute
+        inset: 0
+        background: linear-gradient(0deg, rgba(10, 32, 78, 0.92) 0%, rgba(10, 32, 78, 0.92) 100%)
+    .container
+        position: relative
+        z-index: 9
+        .content-wrapper
+            +flex 
+            +flex-align(center)
+            +flex-just(space-between)
+            gap: var(--cnt-gap-md)
+            flex-wrap: wrap
+            +lg 
+                gap: var(--cnt-gap-xxl)
+
+
+            .section-meta-wrap
+                max-width: 612px
+                .section-heading
+                    color: var(--cnt-white-color)
+                .section-desc
+                    margin-top: 24px
+                    color: var(--cnt-white-color)
+            &>a
+                color: var(--cnt-white-color)
+                +flex 
+                +flex-align(center)
+                gap: 12px 
+                .icon
+                    height: 40px 
+                    min-width: 40px 
+                    width: 40px 
+                    @extend %display-center
+                    background-color: var(--cnt-bg-gray)
+                    +radius(50%)
+                span 
+                    color: var(--cnt-white-color) 
+

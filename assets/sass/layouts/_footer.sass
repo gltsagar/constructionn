@@ -1,0 +1,189 @@
+.site-footer
+    position: relative
+    &::after
+        content: ''
+        position: absolute
+        background: linear-gradient(0deg, rgba(10, 32, 78, 0.92) 0%, rgba(10, 32, 78, 0.92) 100%)
+        inset: 0
+        z-index: 8
+    p,a,li,span
+        color: var(--cnt-text-tertiary)
+    .container
+        position: relative
+        z-index: 9
+    .footer-top
+        +flex 
+        +flex-just(space-between)
+        +flex-align(center)
+        padding: 48px - 12px 0
+        border-bottom: 1px solid var(--cnt-text-tertiary)
+        +flex-dir(column)
+        gap: 24px
+        +sm 
+            +flex-dir(row)
+        .wp-block-image
+            max-width: 182px
+            img
+                width: 100%
+        .wp-block-social-links
+            &.is-layout-flex,&.wp-block-social-links-is-layout-flex
+                +flex
+                gap: 16px 
+                +flex-align(center)
+            .wp-social-link,.wp-block-social-link
+                .wp-block-social-link-anchor
+                    height: 32px 
+                    min-width: 32px 
+                    width: 32px 
+                    +radius(50%)
+                    @extend %display-center
+                    background: rgba(255, 255, 255, 0.24)
+                    border: 1px solid rgba(255, 255, 255, 0.24)
+                    svg path 
+                        +transition(all ease 0.35s)
+                    &:hover 
+                        border-color: var(--cnt-secondary-color)
+                        svg path 
+                            fill: var(--cnt-secondary-color)
+    .footer-main
+        +flex 
+        gap: 92px
+        padding: 96px 0
+        overflow: hidden
+        p,.menu .menu-item
+            margin-bottom: 16px
+            word-break: break-word
+        a:hover 
+            opacity: 0.8
+        .footer-grid
+            +flex 
+            flex-wrap: wrap
+            gap: 32px
+            +sm 
+                gap: 52px
+            +lg 
+                gap: 32px
+            .column
+                flex: 1
+                min-width: 100%
+                +sm 
+                    min-width: calc(50% - 52px)
+                +lg 
+                    min-width: auto
+                    max-width: calc((100% - 35%) / 3)
+            .column:first-child
+                flex: 1
+                +lg 
+                    min-width: 35%
+                    padding-right: 72px
+                
+
+                
+           
+                
+        .menu
+            .menu-item
+                a 
+                    position: relative
+                    &::before
+                        content: ''
+                        height: 0.5px
+                        // border: 0.5px solid var(--cnt-text-tertiary)
+                        display: inline-block
+                        position: absolute
+                        top: 100%
+                        left: 0
+                        width: 0%
+                        background-color: var(--cnt-text-tertiary)
+                        +transition(width 0.35s ease)
+                    &:hover 
+                        &::before
+                            width: 100%
+        .wp-block-heading,.widget-title
+            @extend .h4 
+            color: var(--cnt-text-tertiary)
+            position: relative
+            margin-bottom: 24px
+            &::before
+                content: ''
+                height: 0
+                width: 42px
+                border: 1px solid var(--cnt-text-tertiary)
+                display: inline-block
+                position: absolute
+                top: 100%
+        .wpforms-widget
+            form 
+                padding-top: 32px - 16px
+                .wpforms-head-container
+                    .wpforms-title,.wpforms-description
+                        font-size: 0 
+                .wpforms-field-label,.wpforms-required-label
+                    font-size: 0
+                .wp-submitWrap
+                    +flex
+                    +flex-just(space-between)
+                    +flex-align(center)
+                    border: 1px solid var(--cnt-white-color)
+                    padding: 0 16px 
+                    .wpforms-field-container
+                        // flex: 1
+                        // max-width: calc(100% - 50px - 24px)
+                    input
+                        height: 45px
+                        // padding: 12px 24px
+                        color: var(--cnt-white-color)
+                        background: transparent
+                        border: 0
+                        font-size: 14px 
+                        width: 80%
+                        &::placeholder
+                            font-size: 14px
+                            color: var(--cnt-white-color)
+                    .wpforms-submit 
+                        padding: 0
+                        height: 45px
+                        font-size: 0
+                        border: 0
+                        // min-width: 50px
+                        @extend %display-center
+                        &::after
+                            +icomoon('\e91f',var(--cnt-white-color),14px)
+        // .footer-main__left
+        //     max-width: 384px
+        // .footer-main__right
+        //     flex: 1
+    .footer-bottom
+        .footer-bottom-menu-wrapper
+            +flex 
+            +flex-just(space-between)
+            +flex-align(center)
+            padding: 24px 0
+            border-bottom: 1px solid var(--cnt-text-tertiary)
+            +flex-dir(column)
+            gap: 24px
+            +md
+                +flex-dir(row)
+        .footer-bottom-menu
+            ul 
+                +flex 
+                +flex-align(center)
+                column-gap: 40px
+                row-gap: 16px
+                flex-wrap: wrap
+                +flex-just(center)
+                li
+                    // flex: 1
+                    a
+                        font-size: 14px
+        .footer-logo
+            a
+                max-width: 244px
+                display: inline-block
+                img
+                    width: 100%
+        .site-info
+            text-align: center
+            margin-top: 24px
+            .copyright
+                font-size: 14px

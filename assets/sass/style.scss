@@ -1,0 +1,57 @@
+@import './bases/base';
+
+// Components
+@import './components/social';
+@import './components/button';
+@import './components/form';
+@import './components/cards';
+@import './components/pagination';
+@import './components/headings';
+@import './components/accordion';
+@import './components/tabs';
+@import './components/scrollTop';
+
+
+// last component
+@import './components/swipers';
+
+// Layouts
+@import './layouts/notification';
+@import './layouts/header';
+@import './layouts/side-menu';
+@import './layouts/breadcrumb';
+@import './layouts/footer';
+@import './layouts/banner';
+@import './layouts/about-sec';
+@import './layouts/counter-sec';
+@import './layouts/cta';
+@import './layouts/services';
+@import './layouts/projects';
+@import './layouts/case-studies';
+@import './layouts/process';
+@import './layouts/team';
+@import './layouts/contact';
+@import './layouts/blog-sec';
+@import './layouts/video-block';
+@import './layouts/testimonial';
+@import './layouts/faq-sec';
+@import './layouts/author';
+@import './layouts/map';
+@import './layouts/comment-area';
+@import './layouts/pricing';
+@import './layouts/partners';
+
+
+// Pages
+@import './pages/style-guide';
+@import './pages/blog-archive';
+@import './pages/search';
+@import './pages/blog-single';
+@import './pages/contact';
+@import './pages/faqs';
+@import './pages/author';
+@import './pages/error';
+@import './pages/team-single';
+@import './pages/services-single';
+@import './pages/projects-single.sass';
+@import './pages/case-single';

@@ -1,0 +1,26 @@
+.error404
+    .content-area
+        @extend .section-spacing
+    
+.error-404,.not-found
+    +flex 
+    +flex-dir(column)
+    +flex-align(center)
+    .page-header
+        margin-bottom: var(--cnt-gap-md)
+        +lg 
+            margin-bottom: var(--cnt-gap-xxl)
+        .page-title
+            @extend .h2
+            text-align: center
+        .subtitle
+            +flex 
+            +flex-dir(column)
+            +flex-align(center)
+            p 
+                text-align: center
+    figure
+        img 
+            width: 840px
+    &>.btn
+        margin-top: 48px

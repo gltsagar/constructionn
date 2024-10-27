@@ -1,0 +1,72 @@
+.about-section
+    @extend .section-spacing
+    .about-section-wrapper
+        +flex 
+        gap: var(--cnt-gap-md)
+        +flex-dir(column)
+        +sm
+            gap: var(--cnt-gap-xxl)
+        .about-bottom
+            +grid(1,var(--cnt-gap-md))
+            +md 
+                +grid(1,var(--cnt-gap-xxl))
+            +lg 
+                +grid(2,var(--cnt-gap-xxl))
+            .about-left
+                +flex 
+                +flex-dir(column)
+                .img-wrapper
+                    flex: 1
+                    margin-bottom: 32px
+                    position: relative
+                    // max-height: 450px
+                    
+                    // +lg 
+                    //     max-height: none
+                    img
+                        max-width: 100%
+                        width: 100%
+                        max-height: 420px
+                        object-fit: cover
+                        height: 100%
+                        +sm 
+                            width: 60%
+                            max-height: 520px
+                        +lg 
+                            max-height: none
+                    img:first-child
+                        position: relative
+                        z-index: 9
+                    img:last-child
+                        position: absolute
+                        z-index: 8
+                        right: 0
+                        top: 50%
+                        transform: translateY(-50%)
+                        display: none
+                        max-height: 90%
+                        +sm 
+                            display: block
+                .text-wrapper
+                    .title
+                        margin-bottom: 8px 
+                    p
+                        font-size: 14px
+            .about-right
+                +flex 
+                +flex-dir(column)
+                gap: var(--cnt-gap-md)
+                .right-top
+                    padding-bottom: 40px - 32px
+                    border-bottom: 1px solid var(--cnt-text-tertiary)
+                    p
+                        margin-bottom: 32px
+                .features-wrap
+                    +flex 
+                    flex-wrap: wrap
+                    gap: var(--cnt-gap-md)
+                    +md 
+                        gap: var(--cnt-gap-xxl)
+                    .feature
+                        flex: 1
+                        min-width: 200px

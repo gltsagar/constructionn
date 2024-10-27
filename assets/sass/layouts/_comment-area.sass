@@ -1,0 +1,171 @@
+.comment-area-wrap
+    .comment-count
+        @extend .h5
+        margin-bottom: 48px
+        display: inline-block
+
+.comments-area
+    margin-bottom: 88px
+    ol
+        // +flex 
+        // +flex-dir(column)
+        // gap: 48px
+        margin-bottom: var(--cnt-gap-xxl)
+        li:not(:last-child)
+            margin-bottom: 48px
+        li
+            .comment-body
+                +flex
+                gap: 24px
+                .comment-author
+                    img
+                        @extend .profile-pic
+                        +sm 
+                            min-height: 60px
+                            max-height: 60px  
+                            max-width: 60px 
+                            min-width: 60px 
+                            // @extend .profile-md
+                .comment-body_wrap
+                    +flex 
+                    +flex-dir(column)
+                    gap: 12px
+                    position: relative
+                .comment-meta
+                    .comment-metadata
+                        b
+                            padding-right: 8px
+                            @extend %bold
+                            border-right: 0.5px solid var(--cnt-text-secondary)
+                            margin-right: 8px
+                            a
+                                color: var(--cnt-text-primary)
+                                text-transform: capitalize
+                                @extend %bold
+                        time
+                            font-size: 12px
+                            color: var(--cnt-text-secondary)
+                        .says
+                            display: none
+                        .edit-link
+                            float: right
+                            display: none
+                            a 
+                                font-size: 14px
+                                color: var(--cnt-primary-color)
+                .comment-content
+                    p
+                        color: var(--cnt-text-secondary)
+                        font-size: 14px
+                .reply
+                    position: absolute
+                    top: 4px 
+                    right: 0
+                    a
+                        color: var(--cnt-text-primary)
+                        // text-decoration: underline
+                        font-size: 12px
+                        @extend %medium
+                        display: inline-flex
+                        +flex-align(center)
+                        gap: 8px
+                        line-height: 1
+                        // display: inline-block
+                        border-bottom: 1px solid var(--cnt-text-primary)
+                        text-transform: lowercase
+                        &::after
+                            content: '\e909'
+                            font-family: 'icomoon'
+                            color: var(--cnt-primary-color)
+                            font-size: 8px
+                            transform: rotateY(180deg)
+                            padding-top: 4px
+                            display: none
+            ol
+                margin-top: 48px
+                width: 90%
+                margin-left: auto
+
+    .comment-respond
+        // border: 1px solid var(--travel-border-color)
+        // border-radius: 8px
+        // background: var(--cnt-white-color)
+        // box-shadow: 0px 0px 4px 0px rgba(0, 187, 152, 0.24)
+        // padding: 20px
+        // +sm 
+            // padding: 48px
+        .comment-reply-title
+            margin-bottom: 24px
+        form
+            +flex 
+            +flex-dir(column)
+            gap: 32px
+            input,textarea
+                width: 100%
+                box-sizing: border-box
+                padding: 0
+                font-size: 12px
+                color: var(--cnt-text-secondary)
+                background-color: var(--cnt-white-color)
+                // border: 0.5px solid var(--cnt-text-tertiary)
+                border: 0
+                border-bottom: 1px solid var(--cnt-text-tertiary)
+                +radius(0px)
+                padding-bottom: 16px
+            textarea
+                max-height: 121px
+            input[type=checkbox]
+                width: auto
+            input[type=submit]
+                @extend .btn
+                @extend .btn__primary
+                font-size: 16px 
+                text-transform: capitalize
+                +transition(ease .35s)
+                cursor: pointer
+                width: fit-content
+                margin-bottom: 0    
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='12' viewBox='0 0 18 12' fill='none'%3E%3Cpath d='M11.1998 11.6686C11.0026 11.4682 10.9847 11.1546 11.146 10.9336L11.1998 10.8703L15.9919 6.00065L11.1998 1.13101C11.0026 0.930591 10.9847 0.616974 11.146 0.395975L11.1998 0.332661C11.3971 0.132245 11.7057 0.114025 11.9232 0.278002L11.9855 0.332661L17.1707 5.60148C17.3679 5.80189 17.3859 6.11551 17.2245 6.33651L17.1707 6.39982L11.9855 11.6686C11.7685 11.8891 11.4168 11.8891 11.1998 11.6686Z' fill='white'/%3E%3Cpath d='M0.829222 11.6686C0.631988 11.4682 0.614057 11.1546 0.775431 10.9336L0.829222 10.8703L5.62132 6.00065L0.829222 1.13101C0.631988 0.930591 0.614057 0.616974 0.775431 0.395975L0.829222 0.332661C1.02646 0.132245 1.3351 0.114025 1.55259 0.278002L1.6149 0.332661L6.80008 5.60148C6.99732 5.80189 7.01525 6.11551 6.85387 6.33651L6.80008 6.39982L1.6149 11.6686C1.39794 11.8891 1.04618 11.8891 0.829222 11.6686Z' fill='white'/%3E%3Cpath d='M6.01428 11.6686C5.81705 11.4682 5.79912 11.1546 5.96049 10.9336L6.01428 10.8703L10.8064 6.00065L6.01428 1.13101C5.81705 0.930591 5.79912 0.616974 5.96049 0.395975L6.01428 0.332661C6.21152 0.132245 6.52016 0.114025 6.73765 0.278002L6.79996 0.332661L11.9851 5.60148C12.1824 5.80189 12.2003 6.11551 12.0389 6.33651L11.9851 6.39982L6.79996 11.6686C6.583 11.8891 6.23124 11.8891 6.01428 11.6686Z' fill='white'/%3E%3C/svg%3E")
+                background-repeat: no-repeat
+                background-position: calc(100% - 17px) 50%
+                padding-right: 24px + 24px
+                &:hover 
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='12' viewBox='0 0 18 12' fill='none'%3E%3Cg clip-path='url(%23clip0_115_3)'%3E%3Cpath d='M11.1998 11.6686C11.0026 11.4682 10.9847 11.1546 11.146 10.9336L11.1998 10.8703L15.9919 6.00063L11.1998 1.13099C11.0026 0.930571 10.9847 0.616954 11.146 0.395955L11.1998 0.332641C11.3971 0.132225 11.7057 0.114005 11.9232 0.277982L11.9855 0.332641L17.1707 5.60146C17.3679 5.80187 17.3859 6.11549 17.2245 6.33649L17.1707 6.3998L11.9855 11.6686C11.7685 11.8891 11.4168 11.8891 11.1998 11.6686Z' fill='%230A204E'/%3E%3Cpath d='M0.829222 11.6686C0.631988 11.4682 0.614057 11.1546 0.775431 10.9336L0.829222 10.8703L5.62132 6.00063L0.829222 1.13099C0.631988 0.930571 0.614057 0.616954 0.775431 0.395955L0.829222 0.332641C1.02646 0.132225 1.3351 0.114005 1.55259 0.277982L1.6149 0.332641L6.80008 5.60146C6.99732 5.80187 7.01525 6.11549 6.85387 6.33649L6.80008 6.3998L1.6149 11.6686C1.39794 11.8891 1.04618 11.8891 0.829222 11.6686Z' fill='%230A204E'/%3E%3Cpath d='M6.01428 11.6686C5.81705 11.4682 5.79912 11.1546 5.96049 10.9336L6.01428 10.8703L10.8064 6.00063L6.01428 1.13099C5.81705 0.930571 5.79912 0.616954 5.96049 0.395955L6.01428 0.332641C6.21152 0.132225 6.52016 0.114005 6.73765 0.277982L6.79996 0.332641L11.9851 5.60146C12.1824 5.80187 12.2003 6.11549 12.0389 6.33649L11.9851 6.3998L6.79996 11.6686C6.583 11.8891 6.23124 11.8891 6.01428 11.6686Z' fill='%230A204E'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_115_3'%3E%3Crect width='18' height='12' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E")
+                &:focus 
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='12' viewBox='0 0 18 12' fill='none'%3E%3Cpath d='M11.1998 11.6686C11.0026 11.4682 10.9847 11.1546 11.146 10.9336L11.1998 10.8703L15.9919 6.00065L11.1998 1.13101C11.0026 0.930591 10.9847 0.616974 11.146 0.395975L11.1998 0.332661C11.3971 0.132245 11.7057 0.114025 11.9232 0.278002L11.9855 0.332661L17.1707 5.60148C17.3679 5.80189 17.3859 6.11551 17.2245 6.33651L17.1707 6.39982L11.9855 11.6686C11.7685 11.8891 11.4168 11.8891 11.1998 11.6686Z' fill='white'/%3E%3Cpath d='M0.829222 11.6686C0.631988 11.4682 0.614057 11.1546 0.775431 10.9336L0.829222 10.8703L5.62132 6.00065L0.829222 1.13101C0.631988 0.930591 0.614057 0.616974 0.775431 0.395975L0.829222 0.332661C1.02646 0.132245 1.3351 0.114025 1.55259 0.278002L1.6149 0.332661L6.80008 5.60148C6.99732 5.80189 7.01525 6.11551 6.85387 6.33651L6.80008 6.39982L1.6149 11.6686C1.39794 11.8891 1.04618 11.8891 0.829222 11.6686Z' fill='white'/%3E%3Cpath d='M6.01428 11.6686C5.81705 11.4682 5.79912 11.1546 5.96049 10.9336L6.01428 10.8703L10.8064 6.00065L6.01428 1.13101C5.81705 0.930591 5.79912 0.616974 5.96049 0.395975L6.01428 0.332661C6.21152 0.132245 6.52016 0.114025 6.73765 0.278002L6.79996 0.332661L11.9851 5.60148C12.1824 5.80189 12.2003 6.11551 12.0389 6.33651L11.9851 6.39982L6.79996 11.6686C6.583 11.8891 6.23124 11.8891 6.01428 11.6686Z' fill='white'/%3E%3C/svg%3E")
+            .comment-form-author-email
+                padding-bottom: 16px
+                +md
+                    padding-bottom: 0
+                    padding-right: 16px
+            .comment-form-url
+                padding-top: 16px
+                +md
+                    padding-top: 0
+                    padding-left: 16px
+            p
+                label
+                    position: static !important
+                    clip-path: none
+                    overflow: visible
+                    display: inline-block
+                    height: auto
+                    margin: 0
+                    width: auto
+                    margin-bottom: 16px
+                    font-size: 0px 
+                    color: var(--cnt-text-primary)
+                    text-transform: capitalize
+                    
+                    span
+                        font-size: 0
+                        color: var(--cnt-text-primary)
+            .comment-notes
+                margin-bottom: 0
+            .comment-form-cookies-consent
+                +flex
+                +flex-align(baseline)
+                gap: 4px
+                label
+                    font-size: 14px
+                    color: var(--cnt-text-primary)

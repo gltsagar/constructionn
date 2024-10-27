@@ -1,0 +1,27 @@
+.single-services
+    .content-area
+        .site-main
+            .post
+                .post__view
+                    @extend .h4
+                    @extend %medium
+                    margin-bottom: var(--cnt-gap-md)
+                    display: inline-block
+                .featured-services
+                    margin-top: var(--cnt-gap-md)
+                    margin-bottom: var(--cnt-gap-xxl)
+                    +grid(1,var(--cnt-gap-md))
+                    +md
+                        +grid(2,var(--cnt-gap-xxl))
+                    .service
+            .related-post
+                .grid-layout-wrap
+                    .row
+                        +grid(1,var(--cnt-gap-md))
+                        +sm 
+                            +grid(2,var(--cnt-gap-md))
+                        +md 
+                            +grid(3,var(--cnt-gap-md))
+                        .post 
+                            img 
+                                height: 248px

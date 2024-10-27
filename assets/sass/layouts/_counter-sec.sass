@@ -1,0 +1,66 @@
+.counter-section
+    @extend .section-spacing
+    border-bottom: 2px solid var(--cnt-text-tertiary)
+    .counter-wrapper
+        +flex 
+        +flex-dir(column)
+        gap: var(--cnt-gap-md)
+        +lg 
+            gap: var(--cnt-gap-xxl)
+    .counter-top
+        +flex 
+        +flex-dir(column)
+        gap: var(--cnt-gap-md)
+        +lg 
+            +flex-dir(row)
+            gap: var(--cnt-gap-xxl)
+
+        .counter-left
+            max-width: 384px
+            min-width: auto
+            +sm 
+                min-width: 384px
+        .counter-right
+            flex: 1
+            +flex 
+            gap: var(--cnt-gap-sm)
+            +flex-just(space-between)
+            flex-wrap: wrap
+            +sm 
+                gap: 48px
+            +lg 
+                // flex-wrap: nowrap
+            .counter-card
+                min-width: 208px
+                flex: 1
+                height: fit-content
+    .counter-bottom
+        +flex 
+        +flex-dir(column)
+        gap: var(--cnt-gap-sm)
+        +sm 
+            gap: 40px
+        +md 
+            gap: 0
+            +flex-dir(row)
+        .about-mvc 
+            flex: 1
+            padding: 0 
+            padding-bottom: var(--cnt-gap-sm) 
+            border-right: 0
+            border-bottom: 2px solid var(--cnt-text-tertiary)
+            +sm 
+                padding-bottom: 40px 
+            +md 
+                border-bottom: 0
+                border-right: 2px solid var(--cnt-text-tertiary)
+                padding: 0 30px
+            .title
+                margin-bottom: 18px
+        .about-mvc:first-child
+            padding-left: 0
+        .about-mvc:last-child
+            padding-right: 0
+            border-right: 0
+            border-bottom: 0
+            padding-bottom: 0

@@ -1,0 +1,12 @@
+@function grid-class-name-generic($device) {
+	@if $device == 'all' {
+		@return '';
+	}
+	@return '-' + $device;
+}
+@function grid-class-name($device, $size) {
+	@if $device == 'all' {
+		@return '-' + $size;
+	}
+	@return '-' + $device + '-' + $size;
+}
