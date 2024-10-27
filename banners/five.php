@@ -2,12 +2,12 @@
 /**
  * Banner Five: Static Banner
  */
-$s_banner_subheading  = get_theme_mod( 'ban_three_subheading', __( 'Architecture', 'constructionn-pro' ) );
-$s_banner_heading     = get_theme_mod( 'ban_three_heading', __( 'The Passion For Architecture Never Stops', 'constructionn-pro' ) );
-$s_banner_desc        = get_theme_mod( 'ban_three_descs', __( 'Use of the  agile frameworks to give a high-level overviews and iterative corporate for a better strategy a solid synopsis.', 'constructionn-pro' ) );
-$s_banner_btn         = get_theme_mod( 'b_three_btn_txt_one', __( 'Learn More', 'constructionn-pro' ) );
+$s_banner_subheading  = get_theme_mod( 'ban_three_subheading', __( 'Architecture', 'constructionn' ) );
+$s_banner_heading     = get_theme_mod( 'ban_three_heading', __( 'The Passion For Architecture Never Stops', 'constructionn' ) );
+$s_banner_desc        = get_theme_mod( 'ban_three_descs', __( 'Use of the  agile frameworks to give a high-level overviews and iterative corporate for a better strategy a solid synopsis.', 'constructionn' ) );
+$s_banner_btn         = get_theme_mod( 'b_three_btn_txt_one', __( 'Learn More', 'constructionn' ) );
 $s_banner_btn_link    = get_theme_mod( 'b_three_btn_link_one', '#' );
-$s_banner_contact_btn = get_theme_mod( 'b_three_btn_txt_two', __( 'Learn More', 'constructionn-pro' ) );
+$s_banner_contact_btn = get_theme_mod( 'b_three_btn_txt_two', __( 'Learn More', 'constructionn' ) );
 $s_banner_contact_num = get_theme_mod( 'b_three_btn_link_two', '#' );
 ?>
 
@@ -44,7 +44,7 @@ if ( has_header_video() ) {
 										<?php } if ( $s_banner_contact_btn && $s_banner_contact_num ) { ?>
 											<a href="<?php echo esc_url( 'tel:' . preg_replace( '/[^\d+]/', '', $s_banner_contact_num ) ); ?>" class="btn btn-layout-two">
 												<span class="icon">
-												<?php echo wp_kses( constructionn_pro_handle_all_svgs( 'contact-ph' ), constructionn_pro_get_kses_extended_ruleset() ); ?>                                         
+												<?php echo wp_kses( constructionn_handle_all_svgs( 'contact-ph' ), constructionn_get_kses_extended_ruleset() ); ?>                                         
 												</span>                       
 												<?php echo esc_html( $s_banner_contact_btn ); ?>
 											</a>

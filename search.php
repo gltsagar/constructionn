@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 
 get_header();
@@ -12,9 +12,9 @@ get_header();
 	/**
 	 * Before Posts hook
 	 *
-	 * @hooked constructionn_pro_content_wrapper_start - 10
+	 * @hooked constructionn_content_wrapper_start - 10
 	*/
-	do_action( 'constructionn_pro_before_posts_content' );
+	do_action( 'constructionn_before_posts_content' );
 if ( have_posts() ) :
 	/* Start the Loop */
 	while ( have_posts() ) :
@@ -36,8 +36,8 @@ if ( have_posts() ) :
 	/**
 	 * After Posts hook
 	 *
-	 * @hooked constructionn_pro_content_wrapper_end - 10
+	 * @hooked constructionn_content_wrapper_end - 10
 	 */
-	do_action( 'constructionn_pro_after_posts_content' );
+	do_action( 'constructionn_after_posts_content' );
 
 	get_footer();

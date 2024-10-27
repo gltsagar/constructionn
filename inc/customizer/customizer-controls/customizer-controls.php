@@ -1,5 +1,5 @@
 <?php
-function constructionn_pro_customizer_controls_registration( $wp_customize ) {
+function constructionn_customizer_controls_registration( $wp_customize ) {
 	require_once get_template_directory() . '/inc/customizer/customizer-controls/note/note-control.php';
 	require_once get_template_directory() . '/inc/customizer/customizer-controls/toggle/toggle-control.php';
 	require_once get_template_directory() . '/inc/customizer/customizer-controls/radio/radio-control.php';
@@ -16,4 +16,4 @@ function constructionn_pro_customizer_controls_registration( $wp_customize ) {
 	$wp_customize->register_control_type( 'GL_Slider_Control' );
 	$wp_customize->register_control_type( 'GL_Toggle_Control' );
 }
-add_action( 'customize_register', 'constructionn_pro_customizer_controls_registration' );
+add_action( 'customize_register', 'constructionn_customizer_controls_registration' );

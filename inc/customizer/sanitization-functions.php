@@ -2,13 +2,13 @@
 /**
  * Sanitization Functions
  *
- * @package constructionn_pro
+ * @package constructionn
  */
-if ( ! function_exists( 'constructionn_pro_sanitize_empty_absint' ) ) :
+if ( ! function_exists( 'constructionn_sanitize_empty_absint' ) ) :
 	/**
 	 * Sanitizes Empty Absint
 	 */
-	function constructionn_pro_sanitize_empty_absint( $input ) {
+	function constructionn_sanitize_empty_absint( $input ) {
 		if ( '' == $input ) {
 			return '';
 		}
@@ -16,11 +16,11 @@ if ( ! function_exists( 'constructionn_pro_sanitize_empty_absint' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'constructionn_pro_sanitize_variants' ) ) :
+if ( ! function_exists( 'constructionn_sanitize_variants' ) ) :
 	/**
 	 * Sanitize our Google Font variants
 	 */
-	function constructionn_pro_sanitize_variants( $input ) {
+	function constructionn_sanitize_variants( $input ) {
 		if ( is_array( $input ) ) {
 			$input = implode( ',', $input );
 		}
@@ -28,21 +28,21 @@ if ( ! function_exists( 'constructionn_pro_sanitize_variants' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'constructionn_pro_sanitize_checkbox' ) ) :
+if ( ! function_exists( 'constructionn_sanitize_checkbox' ) ) :
 	/**
 	 * Sanitize Checkbox
 	 */
-	function constructionn_pro_sanitize_checkbox( $checked ) {
+	function constructionn_sanitize_checkbox( $checked ) {
 		// Boolean check.
 		return ( ( isset( $checked ) && true == $checked ) ? true : false );
 	}
 endif;
 
-if ( ! function_exists( 'constructionn_pro_sanitize_hex_color' ) ) {
+if ( ! function_exists( 'constructionn_sanitize_hex_color' ) ) {
 	/**
 	 * Function for sanitizing Hex color
 	 */
-	function constructionn_pro_sanitize_hex_color( $color ) {
+	function constructionn_sanitize_hex_color( $color ) {
 		if ( '' === $color ) {
 			return '';
 		}
@@ -54,11 +54,11 @@ if ( ! function_exists( 'constructionn_pro_sanitize_hex_color' ) ) {
 	}
 }
 
-if ( ! function_exists( 'constructionn_pro_radio_sanitization_header' ) ) {
+if ( ! function_exists( 'constructionn_radio_sanitization_header' ) ) {
 	/**
 	 * Function for Sanitization Header
 	 */
-	function constructionn_pro_radio_sanitization_header( $input, $setting ) {
+	function constructionn_radio_sanitization_header( $input, $setting ) {
 		// get the list of possible radio box or select options
 		$choices = $setting->manager->get_control( $setting->id )->choices;
 		if ( array_key_exists( $input, $choices ) ) {
@@ -69,11 +69,11 @@ if ( ! function_exists( 'constructionn_pro_radio_sanitization_header' ) ) {
 	}
 }
 
-if ( ! function_exists( 'constructionn_pro_sortable_sanitization' ) ) {
+if ( ! function_exists( 'constructionn_sortable_sanitization' ) ) {
 	/**
 	 * Function for Sanitizing Sortable
 	 */
-	function constructionn_pro_sortable_sanitization( $input ) {
+	function constructionn_sortable_sanitization( $input ) {
 		if ( strpos( $input, ',' ) !== false ) {
 			$input = explode( ',', $input );
 		}
@@ -89,11 +89,11 @@ if ( ! function_exists( 'constructionn_pro_sortable_sanitization' ) ) {
 	}
 }
 
-if ( ! function_exists( 'constructionn_pro_sanitize_code' ) ) :
+if ( ! function_exists( 'constructionn_sanitize_code' ) ) :
 	/**
 	 * Function for Sanitizing Code
 	 */
-	function constructionn_pro_sanitize_code( $value ) {
+	function constructionn_sanitize_code( $value ) {
 		return htmlspecialchars_decode( stripslashes( $value ) );
 	}
 endif;

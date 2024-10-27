@@ -1,10 +1,10 @@
 <?php
 /**
- * Constructionn_Pro functions and definitions
+ * Constructionn functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 
 if ( ! defined( 'CONSTRUCTIONN_PRO_VERSION' ) ) {
@@ -50,22 +50,9 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/meta/cptmeta.php';
 /**
- * User Metas
- */
-require get_template_directory() . '/inc/meta/usermetabox.php';
-/**
- * Typography
- */
-require get_template_directory() . '/inc/typography.php';
-/**
  * Plugin Recommendation
 */
 require get_template_directory() . '/inc/tgmpa/recommended-plugins.php';
-
-/**
- * Social Sharing
- */
-require get_template_directory() . '/inc/social-sharing.php';
 
 /**
  * Load Jetpack compatibility file.
@@ -77,6 +64,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /**
  *  WooCommerce compatibility file.
  */
-if ( constructionn_pro_woo_boolean() ) {
+if ( constructionn_woo_boolean() ) {
 	require get_template_directory() . '/inc/woo.php';
 }

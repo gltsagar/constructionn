@@ -1,17 +1,17 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_pricingpg_contact' ) ) :
 	/**
 	 * Pricingpage Contact
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_pricingpg_contact( $wp_customize ) {
+	function constructionn_customize_register_pricingpg_contact( $wp_customize ) {
 		$wp_customize->add_section(
 			'pricingpg_contact_section',
 			array(
-				'title'    => __( 'Contact Settings', 'constructionn-pro' ),
+				'title'    => __( 'Contact Settings', 'constructionn' ),
 				'priority' => 30,
 				'panel'    => 'pricing_page_settings',
 			)
@@ -21,7 +21,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 		$wp_customize->add_setting(
 			'pricingpg_email_title',
 			array(
-				'default'           => __( 'EMAIL', 'constructionn-pro' ),
+				'default'           => __( 'EMAIL', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -42,7 +42,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 			'pricingpg_email_title',
 			array(
 				'section' => 'pricingpg_contact_section',
-				'label'   => __( 'Email Title', 'constructionn-pro' ),
+				'label'   => __( 'Email Title', 'constructionn' ),
 				'type'    => 'text',
 			)
 		);
@@ -51,7 +51,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 		$wp_customize->add_setting(
 			'pricingpg_email_desc',
 			array(
-				'default'           => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in ero.', 'constructionn-pro' ),
+				'default'           => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in ero.', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_textarea_field',
 				'transport'         => 'postMessage',
 			)
@@ -72,7 +72,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 			'pricingpg_email_desc',
 			array(
 				'section' => 'pricingpg_contact_section',
-				'label'   => __( 'Email Description', 'constructionn-pro' ),
+				'label'   => __( 'Email Description', 'constructionn' ),
 				'type'    => 'textarea',
 			)
 		);
@@ -81,7 +81,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 		$wp_customize->add_setting(
 			'pricingpg_email',
 			array(
-				'default'           => __( ' infogl-construction.com', 'constructionn-pro' ),
+				'default'           => __( ' infogl-construction.com', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_email',
 				'transport'         => 'postMessage',
 			)
@@ -92,7 +92,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 			array(
 				'selector'        => '.pricingpage-contact a.link.email',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'pricingpg_email', __( ' infogl-construction.com', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'pricingpg_email', __( ' infogl-construction.com', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -100,7 +100,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 		$wp_customize->add_control(
 			'pricingpg_email',
 			array(
-				'label'   => __( 'Email', 'constructionn-pro' ),
+				'label'   => __( 'Email', 'constructionn' ),
 				'section' => 'pricingpg_contact_section',
 				'type'    => 'email',
 			)
@@ -110,7 +110,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 		$wp_customize->add_setting(
 			'pricingpg_contact_title',
 			array(
-				'default'           => __( 'PHONE', 'constructionn-pro' ),
+				'default'           => __( 'PHONE', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -121,7 +121,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 			array(
 				'selector'        => '.pricingpage-contact h5.title.tel',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'pricingpg_contact_title', __( 'PHONE', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'pricingpg_contact_title', __( 'PHONE', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -131,7 +131,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 			'pricingpg_contact_title',
 			array(
 				'section' => 'pricingpg_contact_section',
-				'label'   => __( 'Contact Title', 'constructionn-pro' ),
+				'label'   => __( 'Contact Title', 'constructionn' ),
 				'type'    => 'text',
 			)
 		);
@@ -140,7 +140,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 		$wp_customize->add_setting(
 			'pricingpg_contact_desc',
 			array(
-				'default'           => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in ero.', 'constructionn-pro' ),
+				'default'           => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in ero.', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_textarea_field',
 				'transport'         => 'postMessage',
 			)
@@ -161,7 +161,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 			'pricingpg_contact_desc',
 			array(
 				'section' => 'pricingpg_contact_section',
-				'label'   => __( 'Contact Description', 'constructionn-pro' ),
+				'label'   => __( 'Contact Description', 'constructionn' ),
 				'type'    => 'textarea',
 			)
 		);
@@ -170,7 +170,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 		$wp_customize->add_setting(
 			'pricingpg_contact_num',
 			array(
-				'default'           => __( '+1-800-111-2222', 'constructionn-pro' ),
+				'default'           => __( '+1-800-111-2222', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -181,7 +181,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 			array(
 				'selector'        => '.pricingpage-contact a.link.tel',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'pricingpg_contact_num', __( '+1-800-111-2222', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'pricingpg_contact_num', __( '+1-800-111-2222', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -189,7 +189,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 		$wp_customize->add_control(
 			'pricingpg_contact_num',
 			array(
-				'label'   => __( 'Contact Number', 'constructionn-pro' ),
+				'label'   => __( 'Contact Number', 'constructionn' ),
 				'section' => 'pricingpg_contact_section',
 				'type'    => 'text',
 			)
@@ -199,7 +199,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 		$wp_customize->add_setting(
 			'pricingpg_location_title',
 			array(
-				'default'           => __( 'LOCATION', 'constructionn-pro' ),
+				'default'           => __( 'LOCATION', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -210,7 +210,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 			array(
 				'selector'        => '.pricingpage-contact h5.title.loc',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'pricingpg_location_title', __( 'LOCATION', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'pricingpg_location_title', __( 'LOCATION', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -220,7 +220,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 			'pricingpg_location_title',
 			array(
 				'section' => 'pricingpg_contact_section',
-				'label'   => __( 'Location Title', 'constructionn-pro' ),
+				'label'   => __( 'Location Title', 'constructionn' ),
 				'type'    => 'text',
 			)
 		);
@@ -229,7 +229,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 		$wp_customize->add_setting(
 			'pricingpg_location_desc',
 			array(
-				'default'           => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in ero.', 'constructionn-pro' ),
+				'default'           => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in ero.', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_textarea_field',
 				'transport'         => 'postMessage',
 			)
@@ -250,7 +250,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 			'pricingpg_location_desc',
 			array(
 				'section' => 'pricingpg_contact_section',
-				'label'   => __( 'Location Description', 'constructionn-pro' ),
+				'label'   => __( 'Location Description', 'constructionn' ),
 				'type'    => 'textarea',
 			)
 		);
@@ -259,7 +259,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 		$wp_customize->add_setting(
 			'pricingpg_location',
 			array(
-				'default'           => __( 'Hamburg,Germany', 'constructionn-pro' ),
+				'default'           => __( 'Hamburg,Germany', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -270,7 +270,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 			array(
 				'selector'        => '.pricingpage-contact span.location.contpg',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'pricingpg_location', __( 'Hamburg,Germany', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'pricingpg_location', __( 'Hamburg,Germany', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -278,7 +278,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 		$wp_customize->add_control(
 			'pricingpg_location',
 			array(
-				'label'   => __( 'Location', 'constructionn-pro' ),
+				'label'   => __( 'Location', 'constructionn' ),
 				'section' => 'pricingpg_contact_section',
 				'type'    => 'text',
 			)
@@ -296,11 +296,11 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pricingpg_contact'
 		$wp_customize->add_control(
 			'pricingpg_contact_form_shortcode',
 			array(
-				'label'   => __( 'Enter Shortcode', 'constructionn-pro' ),
+				'label'   => __( 'Enter Shortcode', 'constructionn' ),
 				'type'    => 'text',
 				'section' => 'pricingpg_contact_section',
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_pricingpg_contact' );
+add_action( 'customize_register', 'constructionn_customize_register_pricingpg_contact' );

@@ -2,7 +2,7 @@
 /**
  * The typography Customizer control.
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,27 +16,27 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'GL_Typography_Co
 	 * @since 2.0
 	 */
 	class GL_Typography_Control extends WP_Customize_Control {
-		public $type = 'constructionn-pro-typography';
+		public $type = 'constructionn-typography';
 
 		public function enqueue() {
-			wp_enqueue_script( 'constructionn-pro-typography-selectWoo', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/customizer-controls/typography/assets/selectWoo.min.js', array( 'customize-controls', 'jquery' ), CONSTRUCTIONN_PRO_VERSION, true );
-			wp_enqueue_style( 'constructionn-pro-typography-selectWoo', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/customizer-controls/typography/assets/selectWoo.min.css', array(), CONSTRUCTIONN_PRO_VERSION );
+			wp_enqueue_script( 'constructionn-typography-selectWoo', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/customizer-controls/typography/assets/selectWoo.min.js', array( 'customize-controls', 'jquery' ), CONSTRUCTIONN_PRO_VERSION, true );
+			wp_enqueue_style( 'constructionn-typography-selectWoo', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/customizer-controls/typography/assets/selectWoo.min.css', array(), CONSTRUCTIONN_PRO_VERSION );
 
-			wp_enqueue_script( 'constructionn-pro-typography-customizer', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/customizer-controls/typography/assets/typography-customizer.js', array( 'customize-controls', 'constructionn-pro-typography-selectWoo' ), CONSTRUCTIONN_PRO_VERSION, true );
-			wp_enqueue_style( 'constructionn-pro-typography-customizer', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/customizer-controls/typography/assets/typography-customizer.css', array(), CONSTRUCTIONN_PRO_VERSION );
+			wp_enqueue_script( 'constructionn-typography-customizer', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/customizer-controls/typography/assets/typography-customizer.js', array( 'customize-controls', 'constructionn-typography-selectWoo' ), CONSTRUCTIONN_PRO_VERSION, true );
+			wp_enqueue_style( 'constructionn-typography-customizer', trailingslashit( get_template_directory_uri() ) . 'inc/customizer/customizer-controls/typography/assets/typography-customizer.css', array(), CONSTRUCTIONN_PRO_VERSION );
 		}
 
 		public function to_json() {
 			parent::to_json();
 
-			$this->json['default_fonts_title'] = __( 'System fonts', 'constructionn-pro' );
-			$this->json['google_fonts_title']  = __( 'Google fonts', 'constructionn-pro' );
-			$this->json['default_fonts']       = constructionn_pro_typography_default_fonts();
-			$this->json['family_title']        = esc_html__( 'Font family', 'constructionn-pro' );
-			$this->json['weight_title']        = esc_html__( 'Font weight', 'constructionn-pro' );
-			$this->json['transform_title']     = esc_html__( 'Text transform', 'constructionn-pro' );
+			$this->json['default_fonts_title'] = __( 'System fonts', 'constructionn' );
+			$this->json['google_fonts_title']  = __( 'Google fonts', 'constructionn' );
+			$this->json['default_fonts']       = constructionn_typography_default_fonts();
+			$this->json['family_title']        = esc_html__( 'Font family', 'constructionn' );
+			$this->json['weight_title']        = esc_html__( 'Font weight', 'constructionn' );
+			$this->json['transform_title']     = esc_html__( 'Text transform', 'constructionn' );
 			$this->json['category_title']      = '';
-			$this->json['variant_title']       = esc_html__( 'Variants', 'constructionn-pro' );
+			$this->json['variant_title']       = esc_html__( 'Variants', 'constructionn' );
 
 			foreach ( $this->settings as $setting_key => $setting_id ) {
 				$this->json[ $setting_key ] = array(
@@ -62,7 +62,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'GL_Typography_Co
 				<span class="customize-control-title">{{ data.label }}</span>
 			<# } #>
 			<# if ( 'undefined' !== typeof ( data.family ) ) { #>
-				<div class="constructionn-pro-font-family">
+				<div class="constructionn-font-family">
 					<label>
 						<select {{{ data.family.link }}} data-category="{{{ data.category.id }}}" data-variants="{{{ data.variant.id }}}" style="width:100%;">
 							<optgroup label="{{ data.default_fonts_title }}">
@@ -97,7 +97,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'GL_Typography_Co
 					data.variant.value = data.variant.default;
 				}
 				#>
-				<div id={{{ data.variant.id }}}" class="constructionn-pro-font-variant" data-saved-value="{{ data.variant.value }}">
+				<div id={{{ data.variant.id }}}" class="constructionn-font-variant" data-saved-value="{{ data.variant.value }}">
 					<label>
 						<select name="{{{ data.variant.id }}}" multiple class="typography-multi-select" style="width:100%;" {{{ data.variant.link }}}>
 							<# _.each( variants, function( label, choice ) { #>
@@ -113,7 +113,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'GL_Typography_Co
 			<# } #>
 
 			<# if ( 'undefined' !== typeof ( data.category ) ) { #>
-				<div class="constructionn-pro-font-category">
+				<div class="constructionn-font-category">
 					<label>
 							<input name="{{{ data.category.id }}}" type="hidden" {{{ data.category.link }}} value="{{{ data.category.value }}}" class="gp-hidden-input" />
 						<# if ( '' !== data.category_title ) { #>
@@ -123,9 +123,9 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'GL_Typography_Co
 				</div>
 			<# } #>
 
-			<div class="constructionn-pro-weight-transform-wrapper">
+			<div class="constructionn-weight-transform-wrapper">
 				<# if ( 'undefined' !== typeof ( data.weight ) ) { #>
-					<div class="constructionn-pro-font-weight">
+					<div class="constructionn-font-weight">
 						<label>
 							<select {{{ data.weight.link }}}>
 
@@ -144,7 +144,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'GL_Typography_Co
 				<# } #>
 
 				<# if ( 'undefined' !== typeof ( data.transform ) ) { #>
-					<div class="constructionn-pro-font-transform">
+					<div class="constructionn-font-transform">
 						<label>
 							<select {{{ data.transform.link }}}>
 

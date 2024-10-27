@@ -4,14 +4,14 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 
 if ( ! is_active_sidebar( 'primary-sidebar' ) ) {
 	return;
 }
 
-if ( constructionn_pro_sidebar_layout() === 'layout-two' ) {
+if ( constructionn_sidebar_layout() === 'layout-two' ) {
 	return;
 }
 ?>

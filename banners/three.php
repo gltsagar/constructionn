@@ -3,14 +3,14 @@
  * Banner Three
  */
 $img                      = get_theme_mod( 'banner_three_img' );
-$banner_three_heading     = get_theme_mod( 'ban_three_heading', __( 'The Passion For Architecture Never Stops', 'constructionn-pro' ) );
-$banner_three_subheading  = get_theme_mod( 'ban_three_subheading', __( 'Architecture', 'constructionn-pro' ) );
-$banner_three_description = get_theme_mod( 'ban_three_descs', __( 'Use of the  agile frameworks to give a high-level overviews and iterative corporate for a better strategy a solid synopsis.', 'constructionn-pro' ) );
-$b_three_btn_text_one     = get_theme_mod( 'b_three_btn_txt_one', __( 'Learn More', 'constructionn-pro' ) );
-$b_three_btn_link_one     = get_theme_mod( 'b_three_btn_link_one', __( '#', 'constructionn-pro' ) );
-$b_three_btn_txt_two      = get_theme_mod( 'b_three_btn_txt_two', __( 'Learn More', 'constructionn-pro' ) );
-$b_three_btn_link_two     = get_theme_mod( 'b_three_btn_link_two', __( '#', 'constructionn-pro' ) );
-$ban_video_btn_link       = get_theme_mod( 'ban_video_btn_link', __( '#', 'constructionn-pro' ) );
+$banner_three_heading     = get_theme_mod( 'ban_three_heading', __( 'The Passion For Architecture Never Stops', 'constructionn' ) );
+$banner_three_subheading  = get_theme_mod( 'ban_three_subheading', __( 'Architecture', 'constructionn' ) );
+$banner_three_description = get_theme_mod( 'ban_three_descs', __( 'Use of the  agile frameworks to give a high-level overviews and iterative corporate for a better strategy a solid synopsis.', 'constructionn' ) );
+$b_three_btn_text_one     = get_theme_mod( 'b_three_btn_txt_one', __( 'Learn More', 'constructionn' ) );
+$b_three_btn_link_one     = get_theme_mod( 'b_three_btn_link_one', __( '#', 'constructionn' ) );
+$b_three_btn_txt_two      = get_theme_mod( 'b_three_btn_txt_two', __( 'Learn More', 'constructionn' ) );
+$b_three_btn_link_two     = get_theme_mod( 'b_three_btn_link_two', __( '#', 'constructionn' ) );
+$ban_video_btn_link       = get_theme_mod( 'ban_video_btn_link', __( '#', 'constructionn' ) );
 $bannerthree_repeater     = get_theme_mod( 'front_bannerthree_repeater', array() );
 
 $fallback_bg_color        = get_theme_mod( 'fallback_bg_color', '#003262' );
@@ -58,7 +58,7 @@ if ( $img || $banner_three_heading || $banner_three_subheading || $banner_three_
 								<?php if ( $ban_video_btn_link ) { ?>
 									<div class="video-block-wrap">
 										<a href="<?php echo esc_url( $ban_video_btn_link ); ?>" data-fancybox data-caption class="video-control-btn">
-											<?php echo constructionn_pro_handle_all_svgs( 'banner-video' ); ?>                                        
+											<?php echo constructionn_handle_all_svgs( 'banner-video' ); ?>                                        
 										</a>
 									</div>
 									<?php

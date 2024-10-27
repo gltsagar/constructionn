@@ -2,7 +2,7 @@
 /**
  * Constructionn Pro Repeater Customizer Setting.
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 
 // Exit if accessed directly.
@@ -10,12 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Constructionn_Pro_Repeater_Setting' ) ) {
+if ( ! class_exists( 'Constructionn_Repeater_Setting' ) ) {
 
 	/**
 	 * Repeater Settings.
 	 */
-	class Constructionn_Pro_Repeater_Setting extends WP_Customize_Setting {
+	class Constructionn_Repeater_Setting extends WP_Customize_Setting {
 
 		/**
 		 * Constructor.

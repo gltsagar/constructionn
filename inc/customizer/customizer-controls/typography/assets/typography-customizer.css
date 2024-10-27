@@ -1,8 +1,8 @@
-.constructionn-pro-font-family {
+.constructionn-font-family {
 	margin-bottom: 12px;
 }
 
-.constructionn-pro-weight-transform-wrapper {
+.constructionn-weight-transform-wrapper {
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -11,8 +11,8 @@
 	justify-content: space-between;
 }
 
-.constructionn-pro-font-weight,
-.constructionn-pro-font-transform {
+.constructionn-font-weight,
+.constructionn-font-transform {
     width: calc(50% - 5px);
 }
 
@@ -55,6 +55,6 @@ span.select2-container.select2-container--default.select2-container--open{
 }
 
 
-#sub-accordion-section-typography_settings .constructionn-pro-font-variant{
+#sub-accordion-section-typography_settings .constructionn-font-variant{
     margin-bottom: 12px;
 }

@@ -1,17 +1,17 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_abtpg_cta' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_abtpg_cta' ) ) :
 	/**
 	 * Aboutpage Cta
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_abtpg_cta( $wp_customize ) {
+	function constructionn_customize_register_abtpg_cta( $wp_customize ) {
 		$wp_customize->add_section(
 			'abtpg_cta_section',
 			array(
-				'title'    => __( 'CTA Settings', 'constructionn-pro' ),
+				'title'    => __( 'CTA Settings', 'constructionn' ),
 				'priority' => 20,
 				'panel'    => 'about_page_settings',
 			)
@@ -31,7 +31,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_abtpg_cta' ) ) :
 				$wp_customize,
 				'abtpg_cta_bg_img',
 				array(
-					'label'   => __( 'Upload Background Image', 'constructionn-pro' ),
+					'label'   => __( 'Upload Background Image', 'constructionn' ),
 					'section' => 'abtpg_cta_section',
 				)
 			)
@@ -41,7 +41,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_abtpg_cta' ) ) :
 		$wp_customize->add_setting(
 			'abtpg_cta_heading',
 			array(
-				'default'           => __( 'Have any projects ?', 'constructionn-pro' ),
+				'default'           => __( 'Have any projects ?', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -52,7 +52,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_abtpg_cta' ) ) :
 			array(
 				'selector'        => '.aboutpg-cta h2.section-heading',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'abtpg_cta_heading', __( 'Have any projects ?', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'abtpg_cta_heading', __( 'Have any projects ?', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -60,7 +60,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_abtpg_cta' ) ) :
 		$wp_customize->add_control(
 			'abtpg_cta_heading',
 			array(
-				'label'   => __( 'Heading', 'constructionn-pro' ),
+				'label'   => __( 'Heading', 'constructionn' ),
 				'section' => 'abtpg_cta_section',
 				'type'    => 'text',
 			)
@@ -70,7 +70,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_abtpg_cta' ) ) :
 		$wp_customize->add_setting(
 			'abtpg_cta_descs',
 			array(
-				'default'           => __( 'Do not hesitate to contact us and get the best outcomes from our professionals.', 'constructionn-pro' ),
+				'default'           => __( 'Do not hesitate to contact us and get the best outcomes from our professionals.', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_textarea_field',
 				'transport'         => 'postMessage',
 			)
@@ -81,7 +81,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_abtpg_cta' ) ) :
 			array(
 				'selector'        => '.aboutpg-cta p.section-desc',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'abtpg_cta_descs', __( 'Do not hesitate to contact us and get the best outcomes from our professionals.', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'abtpg_cta_descs', __( 'Do not hesitate to contact us and get the best outcomes from our professionals.', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -90,7 +90,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_abtpg_cta' ) ) :
 		$wp_customize->add_control(
 			'abtpg_cta_descs',
 			array(
-				'label'   => __( 'Description', 'constructionn-pro' ),
+				'label'   => __( 'Description', 'constructionn' ),
 				'section' => 'abtpg_cta_section',
 				'type'    => 'textarea',
 			)
@@ -100,7 +100,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_abtpg_cta' ) ) :
 		$wp_customize->add_setting(
 			'abtpg_contact_num',
 			array(
-				'default'           => __( '+1-202-555-0133', 'constructionn-pro' ),
+				'default'           => __( '+1-202-555-0133', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -111,7 +111,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_abtpg_cta' ) ) :
 			array(
 				'selector'        => '.aboutpg-cta a',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'abtpg_contact_num', __( '+1-202-555-0133', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'abtpg_contact_num', __( '+1-202-555-0133', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -119,11 +119,11 @@ if ( ! function_exists( 'constructionn_pro_customize_register_abtpg_cta' ) ) :
 		$wp_customize->add_control(
 			'abtpg_contact_num',
 			array(
-				'label'   => __( 'Contact Number', 'constructionn-pro' ),
+				'label'   => __( 'Contact Number', 'constructionn' ),
 				'section' => 'abtpg_cta_section',
 				'type'    => 'text',
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_abtpg_cta' );
+add_action( 'customize_register', 'constructionn_customize_register_abtpg_cta' );

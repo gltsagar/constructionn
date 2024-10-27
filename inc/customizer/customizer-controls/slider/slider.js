@@ -1,4 +1,4 @@
-wp.customize.controlConstructor['constructionn-pro-slider'] = wp.customize.Control.extend(
+wp.customize.controlConstructor['constructionn-slider'] = wp.customize.Control.extend(
 	{
 		ready: function () {
 			'use strict';

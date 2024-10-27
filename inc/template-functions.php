@@ -2,31 +2,31 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
 
-if ( ! function_exists( 'constructionn_pro_doctype' ) ) :
+if ( ! function_exists( 'constructionn_doctype' ) ) :
 	/**
 	 * Doctype Declaration
 	 */
-	function constructionn_pro_doctype() {
+	function constructionn_doctype() {
 		?>
 		<!DOCTYPE html>
 		<html <?php language_attributes(); ?>>
 		<?php
 	}
 endif;
-add_action( 'constructionn_pro_doctype', 'constructionn_pro_doctype' );
+add_action( 'constructionn_doctype', 'constructionn_doctype' );
 
-if ( ! function_exists( 'constructionn_pro_head' ) ) :
+if ( ! function_exists( 'constructionn_head' ) ) :
 	/**
 	 * Before wp_head
 	 */
-	function constructionn_pro_head() {
+	function constructionn_head() {
 
 		?>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -35,26 +35,26 @@ if ( ! function_exists( 'constructionn_pro_head' ) ) :
 		<?php
 	}
 endif;
-add_action( 'constructionn_pro_before_wp_head', 'constructionn_pro_head' );
+add_action( 'constructionn_before_wp_head', 'constructionn_head' );
 
-if ( ! function_exists( 'constructionn_pro_page_start' ) ) :
+if ( ! function_exists( 'constructionn_page_start' ) ) :
 	/**
 	 * Page Start
 	 */
-	function constructionn_pro_page_start() {
+	function constructionn_page_start() {
 		?>
-		<div id="page" class="<?php constructionn_pro_display_dynamic_class(); ?>">
-			<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'constructionn-pro' ); ?></a>
+		<div id="page" class="<?php constructionn_display_dynamic_class(); ?>">
+			<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'constructionn' ); ?></a>
 		<?php
 	}
 endif;
-add_action( 'constructionn_pro_before_header', 'constructionn_pro_page_start', 20 );
+add_action( 'constructionn_before_header', 'constructionn_page_start', 20 );
 
-if ( ! function_exists( 'constructionn_pro_header_inclusion' ) ) :
+if ( ! function_exists( 'constructionn_header_inclusion' ) ) :
 	/**
 	 * Header Function
 	 */
-	function constructionn_pro_header_inclusion() {
+	function constructionn_header_inclusion() {
 		$header_array = array( 'one', 'two', 'three', 'four', 'five' );
 		$header       = get_theme_mod( 'header_layouts', 'one' );
 
@@ -63,15 +63,15 @@ if ( ! function_exists( 'constructionn_pro_header_inclusion' ) ) :
 		}
 	}
 endif;
-add_action( 'constructionn_pro_header', 'constructionn_pro_header_inclusion', 10 );
+add_action( 'constructionn_header', 'constructionn_header_inclusion', 10 );
 
-if ( ! function_exists( 'constructionn_pro_background_header' ) ) :
+if ( ! function_exists( 'constructionn_background_header' ) ) :
 	/**
 	 * Breadcrumbs section
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_background_header() {
+	function constructionn_background_header() {
 		$breadcrumb_toggle = get_theme_mod( 'breadcrumb_toggle', true );
 
 		if ( ! is_front_page() && $breadcrumb_toggle ) {
@@ -91,9 +91,9 @@ if ( ! function_exists( 'constructionn_pro_background_header' ) ) :
 			<div class="breadcrumb-wrapper <?php echo $class ? esc_attr( $class ) : ''; ?>" style="<?php echo esc_attr( $background_style ); ?>">
 				<div class="container">
 					<header class="entry-header">
-						<?php constructionn_pro_header_title(); ?>	
+						<?php constructionn_header_title(); ?>	
 					</header>
-					<?php constructionn_pro_breadcrumbs(); ?>
+					<?php constructionn_breadcrumbs(); ?>
 				</div>
 			</div>
 			<!-- breadcrumb end -->
@@ -101,13 +101,13 @@ if ( ! function_exists( 'constructionn_pro_background_header' ) ) :
 		}
 	}
 endif;
-add_action( 'constructionn_pro_after_header', 'constructionn_pro_background_header', 10 );
+add_action( 'constructionn_after_header', 'constructionn_background_header', 10 );
 
-if ( ! function_exists( 'constructionn_pro_post_thumbnail' ) ) :
+if ( ! function_exists( 'constructionn_post_thumbnail' ) ) :
 	/**
 	 * Displays the post thumbnail.
 	 */
-	function constructionn_pro_post_thumbnail() {
+	function constructionn_post_thumbnail() {
 		if ( ! is_singular() ) {
 			?>
 			<figure class="blog__img">
@@ -116,7 +116,7 @@ if ( ! function_exists( 'constructionn_pro_post_thumbnail' ) ) :
 					if ( has_post_thumbnail() ) {
 						the_post_thumbnail( 'blog_card_image' );
 					} else {
-						constructionn_pro_get_fallback_svg( 'blog_card_image' );
+						constructionn_get_fallback_svg( 'blog_card_image' );
 					}
 					?>
 				</a>
@@ -140,7 +140,7 @@ if ( ! function_exists( 'constructionn_pro_post_thumbnail' ) ) :
 										<span class="byline">
 											<span>
 												<a href="<?php echo esc_url( get_author_posts_url( $author_id ) ); ?>">
-													<?php echo esc_html( constructionn_pro_get_author_name() ); ?>
+													<?php echo esc_html( constructionn_get_author_name() ); ?>
 												</a>
 											</span>
 										</span>
@@ -159,9 +159,9 @@ if ( ! function_exists( 'constructionn_pro_post_thumbnail' ) ) :
 						</div>
 						<div class="header-right">
 							<div class="category-wrap">
-								<?php constructionn_pro_category(); ?>
+								<?php constructionn_category(); ?>
 							</div>
-							<?php constructionn_pro_posted_on(); ?>
+							<?php constructionn_posted_on(); ?>
 						</div>
 					</header>
 				<?php } if ( has_post_thumbnail() ) { ?>
@@ -192,13 +192,13 @@ if ( ! function_exists( 'constructionn_pro_post_thumbnail' ) ) :
 		}
 	}
 endif;
-add_action( 'constructionn_pro_before_post_entry_content', 'constructionn_pro_post_thumbnail', 10 );
+add_action( 'constructionn_before_post_entry_content', 'constructionn_post_thumbnail', 10 );
 
-if ( ! function_exists( 'constructionn_pro_post_metas' ) ) :
+if ( ! function_exists( 'constructionn_post_metas' ) ) :
 	/**
 	 * Post Meta
 	 */
-	function constructionn_pro_post_metas() {
+	function constructionn_post_metas() {
 		if ( ! is_singular() ) {
 			?>
 			<div class="blog__info">
@@ -207,22 +207,22 @@ if ( ! function_exists( 'constructionn_pro_post_metas' ) ) :
 				</a>
 				<div class="blog__bottom">
 					<div class="blog-category">
-						<?php constructionn_pro_category(); ?>
+						<?php constructionn_category(); ?>
 					</div>
-					<?php constructionn_pro_posted_on(); ?>
+					<?php constructionn_posted_on(); ?>
 				</div>
 			</div>
 			<?php
 		}
 	}
 endif;
-add_action( 'constructionn_pro_before_post_entry_content', 'constructionn_pro_post_metas', 10 );
+add_action( 'constructionn_before_post_entry_content', 'constructionn_post_metas', 10 );
 
-if ( ! function_exists( 'constructionn_pro_entry_content' ) ) :
+if ( ! function_exists( 'constructionn_entry_content' ) ) :
 	/**
 	 * Entry Content
 	 */
-	function constructionn_pro_entry_content() {
+	function constructionn_entry_content() {
 		if ( is_singular() ) {
 			?>
 			<div class="entry-content" itemprop="text">
@@ -232,18 +232,18 @@ if ( ! function_exists( 'constructionn_pro_entry_content' ) ) :
 		}
 	}
 endif;
-add_action( 'constructionn_pro_post_entry_content', 'constructionn_pro_entry_content', 40 );
+add_action( 'constructionn_post_entry_content', 'constructionn_entry_content', 40 );
 
-if ( ! function_exists( 'constructionn_pro_post_edit' ) ) :
+if ( ! function_exists( 'constructionn_post_edit' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function constructionn_pro_post_edit() {
+	function constructionn_post_edit() {
 		edit_post_link(
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'constructionn-pro' ),
+					__( 'Edit <span class="screen-reader-text">%s</span>', 'constructionn' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -257,27 +257,27 @@ if ( ! function_exists( 'constructionn_pro_post_edit' ) ) :
 		);
 	}
 endif;
-add_action( 'constructionn_pro_post_entry_content', 'constructionn_pro_post_edit', 50 );
+add_action( 'constructionn_post_entry_content', 'constructionn_post_edit', 50 );
 
-if ( ! function_exists( 'constructionn_pro_entry_content_wrapper_end' ) ) :
+if ( ! function_exists( 'constructionn_entry_content_wrapper_end' ) ) :
 	/**
 	 * Post Content wrapper Starts
 	 */
-	function constructionn_pro_entry_content_wrapper_end() {
+	function constructionn_entry_content_wrapper_end() {
 		if ( ! is_singular( array( 'page', 'service' ) ) ) {
 			echo '</div>';
 		}
 	}
 endif;
-add_action( 'constructionn_pro_entry_content_wrapper_end', 'constructionn_pro_entry_content_wrapper_end', 60 );
+add_action( 'constructionn_entry_content_wrapper_end', 'constructionn_entry_content_wrapper_end', 60 );
 
-if ( ! function_exists( 'constructionn_pro_content_wrapper_start' ) ) {
+if ( ! function_exists( 'constructionn_content_wrapper_start' ) ) {
 	/**
 	 * Content Wrapper
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_content_wrapper_start() {
+	function constructionn_content_wrapper_start() {
 
 		?>
 		<div class="content-area" id="primary">
@@ -289,12 +289,12 @@ if ( ! function_exists( 'constructionn_pro_content_wrapper_start' ) ) {
 					<div class="site-main" id="main">						
 						<?php
 						if ( is_author() ) {
-							constructionn_pro_author_box();
-							echo '<h5>' . __( 'Author’s top blogs collection', 'constructionn-pro' ) . '</h5>';
+							constructionn_author_box();
+							echo '<h5>' . __( 'Author’s top blogs collection', 'constructionn' ) . '</h5>';
 						}
 						if ( is_search() ) {
-							constructionn_pro_show_serach_query_post_count();
-							echo '<span class="screen-reader">' . __( 'Please conduct another search if you are not satisfied with the outcomes below.', 'constructionn-pro' ) . '</span>';
+							constructionn_show_serach_query_post_count();
+							echo '<span class="screen-reader">' . __( 'Please conduct another search if you are not satisfied with the outcomes below.', 'constructionn' ) . '</span>';
 							echo '<div class="search-wrapper">';
 								get_search_form();
 							echo '</div>';
@@ -304,38 +304,38 @@ if ( ! function_exists( 'constructionn_pro_content_wrapper_start' ) ) {
 						}
 	}
 }
-add_action( 'constructionn_pro_before_posts_content', 'constructionn_pro_content_wrapper_start' );
+add_action( 'constructionn_before_posts_content', 'constructionn_content_wrapper_start' );
 
-if ( ! function_exists( 'constructionn_pro_single_entry_footer_sections' ) ) :
+if ( ! function_exists( 'constructionn_single_entry_footer_sections' ) ) :
 	/**
 	 * Entry Footer
 	 */
-	function constructionn_pro_single_entry_footer_sections() {
+	function constructionn_single_entry_footer_sections() {
 		$post_type = get_post_type( get_the_ID() );
 
 		if ( is_singular( 'post' ) ) {
 			constructionn_post_footer_meta();
-			constructionn_pro_author_box();
-			constructionn_pro_pagination();
-			constructionn_pro_comment();
-			constructionn_pro_related_posts( $post_type );
+			constructionn_author_box();
+			constructionn_pagination();
+			constructionn_comment();
+			constructionn_related_posts( $post_type );
 		}
 	}
 endif;
-add_action( 'constructionn_pro_after_posts_content', 'constructionn_pro_single_entry_footer_sections', 5 );
+add_action( 'constructionn_after_posts_content', 'constructionn_single_entry_footer_sections', 5 );
 
-if ( ! function_exists( 'constructionn_pro_content_wrapper_end' ) ) :
+if ( ! function_exists( 'constructionn_content_wrapper_end' ) ) :
 	/**
 	 * Content Wrapper
 	 */
-	function constructionn_pro_content_wrapper_end() {
+	function constructionn_content_wrapper_end() {
 					global $wp_query;
 					$results_count = $wp_query->found_posts;
 		if ( ! is_singular() && ! is_404() ) {
 			echo '</div>'; // End grid-layout
 		}
 		if ( is_archive() || is_home() || ( is_search() && $results_count > 0 ) ) {
-			constructionn_pro_pagination();
+			constructionn_pagination();
 		} // in the search page, show navigation only when search query is available
 		?>
 				</div> <!-- End main -->
@@ -350,15 +350,15 @@ if ( ! function_exists( 'constructionn_pro_content_wrapper_end' ) ) :
 		<?php
 	}
 endif;
-add_action( 'constructionn_pro_after_posts_content', 'constructionn_pro_content_wrapper_end', 10 );
+add_action( 'constructionn_after_posts_content', 'constructionn_content_wrapper_end', 10 );
 
-if ( ! function_exists( 'constructionn_pro_cpt_wrapper_start' ) ) :
+if ( ! function_exists( 'constructionn_cpt_wrapper_start' ) ) :
 	/**
 	 * Content Wrapper
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_cpt_wrapper_start() {
+	function constructionn_cpt_wrapper_start() {
 
 		// @todo need to make a function for handling the class.
 
@@ -380,20 +380,20 @@ if ( ! function_exists( 'constructionn_pro_cpt_wrapper_start' ) ) :
 		}
 	}
 endif;
-add_action( 'constructionn_pro_before_cpt_content', 'constructionn_pro_cpt_wrapper_start', 10 );
+add_action( 'constructionn_before_cpt_content', 'constructionn_cpt_wrapper_start', 10 );
 
-if ( ! function_exists( 'constructionn_pro_project_cta' ) ) :
+if ( ! function_exists( 'constructionn_project_cta' ) ) :
 	/**
 	 * Single Project CTA
 	 */
-	function constructionn_pro_project_cta() {
+	function constructionn_project_cta() {
 		if ( get_post_type() === 'project' ) {
 			$bg_img        = get_theme_mod( 'project_single_cta_bg_img', esc_url( get_template_directory_uri() . '/assets/images/banner-1.jpg' ) );
-			$f_cta_heading = get_theme_mod( 'project_single_cta_heading', __( 'Have any projects ?', 'constructionn-pro' ) );
-			$f_cta_descs   = get_theme_mod( 'project_single_cta_descs', __( 'Do not hesitate to contact us and get the best outcomes from our professionals.', 'constructionn-pro' ) );
-			$contact_num   = get_theme_mod( 'project_single_contact_number', __( '+1-202-555-0133', 'constructionn-pro' ) );
+			$f_cta_heading = get_theme_mod( 'project_single_cta_heading', __( 'Have any projects ?', 'constructionn' ) );
+			$f_cta_descs   = get_theme_mod( 'project_single_cta_descs', __( 'Do not hesitate to contact us and get the best outcomes from our professionals.', 'constructionn' ) );
+			$contact_num   = get_theme_mod( 'project_single_contact_number', __( '+1-202-555-0133', 'constructionn' ) );
 
-			constructionn_pro_cta_section(
+			constructionn_cta_section(
 				'project-single-cta',
 				$bg_img,
 				$f_cta_heading,
@@ -403,24 +403,24 @@ if ( ! function_exists( 'constructionn_pro_project_cta' ) ) :
 		}
 	}
 endif;
-add_action( 'constructionn_pro_end_cpt_content', 'constructionn_pro_project_cta', 5 );
+add_action( 'constructionn_end_cpt_content', 'constructionn_project_cta', 5 );
 
-if ( ! function_exists( 'constructionn_pro_latest_projects' ) ) :
+if ( ! function_exists( 'constructionn_latest_projects' ) ) :
 	/**
 	 * Latets Projects List
 	 */
-	function constructionn_pro_latest_projects() {
+	function constructionn_latest_projects() {
 
 		if ( get_post_type() == 'project' ) {
 			// @todo need to add the toggle control to show/hide the latest projects
 			$toggle_related_post = get_theme_mod( 'toggle_related_post', true );
 
-			$single_proj_headings     = get_theme_mod( 'project_single_latestproj_headings', __( 'Our latest projects', 'constructionn-pro' ) );
-			$single_proj_descs        = get_theme_mod( 'project_single_latestproj_descs', __( 'Identifying the ideal legal strategy for you and your company. Reduce the price of your legal fees.', 'constructionn-pro' ) );
-			$single_proj_btn_txt      = get_theme_mod( 'project_single_project_btn_txt', __( 'View All Projects', 'constructionn-pro' ) );
+			$single_proj_headings     = get_theme_mod( 'project_single_latestproj_headings', __( 'Our latest projects', 'constructionn' ) );
+			$single_proj_descs        = get_theme_mod( 'project_single_latestproj_descs', __( 'Identifying the ideal legal strategy for you and your company. Reduce the price of your legal fees.', 'constructionn' ) );
+			$single_proj_btn_txt      = get_theme_mod( 'project_single_project_btn_txt', __( 'View All Projects', 'constructionn' ) );
 			$single_proj_btn_link     = get_theme_mod( 'project_single_project_btn_link', '#' );
-			$single_proj_btn_next_txt = get_theme_mod( 'project_single_project_btn_next_txt', __( 'Next', 'constructionn-pro' ) );
-			$single_proj_btn_prev_txt = get_theme_mod( 'project_single_project_btn_prev_txt', __( 'Prev', 'constructionn-pro' ) );
+			$single_proj_btn_next_txt = get_theme_mod( 'project_single_project_btn_next_txt', __( 'Next', 'constructionn' ) );
+			$single_proj_btn_prev_txt = get_theme_mod( 'project_single_project_btn_prev_txt', __( 'Prev', 'constructionn' ) );
 
 			$args = array(
 				'post_type'           => 'project',
@@ -474,7 +474,7 @@ if ( ! function_exists( 'constructionn_pro_latest_projects' ) ) :
 																if ( has_post_thumbnail() ) {
 																	the_post_thumbnail( 'full', array( 'alt' => get_the_title() ) );
 																} else {
-																	constructionn_pro_get_fallback_svg( 'blog_card_image' );
+																	constructionn_get_fallback_svg( 'blog_card_image' );
 																}
 																?>
 															</a>
@@ -521,18 +521,18 @@ if ( ! function_exists( 'constructionn_pro_latest_projects' ) ) :
 		}
 	}
 endif;
-add_action( 'constructionn_pro_end_cpt_content', 'constructionn_pro_latest_projects', 10 );
+add_action( 'constructionn_end_cpt_content', 'constructionn_latest_projects', 10 );
 
-if ( ! function_exists( 'constructionn_pro_latest_case_study' ) ) :
+if ( ! function_exists( 'constructionn_latest_case_study' ) ) :
 	/**
 	 * Latets Projects List
 	 */
-	function constructionn_pro_latest_case_study() {
+	function constructionn_latest_case_study() {
 
 		// @todo need to add the toggle control to show/hide the latest projects
 		$toggle_related_post  = get_theme_mod( 'toggle_related_post', true );
-		$single_proj_headings = get_theme_mod( 'related_post_heading', __( 'Related Posts', 'constructionn-pro' ) );
-		$post_readmore_button = get_theme_mod( 'post_readmore_button', __( 'Read More', 'constructionn-pro' ) );
+		$single_proj_headings = get_theme_mod( 'related_post_heading', __( 'Related Posts', 'constructionn' ) );
+		$post_readmore_button = get_theme_mod( 'post_readmore_button', __( 'Read More', 'constructionn' ) );
 
 		$args = array(
 			'post_type'           => 'case-study',
@@ -585,61 +585,61 @@ if ( ! function_exists( 'constructionn_pro_latest_case_study' ) ) :
 		}
 	}
 endif;
-add_action( 'constructionn_pro_end_cpt_content', 'constructionn_pro_latest_case_study', 10 );
+add_action( 'constructionn_end_cpt_content', 'constructionn_latest_case_study', 10 );
 
-if ( ! function_exists( 'constructionn_pro_cpt_wrapper_end' ) ) {
+if ( ! function_exists( 'constructionn_cpt_wrapper_end' ) ) {
 	/**
 	 * Content Wrapper
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_cpt_wrapper_end() {
+	function constructionn_cpt_wrapper_end() {
 		?>
 			</div>
 		</div>
 		<?php
 	}
 }
-add_action( 'constructionn_pro_end_cpt_content', 'constructionn_pro_cpt_wrapper_end', 20 );
+add_action( 'constructionn_end_cpt_content', 'constructionn_cpt_wrapper_end', 20 );
 
-if ( ! function_exists( 'constructionn_pro_team_wrapper_start' ) ) {
+if ( ! function_exists( 'constructionn_team_wrapper_start' ) ) {
 	/**
 	 * Content Wrapper
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_team_wrapper_start() {
+	function constructionn_team_wrapper_start() {
 
 		?>
 		<main class="content-area site-main" id="main">
 		<?php
 	}
 }
-add_action( 'constructionn_pro_before_team_content', 'constructionn_pro_team_wrapper_start', 10 );
+add_action( 'constructionn_before_team_content', 'constructionn_team_wrapper_start', 10 );
 
-if ( ! function_exists( 'constructionn_pro_team_wrapper_end' ) ) {
+if ( ! function_exists( 'constructionn_team_wrapper_end' ) ) {
 	/**
 	 * Content Wrapper
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_team_wrapper_end() {
+	function constructionn_team_wrapper_end() {
 
 		?>
 			</main>
 		<?php
 	}
 }
-add_action( 'constructionn_pro_end_team_content', 'constructionn_pro_team_wrapper_end', 10 );
+add_action( 'constructionn_end_team_content', 'constructionn_team_wrapper_end', 10 );
 
 
-if ( ! function_exists( 'constructionn_pro_footer_back_to_top' ) ) {
+if ( ! function_exists( 'constructionn_footer_back_to_top' ) ) {
 	/**
 	 * Footer Start
 	 */
-	function constructionn_pro_footer_back_to_top() {
+	function constructionn_footer_back_to_top() {
 		$toggle_scroll = get_theme_mod( 'scroll_button_display_setting', true );
-		$scroll_text   = get_theme_mod( 'scroll_text', __( 'Back to top', 'constructionn-pro' ) );
+		$scroll_text   = get_theme_mod( 'scroll_text', __( 'Back to top', 'constructionn' ) );
 
 		if ( $toggle_scroll && $scroll_text ) {
 			?>
@@ -653,13 +653,13 @@ if ( ! function_exists( 'constructionn_pro_footer_back_to_top' ) ) {
 		}
 	}
 }
-add_action( 'constructionn_pro_footer', 'constructionn_pro_footer_back_to_top', 10 );
+add_action( 'constructionn_footer', 'constructionn_footer_back_to_top', 10 );
 
-if ( ! function_exists( 'constructionn_pro_footer_start' ) ) {
+if ( ! function_exists( 'constructionn_footer_start' ) ) {
 	/**
 	 * Footer Start
 	 */
-	function constructionn_pro_footer_start() {
+	function constructionn_footer_start() {
 		$footer_img               = get_theme_mod( 'footer_image' );
 		$footer_fallback_bg_color = get_theme_mod( 'footer_fallback_bg_color', '#0F5299' );
 		$background_style         = $footer_fallback_bg_color;
@@ -675,15 +675,15 @@ if ( ! function_exists( 'constructionn_pro_footer_start' ) ) {
 		<?php
 	}
 }
-add_action( 'constructionn_pro_footer', 'constructionn_pro_footer_start', 20 );
+add_action( 'constructionn_footer', 'constructionn_footer_start', 20 );
 
-if ( ! function_exists( 'constructionn_pro_footer_top' ) ) {
+if ( ! function_exists( 'constructionn_footer_top' ) ) {
 	/**
 	 * Footer Middle Widgets Four
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_footer_top() {
+	function constructionn_footer_top() {
 		$logo_url = get_theme_mod( 'footer_custom_logo', '' );
 		?>
 			<div class="footer-top">
@@ -700,20 +700,20 @@ if ( ! function_exists( 'constructionn_pro_footer_top' ) ) {
 							</div>
 						</div>
 					</section>
-				<?php } constructionn_pro_social_media_repeater( 'socials_media_repeater', 'footer-section' ); ?>
+				<?php } constructionn_social_media_repeater( 'socials_media_repeater', 'footer-section' ); ?>
 			</div>
 		<?php
 	}
 }
-add_action( 'constructionn_pro_footer', 'constructionn_pro_footer_top', 30 );
+add_action( 'constructionn_footer', 'constructionn_footer_top', 30 );
 
-if ( ! function_exists( 'constructionn_pro_footer_main' ) ) {
+if ( ! function_exists( 'constructionn_footer_main' ) ) {
 	/**
 	 * Footer Middle Widgets Section
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_footer_main() {
+	function constructionn_footer_main() {
 		$footers_one  = 'footer-one';
 		$footer_two   = 'footer-two';
 		$footer_three = 'footer-three';
@@ -741,9 +741,9 @@ if ( ! function_exists( 'constructionn_pro_footer_main' ) ) {
 		}
 	}
 }
-add_action( 'constructionn_pro_footer', 'constructionn_pro_footer_main', 40 );
+add_action( 'constructionn_footer', 'constructionn_footer_main', 40 );
 
-if ( ! function_exists( 'constructionn_pro_footer_bottom' ) ) {
+if ( ! function_exists( 'constructionn_footer_bottom' ) ) {
 	/**
 	 * Footer Bottom has footer left and right
 	 * -Left: Calling functions footer_copyright, toggle_author_link and toggle_wp_link
@@ -751,7 +751,7 @@ if ( ! function_exists( 'constructionn_pro_footer_bottom' ) ) {
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_footer_bottom() {
+	function constructionn_footer_bottom() {
 		$toggle_footer_copyright = get_theme_mod( 'toggle_footer_copyright', true );
 		$logo_repeater           = get_theme_mod( 'footer_logos_slider_custom', array() );
 		?>
@@ -759,7 +759,7 @@ if ( ! function_exists( 'constructionn_pro_footer_bottom' ) ) {
 			<div class="container">
 				<div class="footer-bottom-menu-wrapper">
 					<?php
-					constructionn_pro_footer_navigation();
+					constructionn_footer_navigation();
 					if ( $logo_repeater ) {
 						?>
 						<div class="footer-logo">
@@ -783,7 +783,7 @@ if ( ! function_exists( 'constructionn_pro_footer_bottom' ) ) {
 				</div>
 				<?php
 				if ( $toggle_footer_copyright ) {
-					constructionn_pro_footer_copyright();
+					constructionn_footer_copyright();
 				}
 				?>
 			</div>
@@ -791,40 +791,40 @@ if ( ! function_exists( 'constructionn_pro_footer_bottom' ) ) {
 		<?php
 	}
 }
-add_action( 'constructionn_pro_footer', 'constructionn_pro_footer_bottom', 50 );
+add_action( 'constructionn_footer', 'constructionn_footer_bottom', 50 );
 
-if ( ! function_exists( 'constructionn_pro_footer_end' ) ) {
+if ( ! function_exists( 'constructionn_footer_end' ) ) {
 	/**
 	 * Footer end
 	 */
-	function constructionn_pro_footer_end() {
+	function constructionn_footer_end() {
 		?>
 			</div>
 		</footer>
 		<?php
 	}
 }
-add_action( 'constructionn_pro_footer', 'constructionn_pro_footer_end', 60 );
+add_action( 'constructionn_footer', 'constructionn_footer_end', 60 );
 
-if ( ! function_exists( 'constructionn_pro_page_end' ) ) {
+if ( ! function_exists( 'constructionn_page_end' ) ) {
 	/**
 	 * Page End
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_page_end() {
+	function constructionn_page_end() {
 		?>
 		</div><!-- #page -->
 		<?php
 	}
 }
-add_action( 'constructionn_pro_after_footer', 'constructionn_pro_page_end', 10 );
+add_action( 'constructionn_after_footer', 'constructionn_page_end', 10 );
 
-if ( ! function_exists( 'constructionn_pro_posted_on' ) ) :
+if ( ! function_exists( 'constructionn_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	function constructionn_pro_posted_on() {
+	function constructionn_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%3$s" itemprop="dateModified">%4$s</time>';
 
 		$time_string = sprintf(
@@ -841,18 +841,18 @@ if ( ! function_exists( 'constructionn_pro_posted_on' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'constructionn_pro_posted_by' ) ) :
+if ( ! function_exists( 'constructionn_posted_by' ) ) :
 	/**
 	 * Prints HTML with meta information for the current author.
 	 */
-	function constructionn_pro_posted_by() {
+	function constructionn_posted_by() {
 		$ed_posted_author = get_theme_mod( 'ed_single_posted_author', true );
 
 		if ( $ed_posted_author ) {
 			echo '<span class="author-details">';
 				$byline = sprintf(
 					/* translators: %s: post author. */
-					esc_html_x( 'AUTHOR %s', 'post author', 'constructionn-pro' ),
+					esc_html_x( 'AUTHOR %s', 'post author', 'constructionn' ),
 					'<span><a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '"><strong>' . esc_html( get_the_author() ) . '</strong></a></span>'
 				);
 				echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -861,11 +861,11 @@ if ( ! function_exists( 'constructionn_pro_posted_by' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'constructionn_pro_category' ) ) :
+if ( ! function_exists( 'constructionn_category' ) ) :
 	/**
 	 * Show categories
 	 */
-	function constructionn_pro_category() {
+	function constructionn_category() {
 		$categories = get_the_category( get_the_ID() );
 		if ( ! empty( $categories ) ) {
 			?>
@@ -895,7 +895,7 @@ if ( ! function_exists( 'constructionn_post_footer_meta' ) ) :
 				<section class="widget widget_block">
 					<div class="wp-block-group">
 						<div class="wp-block-group__inner-container">
-							<?php constructionn_pro_tags(); ?>
+							<?php constructionn_tags(); ?>
 						</div>
 					</div>
 				</section>
@@ -904,16 +904,16 @@ if ( ! function_exists( 'constructionn_post_footer_meta' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'constructionn_pro_header_contact_info' ) ) {
+if ( ! function_exists( 'constructionn_header_contact_info' ) ) {
 	/**
 	 * Header Information i.e email, email title, phone, location, location title
 	 */
-	function constructionn_pro_header_contact_info( $sec_name ) {
-		$email          = get_theme_mod( 'email', __( 'info@gl-konstruction.com', 'constructionn-pro' ) );
-		$email_title    = get_theme_mod( 'header_email_title', __( 'Mail Us:', 'constructionn-pro' ) );
-		$phone          = get_theme_mod( 'phone_number', __( '+1-800-111-2222', 'constructionn-pro' ) );
-		$location       = get_theme_mod( 'header_location', __( 'Hamburg,Germany', 'constructionn-pro' ) );
-		$location_title = get_theme_mod( 'header_location_title', __( 'Location:', 'constructionn-pro' ) );
+	function constructionn_header_contact_info( $sec_name ) {
+		$email          = get_theme_mod( 'email', __( 'info@gl-konstruction.com', 'constructionn' ) );
+		$email_title    = get_theme_mod( 'header_email_title', __( 'Mail Us:', 'constructionn' ) );
+		$phone          = get_theme_mod( 'phone_number', __( '+1-800-111-2222', 'constructionn' ) );
+		$location       = get_theme_mod( 'header_location', __( 'Hamburg,Germany', 'constructionn' ) );
+		$location_title = get_theme_mod( 'header_location_title', __( 'Location:', 'constructionn' ) );
 
 		if ( ( $email && $email_title ) || $phone || ( $location && $location_title ) ) {
 			?>
@@ -943,11 +943,11 @@ if ( ! function_exists( 'constructionn_pro_header_contact_info' ) ) {
 	}
 }
 
-if ( ! function_exists( 'constructionn_pro_history_section' ) ) {
+if ( ! function_exists( 'constructionn_history_section' ) ) {
 	/**
 	 * History Section
 	 */
-	function constructionn_pro_history_section( $sec_name, $headings, $history_descs, $btns_text, $btns_link, $front_history_repeater ) {
+	function constructionn_history_section( $sec_name, $headings, $history_descs, $btns_text, $btns_link, $front_history_repeater ) {
 		if ( $headings || $history_descs || ( $btns_text && $btns_link ) || $front_history_repeater ) {
 			?>
 			<section class="history-section <?php echo esc_attr( $sec_name ); ?>" id="<?php echo esc_attr( $sec_name ); ?>">
@@ -984,7 +984,7 @@ if ( ! function_exists( 'constructionn_pro_history_section' ) ) {
 									if ( $history_id ) {
 										?>
 										<div class="history">
-											<?php constructionn_pro_get_front_history( $history_id ); ?>
+											<?php constructionn_get_front_history( $history_id ); ?>
 										</div>
 										<?php
 									}
@@ -1001,11 +1001,11 @@ if ( ! function_exists( 'constructionn_pro_history_section' ) ) {
 
 
 
-if ( ! function_exists( 'constructionn_pro_service_section' ) ) {
+if ( ! function_exists( 'constructionn_service_section' ) ) {
 	/**
 	 * Services Section
 	 */
-	function constructionn_pro_service_section( $sec_name, $service_headings, $service_btn_txt, $service_image, $front_serv_repeater ) {
+	function constructionn_service_section( $sec_name, $service_headings, $service_btn_txt, $service_image, $front_serv_repeater ) {
 		$service_image_id = attachment_url_to_postid( $service_image );
 		if ( $service_headings || $service_image || $front_serv_repeater ) {
 			?>
@@ -1026,7 +1026,7 @@ if ( ! function_exists( 'constructionn_pro_service_section' ) ) {
 									foreach ( $front_serv_repeater as $repeater ) {
 										$service_ids = ( ! empty( $repeater['service'] ) && isset( $repeater['service'] ) ) ? $repeater['service'] : '';
 										if ( $service_ids ) {
-											constructionn_pro_get_front_services_details( $service_btn_txt, $service_ids );
+											constructionn_get_front_services_details( $service_btn_txt, $service_ids );
 										}
 									}
 									?>
@@ -1052,11 +1052,11 @@ if ( ! function_exists( 'constructionn_pro_service_section' ) ) {
 	}
 }
 
-if ( ! function_exists( 'constructionn_pro_project_section' ) ) {
+if ( ! function_exists( 'constructionn_project_section' ) ) {
 	/**
 	 * Project Section
 	 */
-	function constructionn_pro_project_section( $sec_name, $proj_headings, $proj_descs, $proj_btn_txt, $proj_btn_link, $proj_btn_next_txt, $proj_btn_prev_txt, $front_proj_repeater ) {
+	function constructionn_project_section( $sec_name, $proj_headings, $proj_descs, $proj_btn_txt, $proj_btn_link, $proj_btn_next_txt, $proj_btn_prev_txt, $front_proj_repeater ) {
 		if ( $proj_headings || $proj_descs || ( $proj_btn_txt && $proj_btn_link ) || $proj_btn_next_txt || $proj_btn_prev_txt || $front_proj_repeater ) {
 			?>
 			<div id="<?php echo esc_attr( $sec_name ); ?>" class="projects-section bg-gray <?php echo esc_attr( $sec_name ); ?>">
@@ -1086,7 +1086,7 @@ if ( ! function_exists( 'constructionn_pro_project_section' ) ) {
 									<?php
 									foreach ( $front_proj_repeater as $repeater ) {
 										$project_id = ( ! empty( $repeater['project'] ) && isset( $repeater['project'] ) ) ? $repeater['project'] : '';
-										constructionn_pro_get_front_project( $project_id );
+										constructionn_get_front_project( $project_id );
 									}
 									?>
 																	</div>
@@ -1109,7 +1109,7 @@ if ( ! function_exists( 'constructionn_pro_project_section' ) ) {
 	}
 }
 
-if ( ! function_exists( 'constructionn_pro_faq_section' ) ) :
+if ( ! function_exists( 'constructionn_faq_section' ) ) :
 	/**
 	 * FAQ Section or Archive
 	 *
@@ -1118,7 +1118,7 @@ if ( ! function_exists( 'constructionn_pro_faq_section' ) ) :
 	 * @param array  $front_faq_repeater
 	 * @param bool   $show_all_faqs  Indicates if all FAQs should be fetched
 	 */
-	function constructionn_pro_faq_section( $sec_name, $faq_headings, $front_faq_repeater, $show_all_faqs = false ) {
+	function constructionn_faq_section( $sec_name, $faq_headings, $front_faq_repeater, $show_all_faqs = false ) {
 		if ( $faq_headings ) {
 			?>
 			<div id="<?php echo esc_html( $sec_name ); ?>" class="faqs-section bg-gray <?php echo esc_html( $sec_name ); ?>">
@@ -1228,13 +1228,13 @@ if ( ! function_exists( 'constructionn_pro_faq_section' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'constructionn_pro_team_section' ) ) :
+if ( ! function_exists( 'constructionn_team_section' ) ) :
 	/**
 	 * Team Section
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_team_section( $sec_name, $front_team_headings, $frontteam_btn_next_txt, $frontteam_btn_prev_txt, $front_team_repeater ) {
+	function constructionn_team_section( $sec_name, $front_team_headings, $frontteam_btn_next_txt, $frontteam_btn_prev_txt, $front_team_repeater ) {
 		if ( $front_team_headings || $frontteam_btn_next_txt || $frontteam_btn_prev_txt || $front_team_repeater ) {
 			?>
 			<div id="<?php echo esc_attr( $sec_name ); ?>" class="teams-section <?php echo esc_attr( $sec_name ); ?>">
@@ -1249,7 +1249,7 @@ if ( ! function_exists( 'constructionn_pro_team_section' ) ) :
 									<?php
 									foreach ( $front_team_repeater as $repeater ) {
 										$team_id = ( ! empty( $repeater['team'] ) && isset( $repeater['team'] ) ) ? $repeater['team'] : '';
-										constructionn_pro_get_team( $team_id );
+										constructionn_get_team( $team_id );
 									}
 									?>
 																	</div>
@@ -1271,13 +1271,13 @@ if ( ! function_exists( 'constructionn_pro_team_section' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'constructionn_pro_cta_section' ) ) :
+if ( ! function_exists( 'constructionn_cta_section' ) ) :
 	/**
 	 * Cta Section
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_cta_section( $sec_name, $bg_img, $f_cta_heading, $f_cta_descs, $contact_num ) {
+	function constructionn_cta_section( $sec_name, $bg_img, $f_cta_heading, $f_cta_descs, $contact_num ) {
 		$fallback_bg_color = get_theme_mod( 'fallback_bg_color', '#003262' );
 		$background_style  = $fallback_bg_color;
 		// background image
@@ -1306,7 +1306,7 @@ if ( ! function_exists( 'constructionn_pro_cta_section' ) ) :
 							<?php } if ( $contact_num ) { ?>
 								<a href="<?php echo esc_url( 'tel:' . preg_replace( '/[^\d+]/', '', $contact_num ) ); ?>">
 									<span class="icon">
-										<?php echo wp_kses( constructionn_pro_handle_all_svgs( 'contact-cta' ), constructionn_pro_get_kses_extended_ruleset() ); ?>
+										<?php echo wp_kses( constructionn_handle_all_svgs( 'contact-cta' ), constructionn_get_kses_extended_ruleset() ); ?>
 									</span>
 									<span><?php echo esc_html( $contact_num ); ?></span>
 								</a>
@@ -1324,13 +1324,13 @@ if ( ! function_exists( 'constructionn_pro_cta_section' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'constructionn_pro_related_history' ) ) :
+if ( ! function_exists( 'constructionn_related_history' ) ) :
 	/**
 	 * Related Posts for history
 	 */
-	function constructionn_pro_related_history( $post_id ) {
+	function constructionn_related_history( $post_id ) {
 		$toggle_related_posts = get_theme_mod( 'toggle_rel_history_post', true );
-		$titles               = get_theme_mod( 'related_post_headings', __( 'Related Posts', 'constructionn-pro' ) );
+		$titles               = get_theme_mod( 'related_post_headings', __( 'Related Posts', 'constructionn' ) );
 		$toggle_excerpts      = get_theme_mod( 'toggle_rel_post_excerpt', true );
 		$excerpt_lengths      = get_theme_mod( 'posts_excerpt_length', '15' );
 
@@ -1406,7 +1406,7 @@ if ( ! function_exists( 'constructionn_pro_related_history' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'constructionn_pro_case_study' ) ) :
+if ( ! function_exists( 'constructionn_case_study' ) ) :
 	/**
 	 * Case study section function
 	 *
@@ -1415,7 +1415,7 @@ if ( ! function_exists( 'constructionn_pro_case_study' ) ) :
 	 * @param [string] $cs_btn_txt
 	 * @return void
 	 */
-	function constructionn_pro_case_study( $sec_name, $casestd_heading, $cs_btn_txt, $casestd_repeater_posts ) {
+	function constructionn_case_study( $sec_name, $casestd_heading, $cs_btn_txt, $casestd_repeater_posts ) {
 		if ( $casestd_heading || $casestd_repeater_posts ) {
 			?>
 			<div id="<?php echo esc_attr( $sec_name ); ?>" class="case_studies-section <?php echo esc_attr( $sec_name ); ?>">
@@ -1439,7 +1439,7 @@ if ( ! function_exists( 'constructionn_pro_case_study' ) ) :
 
 			if ( $case_study_ids ) {
 				// Get the case study posts and display them
-				constructionn_pro_get_case_study_post( $cs_btn_txt, $case_study_ids );
+				constructionn_get_case_study_post( $cs_btn_txt, $case_study_ids );
 			}
 			?>
 				</div>

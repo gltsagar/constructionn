@@ -1,16 +1,16 @@
 <?php
-if ( ! function_exists( 'constructionn_pro_customize_register_aboutsort' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_aboutsort' ) ) :
 		/**
 		 * About us Sortable function
 		 *
 		 * @param [type] $wp_customize
 		 * @return void
 		 */
-	function constructionn_pro_customize_register_aboutsort( $wp_customize ) {
+	function constructionn_customize_register_aboutsort( $wp_customize ) {
 		$wp_customize->add_section(
 			'sort_aboutpg',
 			array(
-				'title'    => esc_html__( 'Sort Sections', 'constructionn-pro' ),
+				'title'    => esc_html__( 'Sort Sections', 'constructionn' ),
 				'priority' => 110,
 				'panel'    => 'about_page_settings',
 			)
@@ -25,7 +25,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_aboutsort' ) ) :
 				'team',
 				'project',
 				'workingstep',
-				'sanitize_callback' => 'constructionn_pro_sortable_sanitization',
+				'sanitize_callback' => 'constructionn_sortable_sanitization',
 			)
 		);
 
@@ -34,20 +34,20 @@ if ( ! function_exists( 'constructionn_pro_customize_register_aboutsort' ) ) :
 				$wp_customize,
 				'sort_about_sections',
 				array(
-					'label'       => __( 'Sort About Page', 'constructionn-pro' ),
+					'label'       => __( 'Sort About Page', 'constructionn' ),
 					'section'     => 'sort_aboutpg',
 					'input_attrs' => array(
 						'sortable'  => true,
 						'fullwidth' => true,
 					),
 					'choices'     => array(
-						'about'       => __( 'About Us', 'constructionn-pro' ),
-						'case-study'  => __( 'Case Study', 'constructionn-pro' ),
-						'cta'         => __( 'Cta', 'constructionn-pro' ),
-						'counter'     => __( 'Counter', 'constructionn-pro' ),
-						'team'        => __( 'Team', 'constructionn-pro' ),
-						'project'     => __( 'Project', 'constructionn-pro' ),
-						'workingstep' => __( 'Workingstep', 'constructionn-pro' ),
+						'about'       => __( 'About Us', 'constructionn' ),
+						'case-study'  => __( 'Case Study', 'constructionn' ),
+						'cta'         => __( 'Cta', 'constructionn' ),
+						'counter'     => __( 'Counter', 'constructionn' ),
+						'team'        => __( 'Team', 'constructionn' ),
+						'project'     => __( 'Project', 'constructionn' ),
+						'workingstep' => __( 'Workingstep', 'constructionn' ),
 
 					),
 				)
@@ -55,4 +55,4 @@ if ( ! function_exists( 'constructionn_pro_customize_register_aboutsort' ) ) :
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_aboutsort' );
+add_action( 'customize_register', 'constructionn_customize_register_aboutsort' );

@@ -1,18 +1,18 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_scrolltotop' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_scrolltotop' ) ) :
 	/**
 	 * Scroll Button
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_scrolltotop( $wp_customize ) {
+	function constructionn_customize_register_scrolltotop( $wp_customize ) {
 
 		$wp_customize->add_section(
 			'scroll_button_section',
 			array(
-				'title'    => esc_html__( 'Scroll Settings', 'constructionn-pro' ),
+				'title'    => esc_html__( 'Scroll Settings', 'constructionn' ),
 				'panel'    => 'general_settings_panel',
 				'priority' => 100,
 			)
@@ -23,7 +23,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_scrolltotop' ) ) :
 			'scroll_button_display_setting',
 			array(
 				'default'           => true,
-				'sanitize_callback' => 'constructionn_pro_sanitize_checkbox',
+				'sanitize_callback' => 'constructionn_sanitize_checkbox',
 			)
 		);
 
@@ -32,8 +32,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_scrolltotop' ) ) :
 				$wp_customize,
 				'scroll_button_display_setting',
 				array(
-					'label'       => esc_html__( 'Show/Hide Scroll To Top Button', 'constructionn-pro' ),
-					'description' => esc_html__( 'Enable to show Scroll Button', 'constructionn-pro' ),
+					'label'       => esc_html__( 'Show/Hide Scroll To Top Button', 'constructionn' ),
+					'description' => esc_html__( 'Enable to show Scroll Button', 'constructionn' ),
 					'section'     => 'scroll_button_section',
 					'type'        => 'checkbox',
 				)
@@ -44,7 +44,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_scrolltotop' ) ) :
 		$wp_customize->add_setting(
 			'scroll_text',
 			array(
-				'default'           => __( 'Back to top', 'constructionn-pro' ),
+				'default'           => __( 'Back to top', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -53,11 +53,11 @@ if ( ! function_exists( 'constructionn_pro_customize_register_scrolltotop' ) ) :
 		$wp_customize->add_control(
 			'scroll_text',
 			array(
-				'label'   => __( 'Heading', 'constructionn-pro' ),
+				'label'   => __( 'Heading', 'constructionn' ),
 				'section' => 'scroll_button_section',
 				'type'    => 'text',
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_scrolltotop' );
+add_action( 'customize_register', 'constructionn_customize_register_scrolltotop' );

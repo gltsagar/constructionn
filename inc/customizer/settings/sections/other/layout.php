@@ -1,17 +1,17 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_layout_settings' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_layout_settings' ) ) :
 	/**
 	 * Layout Settings
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_layout_settings( $wp_customize ) {
+	function constructionn_customize_register_layout_settings( $wp_customize ) {
 		$wp_customize->add_section(
 			'layout_settings',
 			array(
-				'title'    => __( 'Layout Settings', 'constructionn-pro' ),
+				'title'    => __( 'Layout Settings', 'constructionn' ),
 				'priority' => 60,
 				'panel'    => 'general_settings_panel',
 			)
@@ -21,7 +21,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_layout_settings' )
 			'single_page_layouts',
 			array(
 				'default'           => 'layout-two',
-				'sanitize_callback' => 'constructionn_pro_radio_sanitization_header',
+				'sanitize_callback' => 'constructionn_radio_sanitization_header',
 			)
 		);
 
@@ -30,21 +30,21 @@ if ( ! function_exists( 'constructionn_pro_customize_register_layout_settings' )
 				$wp_customize,
 				'single_page_layouts',
 				array(
-					'label'   => __( 'Page Layouts', 'constructionn-pro' ),
+					'label'   => __( 'Page Layouts', 'constructionn' ),
 					'row'     => '2',
 					'section' => 'layout_settings',
 					'choices' => array(
 						'layout-two'    => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/sidebar/full-width.jpg',
-							'name'  => __( 'Full Width', 'constructionn-pro' ),
+							'name'  => __( 'Full Width', 'constructionn' ),
 						),
 						'gl-right-wrap' => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/sidebar/right.jpg',
-							'name'  => __( 'Right Sidebar', 'constructionn-pro' ),
+							'name'  => __( 'Right Sidebar', 'constructionn' ),
 						),
 						'gl-left-wrap'  => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/sidebar/left.jpg',
-							'name'  => __( 'Left Sidebar', 'constructionn-pro' ),
+							'name'  => __( 'Left Sidebar', 'constructionn' ),
 						),
 					),
 				)
@@ -55,7 +55,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_layout_settings' )
 			'single_post_layouts',
 			array(
 				'default'           => 'layout-two',
-				'sanitize_callback' => 'constructionn_pro_radio_sanitization_header',
+				'sanitize_callback' => 'constructionn_radio_sanitization_header',
 			)
 		);
 
@@ -64,21 +64,21 @@ if ( ! function_exists( 'constructionn_pro_customize_register_layout_settings' )
 				$wp_customize,
 				'single_post_layouts',
 				array(
-					'label'   => __( 'Post Layouts', 'constructionn-pro' ),
+					'label'   => __( 'Post Layouts', 'constructionn' ),
 					'row'     => '2',
 					'section' => 'layout_settings',
 					'choices' => array(
 						'layout-two'    => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/sidebar/full-width.jpg',
-							'name'  => __( 'Full Width', 'constructionn-pro' ),
+							'name'  => __( 'Full Width', 'constructionn' ),
 						),
 						'gl-right-wrap' => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/sidebar/right.jpg',
-							'name'  => __( 'Right Sidebar', 'constructionn-pro' ),
+							'name'  => __( 'Right Sidebar', 'constructionn' ),
 						),
 						'gl-left-wrap'  => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/sidebar/left.jpg',
-							'name'  => __( 'Left Sidebar', 'constructionn-pro' ),
+							'name'  => __( 'Left Sidebar', 'constructionn' ),
 						),
 					),
 				)
@@ -89,7 +89,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_layout_settings' )
 			'archive_page_layouts',
 			array(
 				'default'           => 'layout-two',
-				'sanitize_callback' => 'constructionn_pro_radio_sanitization_header',
+				'sanitize_callback' => 'constructionn_radio_sanitization_header',
 			)
 		);
 
@@ -98,21 +98,21 @@ if ( ! function_exists( 'constructionn_pro_customize_register_layout_settings' )
 				$wp_customize,
 				'archive_page_layouts',
 				array(
-					'label'   => __( 'Archive & Search Layouts', 'constructionn-pro' ),
+					'label'   => __( 'Archive & Search Layouts', 'constructionn' ),
 					'row'     => '2',
 					'section' => 'layout_settings',
 					'choices' => array(
 						'layout-two'    => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/sidebar/full-width.jpg',
-							'name'  => __( 'Full Width', 'constructionn-pro' ),
+							'name'  => __( 'Full Width', 'constructionn' ),
 						),
 						'gl-right-wrap' => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/sidebar/right.jpg',
-							'name'  => __( 'Right Sidebar', 'constructionn-pro' ),
+							'name'  => __( 'Right Sidebar', 'constructionn' ),
 						),
 						'gl-left-wrap'  => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/sidebar/left.jpg',
-							'name'  => __( 'Left Sidebar', 'constructionn-pro' ),
+							'name'  => __( 'Left Sidebar', 'constructionn' ),
 						),
 					),
 				)
@@ -120,4 +120,4 @@ if ( ! function_exists( 'constructionn_pro_customize_register_layout_settings' )
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_layout_settings' );
+add_action( 'customize_register', 'constructionn_customize_register_layout_settings' );

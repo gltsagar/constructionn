@@ -77,7 +77,7 @@ module.exports = function ( grunt ) {
 				target: {
 					options: {
 						domainPath: '/',
-						potFilename: 'languages/constructionn-pro.pot',
+						potFilename: 'languages/constructionn.pot',
 						potHeaders: {
 							poedit: true,
 							'x-poedit-keywordslist': true
@@ -89,7 +89,7 @@ module.exports = function ( grunt ) {
 			},
 			addtextdomain: {
 				options: {
-					textdomain: 'constructionn-pro',
+					textdomain: 'constructionn',
 					updateDomains: true,  // List of text domains to replace.
 				},
 				target: {
@@ -117,26 +117,26 @@ module.exports = function ( grunt ) {
 					'!src/**',
 					'!assets/sass/**'
 					],
-					dest: 'constructionn-pro/'
+					dest: 'constructionn/'
 				}
 			},
 			compress: {
 				main: {
 					options: {
-						archive: 'constructionn-pro_' + pkgInfo.version + '.zip',
+						archive: 'constructionn_' + pkgInfo.version + '.zip',
 						mode: 'zip'
 					},
 					files: [
 					{
 						src: [
-							'./constructionn-pro/**'
+							'./constructionn/**'
 						]
 					}
 					]
 				}
 			},
 			clean: {
-				main: ["constructionn-pro"],
+				main: ["constructionn"],
 				zip: ["*.zip"]
 			},
 			bumpup: {

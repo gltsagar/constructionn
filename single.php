@@ -4,16 +4,16 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 get_header();
 
 	/**
 	 * Before Posts hook
 	 *
-	 * @hooked constructionn_pro_content_wrapper_start - 10
+	 * @hooked constructionn_content_wrapper_start - 10
 	*/
-	do_action( 'constructionn_pro_before_posts_content' );
+	do_action( 'constructionn_before_posts_content' );
 
 while ( have_posts() ) :
 	the_post();
@@ -25,9 +25,9 @@ while ( have_posts() ) :
 	/**
 	 * After Posts hook
 	 *
-	 * @hooked constructionn_pro_single_entry_footer_sections - 5
-	 * @hooked constructionn_pro_content_wrapper_end - 10
+	 * @hooked constructionn_single_entry_footer_sections - 5
+	 * @hooked constructionn_content_wrapper_end - 10
 	*/
-	do_action( 'constructionn_pro_after_posts_content' );
+	do_action( 'constructionn_after_posts_content' );
 
 get_footer();

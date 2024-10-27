@@ -1,15 +1,15 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_footer' ) ) {
+if ( ! function_exists( 'constructionn_customize_register_footer' ) ) {
 	/**
 	 * Footer Copyright settings cutomizers section
 	 */
-	function constructionn_pro_customize_register_footer( $wp_customize ) {
+	function constructionn_customize_register_footer( $wp_customize ) {
 
 		$wp_customize->add_section(
 			'footer_section',
 			array(
-				'title'    => esc_html__( 'Copyright Section', 'constructionn-pro' ),
+				'title'    => esc_html__( 'Copyright Section', 'constructionn' ),
 				'priority' => 20,
 				'panel'    => 'footer_settings',
 			)
@@ -20,7 +20,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_footer' ) ) {
 			'toggle_footer_copyright',
 			array(
 				'default'           => true,
-				'sanitize_callback' => 'constructionn_pro_sanitize_checkbox',
+				'sanitize_callback' => 'constructionn_sanitize_checkbox',
 			)
 		);
 
@@ -29,8 +29,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_footer' ) ) {
 				$wp_customize,
 				'toggle_footer_copyright',
 				array(
-					'label'       => esc_html__( 'Enable Copyright Section', 'constructionn-pro' ),
-					'description' => esc_html__( 'Enable to show copyright section', 'constructionn-pro' ),
+					'label'       => esc_html__( 'Enable Copyright Section', 'constructionn' ),
+					'description' => esc_html__( 'Enable to show copyright section', 'constructionn' ),
 					'section'     => 'footer_section',
 					'type'        => 'checkbox',
 				)
@@ -61,11 +61,11 @@ if ( ! function_exists( 'constructionn_pro_customize_register_footer' ) ) {
 		$wp_customize->add_control(
 			'footer_copyright_setting',
 			array(
-				'label'           => esc_html__( 'Footer Copyright Text', 'constructionn-pro' ),
-				'description'     => esc_html__( 'Write your copyright text here.', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Footer Copyright Text', 'constructionn' ),
+				'description'     => esc_html__( 'Write your copyright text here.', 'constructionn' ),
 				'section'         => 'footer_section',
 				'type'            => 'textarea',
-				'active_callback' => 'constructionn_pro_footer_copyright_active_callback',
+				'active_callback' => 'constructionn_footer_copyright_active_callback',
 			)
 		);
 
@@ -74,7 +74,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_footer' ) ) {
 			'toggle_author_link',
 			array(
 				'default'           => true,
-				'sanitize_callback' => 'constructionn_pro_sanitize_checkbox',
+				'sanitize_callback' => 'constructionn_sanitize_checkbox',
 			)
 		);
 
@@ -83,10 +83,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_footer' ) ) {
 				$wp_customize,
 				'toggle_author_link',
 				array(
-					'label'           => esc_html__( 'Show Author Link', 'constructionn-pro' ),
+					'label'           => esc_html__( 'Show Author Link', 'constructionn' ),
 					'section'         => 'footer_section',
 					'type'            => 'checkbox',
-					'active_callback' => 'constructionn_pro_footer_copyright_active_callback',
+					'active_callback' => 'constructionn_footer_copyright_active_callback',
 				)
 			)
 		);
@@ -95,7 +95,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_footer' ) ) {
 			'toggle_wp_link',
 			array(
 				'default'           => true,
-				'sanitize_callback' => 'constructionn_pro_sanitize_checkbox',
+				'sanitize_callback' => 'constructionn_sanitize_checkbox',
 			)
 		);
 
@@ -104,18 +104,18 @@ if ( ! function_exists( 'constructionn_pro_customize_register_footer' ) ) {
 				$wp_customize,
 				'toggle_wp_link',
 				array(
-					'label'           => esc_html__( 'Show WordPrerss Link', 'constructionn-pro' ),
+					'label'           => esc_html__( 'Show WordPrerss Link', 'constructionn' ),
 					'section'         => 'footer_section',
 					'type'            => 'checkbox',
-					'active_callback' => 'constructionn_pro_footer_copyright_active_callback',
+					'active_callback' => 'constructionn_footer_copyright_active_callback',
 				)
 			)
 		);
 	}
 }
-add_action( 'customize_register', 'constructionn_pro_customize_register_footer' );
+add_action( 'customize_register', 'constructionn_customize_register_footer' );
 
-function constructionn_pro_footer_copyright_active_callback( $control ) {
+function constructionn_footer_copyright_active_callback( $control ) {
 
 	$toggle_footer_copyright = $control->manager->get_setting( 'toggle_footer_copyright' )->value();
 

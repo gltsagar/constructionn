@@ -1,6 +1,6 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_frontbanner' ) ) :
 
 	/**
 	 * Frontbanner
@@ -8,12 +8,12 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_frontbanner( $wp_customize ) {
+	function constructionn_customize_register_frontbanner( $wp_customize ) {
 
 		$wp_customize->add_section(
 			'banner_section',
 			array(
-				'title'    => __( 'Banner Section', 'constructionn-pro' ),
+				'title'    => __( 'Banner Section', 'constructionn' ),
 				'priority' => 10,
 				'panel'    => 'frontpage_settings_panel',
 			)
@@ -24,7 +24,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 			'banner_layouts',
 			array(
 				'default'           => 'six',
-				'sanitize_callback' => 'constructionn_pro_radio_sanitization_header',
+				'sanitize_callback' => 'constructionn_radio_sanitization_header',
 			)
 		);
 
@@ -33,34 +33,34 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 				$wp_customize,
 				'banner_layouts',
 				array(
-					'label'           => __( 'Banner Layout Settings', 'constructionn-pro' ),
-					'description'     => __( 'Choose the layout of the banner for your site.', 'constructionn-pro' ),
+					'label'           => __( 'Banner Layout Settings', 'constructionn' ),
+					'description'     => __( 'Choose the layout of the banner for your site.', 'constructionn' ),
 					'row'             => '2',
 					'section'         => 'banner_section',
 					'priority'        => 5,
 					'choices'         => array(
 						'one'   => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/banner-one.jpg',
-							'name'  => __( 'Banner One', 'constructionn-pro' ),
+							'name'  => __( 'Banner One', 'constructionn' ),
 						),
 						'two'   => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/banner-two.jpg',
-							'name'  => __( 'Banner Two', 'constructionn-pro' ),
+							'name'  => __( 'Banner Two', 'constructionn' ),
 						),
 						'three' => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/banner-three.jpg',
-							'name'  => __( 'Banner Three', 'constructionn-pro' ),
+							'name'  => __( 'Banner Three', 'constructionn' ),
 						),
 						'four'  => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/banner-four.jpg',
-							'name'  => __( 'Banner Four', 'constructionn-pro' ),
+							'name'  => __( 'Banner Four', 'constructionn' ),
 						),
 						'five'  => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/banner-five.jpg',
-							'name'  => __( 'Banner Five', 'constructionn-pro' ),
+							'name'  => __( 'Banner Five', 'constructionn' ),
 						),
 					),
-					'active_callback' => 'constructionn_pro_frontbanner_active_callback',
+					'active_callback' => 'constructionn_frontbanner_active_callback',
 				)
 			)
 		);
@@ -69,9 +69,9 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		$wp_customize->get_control( 'header_video' )->section          = 'banner_section';
 		$wp_customize->get_control( 'external_header_video' )->section = 'banner_section';
 
-		$wp_customize->get_control( 'header_image' )->active_callback          = 'constructionn_pro_frontbanner_active_callback';
-		$wp_customize->get_control( 'header_video' )->active_callback          = 'constructionn_pro_frontbanner_active_callback';
-		$wp_customize->get_control( 'external_header_video' )->active_callback = 'constructionn_pro_frontbanner_active_callback';
+		$wp_customize->get_control( 'header_image' )->active_callback          = 'constructionn_frontbanner_active_callback';
+		$wp_customize->get_control( 'header_video' )->active_callback          = 'constructionn_frontbanner_active_callback';
+		$wp_customize->get_control( 'external_header_video' )->active_callback = 'constructionn_frontbanner_active_callback';
 
 		$wp_customize->get_control( 'header_image' )->priority          = 10;  // Set priority after banner_layouts
 		$wp_customize->get_control( 'header_video' )->priority          = 10;
@@ -80,51 +80,51 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		// Banner 1
 		/** Slider Banner */
 		$wp_customize->add_setting(
-			new Constructionn_Pro_Repeater_Setting(
+			new Constructionn_Repeater_Setting(
 				$wp_customize,
 				'front_banner_repeater',
 				array(
 					'default'           => array(),
-					'sanitize_callback' => array( 'Constructionn_Pro_Repeater_Setting', 'sanitize_repeater_setting' ),
+					'sanitize_callback' => array( 'Constructionn_Repeater_Setting', 'sanitize_repeater_setting' ),
 				)
 			)
 		);
 
 		$wp_customize->add_control(
-			new Constructionn_Pro_Control_Repeater(
+			new Constructionn_Control_Repeater(
 				$wp_customize,
 				'front_banner_repeater',
 				array(
 					'section'         => 'banner_section',
-					'label'           => __( 'Add Banner', 'constructionn-pro' ),
+					'label'           => __( 'Add Banner', 'constructionn' ),
 					'fields'          => array(
 						'banner-icon'    => array(
 							'type'  => 'image',
-							'label' => __( 'Add Image', 'constructionn-pro' ),
+							'label' => __( 'Add Image', 'constructionn' ),
 						),
 						'banner-heading' => array(
 							'type'  => 'textarea',
-							'label' => __( 'Heading', 'constructionn-pro' ),
+							'label' => __( 'Heading', 'constructionn' ),
 						),
 						'banner-desc'    => array(
 							'type'  => 'textarea',
-							'label' => __( 'Description', 'constructionn-pro' ),
+							'label' => __( 'Description', 'constructionn' ),
 						),
 						'btn-text'       => array(
 							'type'  => 'text',
-							'label' => __( 'Button Text', 'constructionn-pro' ),
+							'label' => __( 'Button Text', 'constructionn' ),
 						),
 						'btn-link'       => array(
 							'type'  => 'url',
-							'label' => __( 'Button Link', 'constructionn-pro' ),
+							'label' => __( 'Button Link', 'constructionn' ),
 						),
 					),
 					'row_label'       => array(
 						'type'  => 'field',
-						'value' => __( 'Banner', 'constructionn-pro' ),
+						'value' => __( 'Banner', 'constructionn' ),
 						'field' => 'title',
 					),
-					'active_callback' => 'constructionn_pro_frontbanner_active_callback',
+					'active_callback' => 'constructionn_frontbanner_active_callback',
 				)
 			)
 		);
@@ -132,60 +132,60 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		// Banner 2
 		/** Slider Banner */
 		$wp_customize->add_setting(
-			new Constructionn_Pro_Repeater_Setting(
+			new Constructionn_Repeater_Setting(
 				$wp_customize,
 				'front_banner_two_repeater',
 				array(
 					'default'           => array(),
-					'sanitize_callback' => array( 'Constructionn_Pro_Repeater_Setting', 'sanitize_repeater_setting' ),
+					'sanitize_callback' => array( 'Constructionn_Repeater_Setting', 'sanitize_repeater_setting' ),
 				)
 			)
 		);
 
 		$wp_customize->add_control(
-			new Constructionn_Pro_Control_Repeater(
+			new Constructionn_Control_Repeater(
 				$wp_customize,
 				'front_banner_two_repeater',
 				array(
 					'section'         => 'banner_section',
-					'label'           => __( 'Add Banner Two', 'constructionn-pro' ),
+					'label'           => __( 'Add Banner Two', 'constructionn' ),
 					'fields'          => array(
 						'banner-icon'       => array(
 							'type'  => 'image',
-							'label' => __( 'Add Image', 'constructionn-pro' ),
+							'label' => __( 'Add Image', 'constructionn' ),
 						),
 						'banner-heading'    => array(
 							'type'  => 'text',
-							'label' => __( 'Banner Heading', 'constructionn-pro' ),
+							'label' => __( 'Banner Heading', 'constructionn' ),
 						),
 						'banner-subheading' => array(
 							'type'  => 'text',
-							'label' => __( 'Banner Subheading', 'constructionn-pro' ),
+							'label' => __( 'Banner Subheading', 'constructionn' ),
 						),
 						'btn-text-one'      => array(
 							'type'  => 'text',
-							'label' => __( 'Button Text One', 'constructionn-pro' ),
+							'label' => __( 'Button Text One', 'constructionn' ),
 						),
 						'btn-link-one'      => array(
 							'type'  => 'url',
-							'label' => __( 'Button Link One', 'constructionn-pro' ),
+							'label' => __( 'Button Link One', 'constructionn' ),
 						),
 						'btn-text-two'      => array(
 							'type'  => 'text',
-							'label' => __( 'Button Text Two', 'constructionn-pro' ),
+							'label' => __( 'Button Text Two', 'constructionn' ),
 						),
 						'btn-link-two'      => array(
 							'type'  => 'text',
-							'label' => __( 'Button Link Two', 'constructionn-pro' ),
+							'label' => __( 'Button Link Two', 'constructionn' ),
 						),
 
 					),
 					'row_label'       => array(
 						'type'  => 'field',
-						'value' => __( 'Banner', 'constructionn-pro' ),
+						'value' => __( 'Banner', 'constructionn' ),
 						'field' => 'title',
 					),
-					'active_callback' => 'constructionn_pro_frontbanner_active_callback',
+					'active_callback' => 'constructionn_frontbanner_active_callback',
 				)
 			)
 		);
@@ -206,9 +206,9 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 				$wp_customize,
 				'banner_three_img',
 				array(
-					'description'     => esc_html__( 'Upload Image', 'constructionn-pro' ),
+					'description'     => esc_html__( 'Upload Image', 'constructionn' ),
 					'section'         => 'banner_section',
-					'active_callback' => 'constructionn_pro_frontbanner_active_callback',
+					'active_callback' => 'constructionn_frontbanner_active_callback',
 				)
 			)
 		);
@@ -217,7 +217,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		$wp_customize->add_setting(
 			'ban_three_subheading',
 			array(
-				'default'           => esc_html__( 'Architecture', 'constructionn-pro' ),
+				'default'           => esc_html__( 'Architecture', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -226,10 +226,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		$wp_customize->add_control(
 			'ban_three_subheading',
 			array(
-				'label'           => esc_html__( 'Sub Heading', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Sub Heading', 'constructionn' ),
 				'section'         => 'banner_section',
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_frontbanner_active_callback',
+				'active_callback' => 'constructionn_frontbanner_active_callback',
 			)
 		);
 
@@ -237,7 +237,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		$wp_customize->add_setting(
 			'ban_three_heading',
 			array(
-				'default'           => esc_html__( 'The Passion For Architecture Never Stops', 'constructionn-pro' ),
+				'default'           => esc_html__( 'The Passion For Architecture Never Stops', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -246,10 +246,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		$wp_customize->add_control(
 			'ban_three_heading',
 			array(
-				'label'           => esc_html__( 'Heading', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Heading', 'constructionn' ),
 				'section'         => 'banner_section',
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_frontbanner_active_callback',
+				'active_callback' => 'constructionn_frontbanner_active_callback',
 			)
 		);
 
@@ -257,7 +257,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		$wp_customize->add_setting(
 			'ban_three_descs',
 			array(
-				'default'           => esc_html__( 'Use of the  agile frameworks to give a high-level overviews and iterative corporate for a better strategy a solid synopsis.', 'constructionn-pro' ),
+				'default'           => esc_html__( 'Use of the  agile frameworks to give a high-level overviews and iterative corporate for a better strategy a solid synopsis.', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_textarea_field',
 			)
 		);
@@ -266,10 +266,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		$wp_customize->add_control(
 			'ban_three_descs',
 			array(
-				'label'           => esc_html__( 'Description', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Description', 'constructionn' ),
 				'section'         => 'banner_section',
 				'type'            => 'textarea',
-				'active_callback' => 'constructionn_pro_frontbanner_active_callback',
+				'active_callback' => 'constructionn_frontbanner_active_callback',
 			)
 		);
 
@@ -277,7 +277,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		$wp_customize->add_setting(
 			'b_three_btn_txt_one',
 			array(
-				'default'           => esc_html__( 'Learn More', 'constructionn-pro' ),
+				'default'           => esc_html__( 'Learn More', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -286,10 +286,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		$wp_customize->add_control(
 			'b_three_btn_txt_one',
 			array(
-				'label'           => esc_html__( 'Button Text One', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Button Text One', 'constructionn' ),
 				'section'         => 'banner_section',
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_frontbanner_active_callback',
+				'active_callback' => 'constructionn_frontbanner_active_callback',
 			)
 		);
 
@@ -306,10 +306,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		$wp_customize->add_control(
 			'b_three_btn_link_one',
 			array(
-				'label'           => esc_html__( 'Button Link One', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Button Link One', 'constructionn' ),
 				'section'         => 'banner_section',
 				'type'            => 'url',
-				'active_callback' => 'constructionn_pro_frontbanner_active_callback',
+				'active_callback' => 'constructionn_frontbanner_active_callback',
 			)
 		);
 
@@ -317,7 +317,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		$wp_customize->add_setting(
 			'b_three_btn_txt_two',
 			array(
-				'default'           => esc_html__( 'Learn More', 'constructionn-pro' ),
+				'default'           => esc_html__( 'Learn More', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -326,10 +326,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		$wp_customize->add_control(
 			'b_three_btn_txt_two',
 			array(
-				'label'           => esc_html__( 'Button Text Two', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Button Text Two', 'constructionn' ),
 				'section'         => 'banner_section',
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_frontbanner_active_callback',
+				'active_callback' => 'constructionn_frontbanner_active_callback',
 			)
 		);
 
@@ -346,10 +346,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		$wp_customize->add_control(
 			'b_three_btn_link_two',
 			array(
-				'label'           => esc_html__( 'Button Link Two', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Button Link Two', 'constructionn' ),
 				'section'         => 'banner_section',
 				'type'            => 'url',
-				'active_callback' => 'constructionn_pro_frontbanner_active_callback',
+				'active_callback' => 'constructionn_frontbanner_active_callback',
 			)
 		);
 
@@ -366,10 +366,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		$wp_customize->add_control(
 			'ban_video_btn_link',
 			array(
-				'label'           => esc_html__( 'Video Link', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Video Link', 'constructionn' ),
 				'section'         => 'banner_section',
 				'type'            => 'url',
-				'active_callback' => 'constructionn_pro_frontbanner_active_callback',
+				'active_callback' => 'constructionn_frontbanner_active_callback',
 
 			)
 		);
@@ -377,46 +377,46 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 		/** Slider Banner */
 			/** Dynamic bannerthree Section */
 			$wp_customize->add_setting(
-				new Constructionn_Pro_Repeater_Setting(
+				new Constructionn_Repeater_Setting(
 					$wp_customize,
 					'front_bannerthree_repeater',
 					array(
 						'default'           => '',
-						'sanitize_callback' => array( 'Constructionn_Pro_Repeater_Setting', 'sanitize_repeater_setting' ),
+						'sanitize_callback' => array( 'Constructionn_Repeater_Setting', 'sanitize_repeater_setting' ),
 					)
 				)
 			);
 
 		$wp_customize->add_control(
-			new Constructionn_Pro_Control_Repeater(
+			new Constructionn_Control_Repeater(
 				$wp_customize,
 				'front_bannerthree_repeater',
 				array(
 					'section'         => 'banner_section',
-					'label'           => __( 'Add Banner Counter', 'constructionn-pro' ),
+					'label'           => __( 'Add Banner Counter', 'constructionn' ),
 					'fields'          => array(
 						'count'  => array(
 							'type'  => 'text',
-							'label' => __( 'Counter', 'constructionn-pro' ),
+							'label' => __( 'Counter', 'constructionn' ),
 						),
 						'prefix' => array(
 							'type'  => 'text',
-							'label' => __( 'Prefix', 'constructionn-pro' ),
+							'label' => __( 'Prefix', 'constructionn' ),
 						),
 						'text'   => array(
 							'type'  => 'text',
-							'label' => __( 'Count Text', 'constructionn-pro' ),
+							'label' => __( 'Count Text', 'constructionn' ),
 						),
 					),
 					'row_label'       => array(
 						'type'  => 'field',
-						'value' => __( 'Banner counter', 'constructionn-pro' ),
+						'value' => __( 'Banner counter', 'constructionn' ),
 						'field' => 'title',
 					),
 					'choices'         => array(
 						'limit' => 3,
 					),
-					'active_callback' => 'constructionn_pro_frontbanner_active_callback',
+					'active_callback' => 'constructionn_frontbanner_active_callback',
 				)
 			)
 		);
@@ -425,55 +425,55 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontbanner' ) ) :
 
 		/** Slider Banner */
 		$wp_customize->add_setting(
-			new Constructionn_Pro_Repeater_Setting(
+			new Constructionn_Repeater_Setting(
 				$wp_customize,
 				'front_banner_four_repeater',
 				array(
 					'default'           => '',
-					'sanitize_callback' => array( 'Constructionn_Pro_Repeater_Setting', 'sanitize_repeater_setting' ),
+					'sanitize_callback' => array( 'Constructionn_Repeater_Setting', 'sanitize_repeater_setting' ),
 				)
 			)
 		);
 
 		$wp_customize->add_control(
-			new Constructionn_Pro_Control_Repeater(
+			new Constructionn_Control_Repeater(
 				$wp_customize,
 				'front_banner_four_repeater',
 				array(
 					'section'         => 'banner_section',
-					'label'           => __( 'Add Banner Four', 'constructionn-pro' ),
+					'label'           => __( 'Add Banner Four', 'constructionn' ),
 					'fields'          => array(
 						'banner-icon'        => array(
 							'type'  => 'image',
-							'label' => __( 'Add Image', 'constructionn-pro' ),
+							'label' => __( 'Add Image', 'constructionn' ),
 						),
 						'banner-heading'     => array(
 							'type'  => 'text',
-							'label' => __( 'Banner Heading', 'constructionn-pro' ),
+							'label' => __( 'Banner Heading', 'constructionn' ),
 						),
 						'banner-heading-url' => array(
 							'type'  => 'url',
-							'label' => __( 'Banner Heading Url', 'constructionn-pro' ),
+							'label' => __( 'Banner Heading Url', 'constructionn' ),
 						),
 						'banner-subheading'  => array(
 							'type'  => 'text',
-							'label' => __( 'Banner Sub Heading', 'constructionn-pro' ),
+							'label' => __( 'Banner Sub Heading', 'constructionn' ),
 						),
 					),
 					'row_label'       => array(
 						'type'  => 'field',
-						'value' => __( 'Banner', 'constructionn-pro' ),
+						'value' => __( 'Banner', 'constructionn' ),
 						'field' => 'title',
 					),
-					'active_callback' => 'constructionn_pro_frontbanner_active_callback',
+					'active_callback' => 'constructionn_frontbanner_active_callback',
 				)
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_frontbanner' );
+add_action( 'customize_register', 'constructionn_customize_register_frontbanner' );
 
-function constructionn_pro_frontbanner_active_callback( $control ) {
+function constructionn_frontbanner_active_callback( $control ) {
 
 	$hero_banner_layouts = $control->manager->get_setting( 'banner_layouts' )->value();
 

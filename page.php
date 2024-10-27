@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 
 get_header();
@@ -17,9 +17,9 @@ get_header();
 	/**
 	 * Before Posts hook
 	 *
-	 * @hooked constructionn_pro_content_wrapper_start
+	 * @hooked constructionn_content_wrapper_start
 	*/
-	do_action( 'constructionn_pro_before_posts_content' );
+	do_action( 'constructionn_before_posts_content' );
 
 while ( have_posts() ) :
 	the_post();
@@ -27,14 +27,14 @@ while ( have_posts() ) :
 	get_template_part( 'template-parts/content', 'page' );
 
 	// If comments are open or we have at least one comment, load up the comment template.
-	constructionn_pro_comment();
+	constructionn_comment();
 
 		endwhile; // End of the loop.
 
 	/**
 	 * After Posts hook
 	 *
-	 * @hooked constructionn_pro_content_wrapper_end - 10
+	 * @hooked constructionn_content_wrapper_end - 10
 	*/
-	do_action( 'constructionn_pro_after_posts_content' );
+	do_action( 'constructionn_after_posts_content' );
 get_footer();

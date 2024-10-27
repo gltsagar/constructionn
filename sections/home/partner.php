@@ -2,11 +2,11 @@
 /**
  * Front Partner Section
  *
- * @package constructionn-pro
+ * @package constructionn
  */
 $partner_repeater = get_theme_mod( 'front_partner_slider_custom', array() );
 
-constructionn_pro_partners_section(
+constructionn_partners_section(
 	'front-partner',
 	$partner_repeater
 );

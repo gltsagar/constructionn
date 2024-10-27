@@ -2,11 +2,11 @@
 /**
  * Front Testimonial Section
  *
- * @package constructionn-pro
+ * @package constructionn
  */
-$testimonials_headings      = get_theme_mod( 'testimonials_headings', __( 'What clients say about us', 'constructionn-pro' ) );
-$testimonial_btn_next_txt   = get_theme_mod( 'testimonial_btn_next_txt', __( 'Next', 'constructionn-pro' ) );
-$testimonial_btn_prev_txt   = get_theme_mod( 'testimonial_btn_prev_txt', __( 'Prev', 'constructionn-pro' ) );
+$testimonials_headings      = get_theme_mod( 'testimonials_headings', __( 'What clients say about us', 'constructionn' ) );
+$testimonial_btn_next_txt   = get_theme_mod( 'testimonial_btn_next_txt', __( 'Next', 'constructionn' ) );
+$testimonial_btn_prev_txt   = get_theme_mod( 'testimonial_btn_prev_txt', __( 'Prev', 'constructionn' ) );
 $front_testimonial_repeater = get_theme_mod( 'front_testimonial_repeater', array() );
 
 if ( $testimonials_headings || $testimonial_btn_next_txt || $testimonial_btn_prev_txt || $front_testimonial_repeater ) { ?>
@@ -22,7 +22,7 @@ if ( $testimonials_headings || $testimonial_btn_next_txt || $testimonial_btn_pre
 						<?php
 						foreach ( $front_testimonial_repeater as $repeater ) {
 							$testimonial_id = ( ! empty( $repeater['testimonial'] ) && isset( $repeater['testimonial'] ) ) ? $repeater['testimonial'] : '';
-							constructionn_pro_get_front_testimonial( $testimonial_id );
+							constructionn_get_front_testimonial( $testimonial_id );
 						}
 						?>
 					</div>

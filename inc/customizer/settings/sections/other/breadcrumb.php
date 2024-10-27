@@ -1,18 +1,18 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_breadcrumb' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_breadcrumb' ) ) :
 	/**
 	 * Breadcrumb Setings
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_breadcrumb( $wp_customize ) {
+	function constructionn_customize_register_breadcrumb( $wp_customize ) {
 		// Create breadcrumb sections----------
 		$wp_customize->add_section(
 			'breadcrumb_settings',
 			array(
-				'title'    => __( 'Breadcrumb Settings', 'constructionn-pro' ),
+				'title'    => __( 'Breadcrumb Settings', 'constructionn' ),
 				'priority' => 70,
 				'panel'    => 'general_settings_panel',
 			)
@@ -23,7 +23,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_breadcrumb' ) ) :
 			'breadcrumb_toggle',
 			array(
 				'default'           => true,
-				'sanitize_callback' => 'constructionn_pro_sanitize_checkbox',
+				'sanitize_callback' => 'constructionn_sanitize_checkbox',
 			)
 		);
 
@@ -32,8 +32,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_breadcrumb' ) ) :
 				$wp_customize,
 				'breadcrumb_toggle',
 				array(
-					'label'       => __( 'Show/Hide Breadcrumb', 'constructionn-pro' ),
-					'description' => __( 'Enable to show the Breadcrumb.', 'constructionn-pro' ),
+					'label'       => __( 'Show/Hide Breadcrumb', 'constructionn' ),
+					'description' => __( 'Enable to show the Breadcrumb.', 'constructionn' ),
 					'section'     => 'breadcrumb_settings',
 					'type'        => 'checkbox',
 				)
@@ -43,7 +43,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_breadcrumb' ) ) :
 		$wp_customize->add_setting(
 			'breadcrumb_home_text',
 			array(
-				'default'           => __( 'Home', 'constructionn-pro' ),
+				'default'           => __( 'Home', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -51,9 +51,9 @@ if ( ! function_exists( 'constructionn_pro_customize_register_breadcrumb' ) ) :
 		$wp_customize->add_control(
 			'breadcrumb_home_text',
 			array(
-				'label'           => __( 'Breadcrumb Home Text', 'constructionn-pro' ),
+				'label'           => __( 'Breadcrumb Home Text', 'constructionn' ),
 				'section'         => 'breadcrumb_settings',
-				'active_callback' => 'constructionn_pro_breadcrumb_active_callback',
+				'active_callback' => 'constructionn_breadcrumb_active_callback',
 			)
 		);
 
@@ -61,7 +61,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_breadcrumb' ) ) :
 			'breadcrumb_show_title',
 			array(
 				'default'           => false,
-				'sanitize_callback' => 'constructionn_pro_sanitize_checkbox',
+				'sanitize_callback' => 'constructionn_sanitize_checkbox',
 			)
 		);
 
@@ -70,10 +70,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_breadcrumb' ) ) :
 				$wp_customize,
 				'breadcrumb_show_title',
 				array(
-					'label'           => __( 'Show Title', 'constructionn-pro' ),
+					'label'           => __( 'Show Title', 'constructionn' ),
 					'section'         => 'breadcrumb_settings',
 					'type'            => 'checkbox',
-					'active_callback' => 'constructionn_pro_breadcrumb_active_callback',
+					'active_callback' => 'constructionn_breadcrumb_active_callback',
 				)
 			)
 		);
@@ -93,14 +93,14 @@ if ( ! function_exists( 'constructionn_pro_customize_register_breadcrumb' ) ) :
 				$wp_customize,
 				'breadcrumb_image',
 				array(
-					'label'           => __( 'Upload Image', 'constructionn-pro' ),
-					'description'     => __( 'Upload background image for breadcrumbs.', 'constructionn-pro' ),
+					'label'           => __( 'Upload Image', 'constructionn' ),
+					'description'     => __( 'Upload background image for breadcrumbs.', 'constructionn' ),
 					'section'         => 'breadcrumb_settings',
 					'height'          => 205,
 					'width'           => 1520,
 					'flex_width'      => true,
 					'flex_height'     => true,
-					'active_callback' => 'constructionn_pro_breadcrumb_active_callback',
+					'active_callback' => 'constructionn_breadcrumb_active_callback',
 				)
 			)
 		);
@@ -119,18 +119,18 @@ if ( ! function_exists( 'constructionn_pro_customize_register_breadcrumb' ) ) :
 				$wp_customize,
 				'breadcrumb_bg_color',
 				array(
-					'label'           => __( 'Fallback Background Color', 'constructionn-pro' ),
-					'description'     => __( 'Doesn\'t work if background image is set for breadcrumbs.', 'constructionn-pro' ),
+					'label'           => __( 'Fallback Background Color', 'constructionn' ),
+					'description'     => __( 'Doesn\'t work if background image is set for breadcrumbs.', 'constructionn' ),
 					'section'         => 'breadcrumb_settings',
-					'active_callback' => 'constructionn_pro_breadcrumb_active_callback',
+					'active_callback' => 'constructionn_breadcrumb_active_callback',
 				)
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_breadcrumb' );
+add_action( 'customize_register', 'constructionn_customize_register_breadcrumb' );
 
-function constructionn_pro_breadcrumb_active_callback( $control ) {
+function constructionn_breadcrumb_active_callback( $control ) {
 
 	$breadcrumb_toggle = $control->manager->get_setting( 'breadcrumb_toggle' )->value();
 	$id                = $control->id;

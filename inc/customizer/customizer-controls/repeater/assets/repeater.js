@@ -65,7 +65,7 @@ var ConstructionProRepeaterRow = function( rowIndex, container, label ){
 	this.updateLabel();
 };
 
-wp.customize.controlConstructor['constructionn-pro-repeater'] = wp.customize.Control.extend({
+wp.customize.controlConstructor['constructionn-repeater'] = wp.customize.Control.extend({
 	ready: function(){
 		'use strict';
 
@@ -73,7 +73,7 @@ wp.customize.controlConstructor['constructionn-pro-repeater'] = wp.customize.Con
 		    limit,
 		    theNewRow;
 
-		// The current value set in Control Class (set in Constructionn_Pro_Control_Repeater::to_json() function)
+		// The current value set in Control Class (set in Constructionn_Control_Repeater::to_json() function)
 		var settingValue = this.params.value;
 
 		// The hidden field that keeps the data saved (though we never update it)
@@ -433,7 +433,7 @@ wp.customize.controlConstructor['constructionn-pro-repeater'] = wp.customize.Con
 
 		var $targetDiv = this.$thisButton.closest( '.repeater-field-image,.repeater-field-cropped_image' );
 
-		$targetDiv.find( '.constructionn-pro-image-attachment' ).html( '<img src="' + attachment.url + '">' ).hide().slideDown( 'slow' );
+		$targetDiv.find( '.constructionn-image-attachment' ).html( '<img src="' + attachment.url + '">' ).hide().slideDown( 'slow' );
 
 		$targetDiv.find( '.hidden-field' ).val( attachment.id );
 		this.$thisButton.text( this.$thisButton.data( 'alt-label' ) );
@@ -455,7 +455,7 @@ wp.customize.controlConstructor['constructionn-pro-repeater'] = wp.customize.Con
 
 		var $targetDiv = this.$thisButton.closest( '.repeater-field-upload' );
 
-		$targetDiv.find( '.constructionn-pro-file-attachment' ).html( '<span class="file"><span class="dashicons dashicons-media-default"></span> ' + attachment.filename + '</span>' ).hide().slideDown( 'slow' );
+		$targetDiv.find( '.constructionn-file-attachment' ).html( '<span class="file"><span class="dashicons dashicons-media-default"></span> ' + attachment.filename + '</span>' ).hide().slideDown( 'slow' );
 
 		$targetDiv.find( '.hidden-field' ).val( attachment.id );
 		this.$thisButton.text( this.$thisButton.data( 'alt-label' ) );
@@ -504,7 +504,7 @@ wp.customize.controlConstructor['constructionn-pro-repeater'] = wp.customize.Con
 		$targetDiv = this.$thisButton.closest( '.repeater-field-image,.repeater-field-cropped_image,.repeater-field-upload' );
 		$uploadButton = $targetDiv.find( '.upload-button' );
 
-		$targetDiv.find( '.constructionn-pro-image-attachment' ).slideUp( 'fast', function() {
+		$targetDiv.find( '.constructionn-image-attachment' ).slideUp( 'fast', function() {
 			jQuery( this ).show().html( jQuery( this ).data( 'placeholder' ) );
 		});
 		$targetDiv.find( '.hidden-field' ).val( '' );
@@ -527,7 +527,7 @@ wp.customize.controlConstructor['constructionn-pro-repeater'] = wp.customize.Con
 		$targetDiv = this.$thisButton.closest( '.repeater-field-upload' );
 		$uploadButton = $targetDiv.find( '.upload-button' );
 
-		$targetDiv.find( '.constructionn-pro-file-attachment' ).slideUp( 'fast', function() {
+		$targetDiv.find( '.constructionn-file-attachment' ).slideUp( 'fast', function() {
 			jQuery( this ).show().html( jQuery( this ).data( 'placeholder' ) );
 		});
 		$targetDiv.find( '.hidden-field' ).val( '' );
@@ -595,7 +595,7 @@ wp.customize.controlConstructor['constructionn-pro-repeater'] = wp.customize.Con
 		'use strict';
 
 		var control       = this,
-		    template      = control.repeaterTemplate(), // The template for the new row (defined on Constructionn_Pro_Control_Repeater::render_content() ).
+		    template      = control.repeaterTemplate(), // The template for the new row (defined on Constructionn_Control_Repeater::render_content() ).
 		    settingValue  = this.getValue(), // Get the current setting value.
 		    newRowSetting = {}, // Saves the new setting data.
 		    templateData, // Data to pass to the template
@@ -786,8 +786,8 @@ jQuery( document ).ready(function($){
 				type: "POST",
 				url : ajaxurl,
 				data: {
-					action             : 'constructionn_pro_get_fontawesome_ajax',
-					constructionn_pro_customize_nonce: constructionn_pro_customize.nonce
+					action             : 'constructionn_get_fontawesome_ajax',
+					constructionn_customize_nonce: constructionn_customize.nonce
 				},
 				beforeSend: function(){
 					$this.addClass('ajax-running');

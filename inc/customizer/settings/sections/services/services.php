@@ -1,18 +1,18 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_servpg_service' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_servpg_service' ) ) :
 	/**
 	 * Servicepage Service
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_servpg_service( $wp_customize ) {
+	function constructionn_customize_register_servpg_service( $wp_customize ) {
 
 		$wp_customize->add_section(
 			'servpg_service_section',
 			array(
-				'title'    => __( 'Service Settings', 'constructionn-pro' ),
+				'title'    => __( 'Service Settings', 'constructionn' ),
 				'priority' => 10,
 				'panel'    => 'Service_page_settings',
 			)
@@ -33,7 +33,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_servpg_service' ) 
 				$wp_customize,
 				'servpg_service_image',
 				array(
-					'description' => esc_html__( 'Upload Image', 'constructionn-pro' ),
+					'description' => esc_html__( 'Upload Image', 'constructionn' ),
 					'section'     => 'servpg_service_section',
 				)
 			)
@@ -43,7 +43,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_servpg_service' ) 
 		$wp_customize->add_setting(
 			'servpg_service_headings',
 			array(
-				'default'           => __( 'Have any projects ?', 'constructionn-pro' ),
+				'default'           => __( 'Have any projects ?', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -54,7 +54,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_servpg_service' ) 
 			array(
 				'selector'        => '.services-section h2.section-heading',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'servpg_service_headings', __( 'Have any projects ?', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'servpg_service_headings', __( 'Have any projects ?', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -63,7 +63,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_servpg_service' ) 
 		$wp_customize->add_control(
 			'servpg_service_headings',
 			array(
-				'label'   => __( 'Heading', 'constructionn-pro' ),
+				'label'   => __( 'Heading', 'constructionn' ),
 				'section' => 'servpg_service_section',
 				'type'    => 'text',
 			)
@@ -73,7 +73,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_servpg_service' ) 
 		$wp_customize->add_setting(
 			'servpg_btn_txt',
 			array(
-				'default'           => __( 'View More', 'constructionn-pro' ),
+				'default'           => __( 'View More', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -84,7 +84,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_servpg_service' ) 
 			array(
 				'selector'        => 'section#front-service h2.section-header__title',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'servpg_btn_txt', __( 'View More', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'servpg_btn_txt', __( 'View More', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -93,11 +93,11 @@ if ( ! function_exists( 'constructionn_pro_customize_register_servpg_service' ) 
 		$wp_customize->add_control(
 			'servpg_btn_txt',
 			array(
-				'label'   => __( 'Button Text', 'constructionn-pro' ),
+				'label'   => __( 'Button Text', 'constructionn' ),
 				'section' => 'servpg_service_section',
 				'type'    => 'text',
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_servpg_service' );
+add_action( 'customize_register', 'constructionn_customize_register_servpg_service' );

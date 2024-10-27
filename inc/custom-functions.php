@@ -2,27 +2,27 @@
 /**
  * Constructionn Pro Custom functions and definitions
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
-if ( ! function_exists( 'constructionn_pro_mobile_header' ) ) {
+if ( ! function_exists( 'constructionn_mobile_header' ) ) {
 	/**
-	 * Constructionn_Pro Mobile Header
+	 * Constructionn Mobile Header
 	 */
-	function constructionn_pro_mobile_header() {
+	function constructionn_mobile_header() {
 		?>
 	<div class="mobile-header">
 		<div class="container">
 			<div class="header-wrapper">
 				<div class="logo-wrapper">
-					<?php constructionn_pro_site_branding(); ?>
+					<?php constructionn_site_branding(); ?>
 				</div>
-				<?php constructionn_pro_mobile_ham_wrapper(); ?>
+				<?php constructionn_mobile_ham_wrapper(); ?>
 			</div>
 		</div>
 		<div class="sidebar" id="mobileSideMenu">
 			<div class="sidebar-content">
 				<div class="sidebar-header">
-					<?php constructionn_pro_site_branding(); ?>
+					<?php constructionn_site_branding(); ?>
 					<button class="close-sidebar-btn" id="mobileSideMenuClose">x</button>
 				</div>
 				<div class="sidebar-body">
@@ -31,16 +31,16 @@ if ( ! function_exists( 'constructionn_pro_mobile_header' ) ) {
 					</div>
 					<div class="navigation-wrapper">
 						<div class="primary-menu-wrapper">
-							<?php constructionn_pro_primary_nagivation(); ?>
+							<?php constructionn_primary_nagivation(); ?>
 						</div>
 						<div class="secondary-menu-wrapper">
-							<?php constructionn_pro_secondary_nagivation(); ?>
+							<?php constructionn_secondary_nagivation(); ?>
 						</div>
 					</div>
 				</div>
 				<div class="sidebar-footer">
 					<div class="sidebar-footer-btm">
-						<?php constructionn_pro_social_media_repeater( 'socials_media_repeater', true ); ?>
+						<?php constructionn_social_media_repeater( 'socials_media_repeater', true ); ?>
 					</div>
 				</div>
 			</div>
@@ -51,26 +51,26 @@ if ( ! function_exists( 'constructionn_pro_mobile_header' ) ) {
 	}
 }
 
-if ( ! function_exists( 'constructionn_pro_breadcrumbs' ) ) :
+if ( ! function_exists( 'constructionn_breadcrumbs' ) ) :
 	/**
 	 * Breadcrumb Trail wrapper
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_breadcrumbs() {
+	function constructionn_breadcrumbs() {
 		?>
 		<div id="crumbs" itemscope="" itemtype="http://schema.org/BreadcrumbList">
-			<?php constructionn_pro_breadcrumb_trail(); ?>
+			<?php constructionn_breadcrumb_trail(); ?>
 		</div>
 		<?php
 	}
 endif;
 
-function constructionn_pro_breadcrumb_trail( $args = array() ) {
+function constructionn_breadcrumb_trail( $args = array() ) {
 	$breadcrumb = apply_filters( 'breadcrumb_trail_object', null, $args );
 
 	if ( ! is_object( $breadcrumb ) ) {
-		$breadcrumb = new Constructionn_Pro_Breadcrumb_Trail( $args );
+		$breadcrumb = new Constructionn_Breadcrumb_Trail( $args );
 	}
 
 	return $breadcrumb->trail();
@@ -79,7 +79,7 @@ function constructionn_pro_breadcrumb_trail( $args = array() ) {
 /**
  * Creates a breadcrumbs menu for the site based on the current page that's being viewed by the user.
  */
-class Constructionn_Pro_Breadcrumb_Trail {
+class Constructionn_Breadcrumb_Trail {
 
 	public $items         = array();
 	public $args          = array();
@@ -109,7 +109,7 @@ class Constructionn_Pro_Breadcrumb_Trail {
 		);
 
 		// Parse the arguments with the deaults.
-		$this->args = apply_filters( 'constructionn_pro_breadcrumb_trail_args', wp_parse_args( $args, $defaults ) );
+		$this->args = apply_filters( 'constructionn_breadcrumb_trail_args', wp_parse_args( $args, $defaults ) );
 
 		// Set the labels and post taxonomy properties.
 		$this->set_labels();
@@ -232,21 +232,21 @@ class Constructionn_Pro_Breadcrumb_Trail {
 	protected function set_labels() {
 
 		$defaults = array(
-			'browse'              => esc_html__( 'Browse:', 'constructionn-pro' ),
-			'aria_label'          => esc_attr_x( 'Breadcrumbs', 'breadcrumbs aria label', 'constructionn-pro' ),
-			'home'                => get_theme_mod( 'breadcrumb_home_text', __( 'Home', 'constructionn-pro' ) ),
-			'error_404'           => esc_html__( '404 Not Found', 'constructionn-pro' ),
-			'archives'            => esc_html__( 'Archives', 'constructionn-pro' ),
+			'browse'              => esc_html__( 'Browse:', 'constructionn' ),
+			'aria_label'          => esc_attr_x( 'Breadcrumbs', 'breadcrumbs aria label', 'constructionn' ),
+			'home'                => get_theme_mod( 'breadcrumb_home_text', __( 'Home', 'constructionn' ) ),
+			'error_404'           => esc_html__( '404 Not Found', 'constructionn' ),
+			'archives'            => esc_html__( 'Archives', 'constructionn' ),
 			// Translators: %s is the search query.
-			'search'              => esc_html__( 'Search results for: %s', 'constructionn-pro' ),
+			'search'              => esc_html__( 'Search results for: %s', 'constructionn' ),
 			// Translators: %s is the page number.
-			'paged'               => esc_html__( 'Page %s', 'constructionn-pro' ),
+			'paged'               => esc_html__( 'Page %s', 'constructionn' ),
 			// Translators: %s is the page number.
-			'paged_comments'      => esc_html__( 'Comment Page %s', 'constructionn-pro' ),
+			'paged_comments'      => esc_html__( 'Comment Page %s', 'constructionn' ),
 			// Translators: Minute archive title. %s is the minute time format.
-			'archive_minute'      => esc_html__( 'Minute %s', 'constructionn-pro' ),
+			'archive_minute'      => esc_html__( 'Minute %s', 'constructionn' ),
 			// Translators: Weekly archive title. %s is the week date format.
-			'archive_week'        => esc_html__( 'Week %s', 'constructionn-pro' ),
+			'archive_week'        => esc_html__( 'Week %s', 'constructionn' ),
 
 			// "%s" is replaced with the translated date/time format.
 			'archive_minute_hour' => '%s',
@@ -731,7 +731,7 @@ class Constructionn_Pro_Breadcrumb_Trail {
 
 		// Add the minute + hour item.
 		if ( true === $this->args['show_title'] ) {
-			$this->items[] = sprintf( $this->labels['archive_minute_hour'], get_the_time( esc_html_x( 'g:i a', 'minute and hour archives time format', 'constructionn-pro' ) ) );
+			$this->items[] = sprintf( $this->labels['archive_minute_hour'], get_the_time( esc_html_x( 'g:i a', 'minute and hour archives time format', 'constructionn' ) ) );
 		}
 	}
 
@@ -749,7 +749,7 @@ class Constructionn_Pro_Breadcrumb_Trail {
 
 		// Add the minute item.
 		if ( true === $this->args['show_title'] ) {
-			$this->items[] = sprintf( $this->labels['archive_minute'], get_the_time( esc_html_x( 'i', 'minute archives time format', 'constructionn-pro' ) ) );
+			$this->items[] = sprintf( $this->labels['archive_minute'], get_the_time( esc_html_x( 'i', 'minute archives time format', 'constructionn' ) ) );
 		}
 	}
 
@@ -767,7 +767,7 @@ class Constructionn_Pro_Breadcrumb_Trail {
 
 		// Add the hour item.
 		if ( true === $this->args['show_title'] ) {
-			$this->items[] = sprintf( $this->labels['archive_hour'], get_the_time( esc_html_x( 'g a', 'hour archives time format', 'constructionn-pro' ) ) );
+			$this->items[] = sprintf( $this->labels['archive_hour'], get_the_time( esc_html_x( 'g a', 'hour archives time format', 'constructionn' ) ) );
 		}
 	}
 
@@ -784,9 +784,9 @@ class Constructionn_Pro_Breadcrumb_Trail {
 		$this->add_rewrite_front_items();
 
 		// Get year, month, and day.
-		$year  = sprintf( $this->labels['archive_year'], get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'constructionn-pro' ) ) );
-		$month = sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'constructionn-pro' ) ) );
-		$day   = sprintf( $this->labels['archive_day'], get_the_time( esc_html_x( 'j', 'daily archives date format', 'constructionn-pro' ) ) );
+		$year  = sprintf( $this->labels['archive_year'], get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'constructionn' ) ) );
+		$month = sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'constructionn' ) ) );
+		$day   = sprintf( $this->labels['archive_day'], get_the_time( esc_html_x( 'j', 'daily archives date format', 'constructionn' ) ) );
 
 		// Add the year and month items.
 		$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y' ) ) ), $year );
@@ -814,8 +814,8 @@ class Constructionn_Pro_Breadcrumb_Trail {
 		$this->add_rewrite_front_items();
 
 		// Get the year and week.
-		$year = sprintf( $this->labels['archive_year'], get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'constructionn-pro' ) ) );
-		$week = sprintf( $this->labels['archive_week'], get_the_time( esc_html_x( 'W', 'weekly archives date format', 'constructionn-pro' ) ) );
+		$year = sprintf( $this->labels['archive_year'], get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'constructionn' ) ) );
+		$week = sprintf( $this->labels['archive_week'], get_the_time( esc_html_x( 'W', 'weekly archives date format', 'constructionn' ) ) );
 
 		// Add the year item.
 		$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y' ) ) ), $year );
@@ -854,8 +854,8 @@ class Constructionn_Pro_Breadcrumb_Trail {
 		$this->add_rewrite_front_items();
 
 		// Get the year and month.
-		$year  = sprintf( $this->labels['archive_year'], get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'constructionn-pro' ) ) );
-		$month = sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'constructionn-pro' ) ) );
+		$year  = sprintf( $this->labels['archive_year'], get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'constructionn' ) ) );
+		$month = sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'constructionn' ) ) );
 
 		// Add the year item.
 		$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y' ) ) ), $year );
@@ -882,7 +882,7 @@ class Constructionn_Pro_Breadcrumb_Trail {
 		$this->add_rewrite_front_items();
 
 		// Get the year.
-		$year = sprintf( $this->labels['archive_year'], get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'constructionn-pro' ) ) );
+		$year = sprintf( $this->labels['archive_year'], get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'constructionn' ) ) );
 
 		// Add the year item.
 		if ( is_paged() ) {
@@ -1236,17 +1236,17 @@ class Constructionn_Pro_Breadcrumb_Trail {
 
 				// If using the %year% tag, add a link to the yearly archive.
 				if ( '%year%' == $tag ) {
-					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y', $post_id ) ) ), sprintf( $this->labels['archive_year'], get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'constructionn-pro' ) ) ) );
+					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y', $post_id ) ) ), sprintf( $this->labels['archive_year'], get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'constructionn' ) ) ) );
 				}
 
 				// If using the %monthnum% tag, add a link to the monthly archive.
 				elseif ( '%monthnum%' == $tag ) {
-					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_month_link( get_the_time( 'Y', $post_id ), get_the_time( 'm', $post_id ) ) ), sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'constructionn-pro' ) ) ) );
+					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_month_link( get_the_time( 'Y', $post_id ), get_the_time( 'm', $post_id ) ) ), sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'constructionn' ) ) ) );
 				}
 
 				// If using the %day% tag, add a link to the daily archive.
 				elseif ( '%day%' == $tag ) {
-					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_day_link( get_the_time( 'Y', $post_id ), get_the_time( 'm', $post_id ), get_the_time( 'd', $post_id ) ) ), sprintf( $this->labels['archive_day'], get_the_time( esc_html_x( 'j', 'daily archives date format', 'constructionn-pro' ) ) ) );
+					$this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_day_link( get_the_time( 'Y', $post_id ), get_the_time( 'm', $post_id ), get_the_time( 'd', $post_id ) ) ), sprintf( $this->labels['archive_day'], get_the_time( esc_html_x( 'j', 'daily archives date format', 'constructionn' ) ) ) );
 				}
 
 				// If using the %author% tag, add a link to the post author archive.
@@ -1268,31 +1268,31 @@ class Constructionn_Pro_Breadcrumb_Trail {
 	}
 }
 
-if ( ! function_exists( 'constructionn_pro_import_files' ) ) :
+if ( ! function_exists( 'constructionn_import_files' ) ) :
 	/**
 	 * Constructionn Pro Import Hooks.
 	 *
-	 * @package Constructionn_Pro
+	 * @package Constructionn
 	 */
-	function constructionn_pro_import_files() {
+	function constructionn_import_files() {
 		return array(
 			array(
-				'import_file_name'             => __( 'Constructionn Pro Demo', 'constructionn-pro' ),
-				'local_import_file'            => trailingslashit( get_template_directory() ) . 'inc/demo/constructionn-pro.xml',
-				'local_import_widget_file'     => trailingslashit( get_template_directory() ) . 'inc/demo/constructionn-pro.wie',
-				'local_import_customizer_file' => trailingslashit( get_template_directory() ) . 'inc/demo/constructionn-pro.dat',
-				'import_preview_image_url'     => 'https://demo.glthemes.com/constructionn-pro/wp-content/themes/constructionn-pro/screenshot.png',
-				'preview_url'                  => 'https://demo.glthemes.com/constructionn-pro/',
+				'import_file_name'             => __( 'Constructionn Pro Demo', 'constructionn' ),
+				'local_import_file'            => trailingslashit( get_template_directory() ) . 'inc/demo/constructionn.xml',
+				'local_import_widget_file'     => trailingslashit( get_template_directory() ) . 'inc/demo/constructionn.wie',
+				'local_import_customizer_file' => trailingslashit( get_template_directory() ) . 'inc/demo/constructionn.dat',
+				'import_preview_image_url'     => 'https://demo.glthemes.com/constructionn/wp-content/themes/constructionn/screenshot.png',
+				'preview_url'                  => 'https://demo.glthemes.com/constructionn/',
 			),
 		);
 	}
-	add_filter( 'ocdi/import_files', 'constructionn_pro_import_files' );
+	add_filter( 'ocdi/import_files', 'constructionn_import_files' );
 endif;
 
 
 /** Programmatically set the front page and menu */
-if ( ! function_exists( 'constructionn_pro_after_import' ) ) :
-	function constructionn_pro_after_import() {
+if ( ! function_exists( 'constructionn_after_import' ) ) :
+	function constructionn_after_import() {
 		// Set Menu
 		$primary     = get_term_by( 'name', 'Primary Menu', 'nav_menu' );
 		$secondary   = get_term_by( 'name', 'Secondary Menu', 'nav_menu' );
@@ -1322,22 +1322,22 @@ if ( ! function_exists( 'constructionn_pro_after_import' ) ) :
 			update_option( 'page_for_posts', $post_pgid );
 		}
 	}
-	add_action( 'ocdi/after_import', 'constructionn_pro_after_import' );
+	add_action( 'ocdi/after_import', 'constructionn_after_import' );
 endif;
 add_filter( 'ocdi/disable_pt_branding', '__return_true' );
 
-if ( ! function_exists( 'constructionn_pro_author_box' ) ) :
+if ( ! function_exists( 'constructionn_author_box' ) ) :
 	/**
 	 * Author Page Author Description Section
 	 */
-	function constructionn_pro_author_box() {
+	function constructionn_author_box() {
 		$author_id          = get_the_author_meta( 'ID' );
 		$author_description = get_the_author_meta( 'description' );
 		$noofposts          = count_user_posts( $author_id );
 		if ( $noofposts == '1' ) {
-			$blogs_published = __( ' blog published', 'constructionn-pro' );
+			$blogs_published = __( ' blog published', 'constructionn' );
 		} else {
-			$blogs_published = __( ' blogs published', 'constructionn-pro' );
+			$blogs_published = __( ' blogs published', 'constructionn' );
 		}
 
 		if ( $author_description ) {
@@ -1349,7 +1349,7 @@ if ( ! function_exists( 'constructionn_pro_author_box' ) ) :
 					</figure>
 					<div class="author-wrap">
 						<div class="author-meta">
-							<h5 class="author-name"><?php echo esc_html( constructionn_pro_get_author_name() ); ?></h5>
+							<h5 class="author-name"><?php echo esc_html( constructionn_get_author_name() ); ?></h5>
 							<span class="author-count">
 								(<?php echo absint( $noofposts ) . esc_html( $blogs_published ); ?>)
 							</span>
@@ -1358,7 +1358,7 @@ if ( ! function_exists( 'constructionn_pro_author_box' ) ) :
 							<?php echo wpautop( $author_description ); ?>
 						</div>
 						<div class="author-social">
-							<?php constructionn_pro_author_social(); ?>
+							<?php constructionn_author_social(); ?>
 						</div>
 					</div>
 				</div>
@@ -1368,13 +1368,13 @@ if ( ! function_exists( 'constructionn_pro_author_box' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'constructionn_pro_get_author_name' ) ) :
+if ( ! function_exists( 'constructionn_get_author_name' ) ) :
 	/**
 	 * This function returns the author full name. If full name is not available then return display name
 	 *
 	 * @return $full_name
 	 */
-	function constructionn_pro_get_author_name() {
+	function constructionn_get_author_name() {
 		$author_id = get_the_author_meta( 'ID' );
 
 		// Get the first name and last name of the author
@@ -1392,17 +1392,17 @@ if ( ! function_exists( 'constructionn_pro_get_author_name' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'constructionn_pro_get_comment_count' ) ) :
+if ( ! function_exists( 'constructionn_get_comment_count' ) ) :
 	/**
 	 * Show to Comment Count
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_get_comment_count() {
+	function constructionn_get_comment_count() {
 		$comment_count = get_comments_number();
 		echo '<span classs="comment-count">';
 			printf(
-				_nx( '%s Reply To', '%s Replies To', $comment_count, 'comments count', 'constructionn-pro' ),
+				_nx( '%s Reply To', '%s Replies To', $comment_count, 'comments count', 'constructionn' ),
 				number_format_i18n( $comment_count )
 			);
 			echo ' " ' . esc_html( get_the_title() ) . ' " ';

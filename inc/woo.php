@@ -4,7 +4,7 @@
  *
  * @link https://docs.woothemes.com/document/third-party-custom-theme-compatibility/
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 
 remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart' );
@@ -21,9 +21,9 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
 add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 60 );
 
 // custom action now added
-add_action( 'woocommerce_before_main_content', 'constructionn_pro_wc_wrapper' );
-add_action( 'woocommerce_after_main_content', 'constructionn_pro_wc_wrapper_end' );
-add_action( 'constructionn_pro_woo_sidebar', 'constructionn_pro_wc_sidebar_cb' );
+add_action( 'woocommerce_before_main_content', 'constructionn_wc_wrapper' );
+add_action( 'woocommerce_after_main_content', 'constructionn_wc_wrapper_end' );
+add_action( 'constructionn_woo_sidebar', 'constructionn_wc_sidebar_cb' );
 add_filter(
 	'woocommerce_show_page_title',
 	function () {
@@ -31,11 +31,11 @@ add_filter(
 	}
 );
 
-if ( ! function_exists( 'constructionn_pro_woocommerce_support' ) ) :
+if ( ! function_exists( 'constructionn_woocommerce_support' ) ) :
 	/**
 	 * Declare Woocommerce Support
 	 */
-	function constructionn_pro_woocommerce_support() {
+	function constructionn_woocommerce_support() {
 		global $woocommerce;
 
 		add_theme_support( 'woocommerce' );
@@ -47,17 +47,17 @@ if ( ! function_exists( 'constructionn_pro_woocommerce_support' ) ) :
 		}
 	}
 endif;
-add_action( 'after_setup_theme', 'constructionn_pro_woocommerce_support' );
+add_action( 'after_setup_theme', 'constructionn_woocommerce_support' );
 
 /**
  * Woocommerce Sidebar
  */
-function constructionn_pro_wc_widgets_init() {
+function constructionn_wc_widgets_init() {
 	register_sidebar(
 		array(
-			'name'          => __( 'Shop Sidebar', 'constructionn-pro' ),
+			'name'          => __( 'Shop Sidebar', 'constructionn' ),
 			'id'            => 'woo-sidebar',
-			'description'   => __( 'Sidebar displaying only in woocommerce pages.', 'constructionn-pro' ),
+			'description'   => __( 'Sidebar displaying only in woocommerce pages.', 'constructionn' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -65,12 +65,12 @@ function constructionn_pro_wc_widgets_init() {
 		)
 	);
 }
-add_action( 'widgets_init', 'constructionn_pro_wc_widgets_init' );
+add_action( 'widgets_init', 'constructionn_wc_widgets_init' );
 
 /**
  * Callback function for Shop sidebar
  */
-function constructionn_pro_wc_sidebar_cb() {
+function constructionn_wc_sidebar_cb() {
 	if ( is_active_sidebar( 'woo-sidebar' ) ) {
 		echo '<aside id="secondary" class="widget-area" role="complementary" itemscope itemtype="http://schema.org/WPSideBar">';
 		dynamic_sidebar( 'woo-sidebar' );
@@ -79,12 +79,12 @@ function constructionn_pro_wc_sidebar_cb() {
 }
 
 
-if ( ! function_exists( 'constructionn_pro_wc_wrapper' ) ) :
+if ( ! function_exists( 'constructionn_wc_wrapper' ) ) :
 	/**
 	 * Before Content
 	 * Wraps all WooCommerce content in wrappers which match the theme markup
 	 */
-	function constructionn_pro_wc_wrapper() {
+	function constructionn_wc_wrapper() {
 		?>
 	<div id="primary" class="content-area">
 		<div class="container">
@@ -95,17 +95,17 @@ if ( ! function_exists( 'constructionn_pro_wc_wrapper' ) ) :
 endif;
 
 
-if ( ! function_exists( 'constructionn_pro_wc_wrapper_end' ) ) :
+if ( ! function_exists( 'constructionn_wc_wrapper_end' ) ) :
 	/**
 	 * After Content
 	 * Closes the wrapping divs
 	 */
-	function constructionn_pro_wc_wrapper_end() {
+	function constructionn_wc_wrapper_end() {
 		?>
 		</div>
 			<?php
 			if ( ! is_single() ) {
-				do_action( 'constructionn_pro_woo_sidebar' );}
+				do_action( 'constructionn_woo_sidebar' );}
 			?>
 			</div>
 		</div>

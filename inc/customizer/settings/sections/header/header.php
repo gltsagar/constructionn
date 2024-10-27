@@ -1,19 +1,19 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_frontopbar' ) ) :
 	/**
 	 * Headers
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_frontopbar( $wp_customize ) {
+	function constructionn_customize_register_frontopbar( $wp_customize ) {
 
 		// Create a new section top bar settings----------
 		$wp_customize->add_section(
 			'top_bar_section',
 			array(
-				'title'    => esc_html__( 'Header Settings', 'constructionn-pro' ),
+				'title'    => esc_html__( 'Header Settings', 'constructionn' ),
 				'priority' => 20,
 				'panel'    => 'general_settings_panel',
 			)
@@ -24,7 +24,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 			'topbar_toggle',
 			array(
 				'default'           => true,
-				'sanitize_callback' => 'constructionn_pro_sanitize_checkbox',
+				'sanitize_callback' => 'constructionn_sanitize_checkbox',
 			)
 		);
 
@@ -33,8 +33,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 				$wp_customize,
 				'topbar_toggle',
 				array(
-					'label'       => esc_html__( 'Show/Hide Header', 'constructionn-pro' ),
-					'description' => esc_html__( 'Enable to show the header.', 'constructionn-pro' ),
+					'label'       => esc_html__( 'Show/Hide Header', 'constructionn' ),
+					'description' => esc_html__( 'Enable to show the header.', 'constructionn' ),
 					'section'     => 'top_bar_section',
 					'type'        => 'checkbox',
 				)
@@ -44,7 +44,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 			'header_layouts',
 			array(
 				'default'           => 'one',
-				'sanitize_callback' => 'constructionn_pro_radio_sanitization_header',
+				'sanitize_callback' => 'constructionn_radio_sanitization_header',
 			)
 		);
 
@@ -53,33 +53,33 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 				$wp_customize,
 				'header_layouts',
 				array(
-					'label'           => __( 'Header Layout Settings', 'constructionn-pro' ),
-					'description'     => esc_html__( 'Choose the layout of the header for your site.', 'constructionn-pro' ),
+					'label'           => __( 'Header Layout Settings', 'constructionn' ),
+					'description'     => esc_html__( 'Choose the layout of the header for your site.', 'constructionn' ),
 					'row'             => '2',
 					'section'         => 'top_bar_section',
 					'choices'         => array(
 						'one'   => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/header-one.jpg',
-							'name'  => __( 'Header One', 'constructionn-pro' ),
+							'name'  => __( 'Header One', 'constructionn' ),
 						),
 						'two'   => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/header-two.jpg',
-							'name'  => __( 'Header Two', 'constructionn-pro' ),
+							'name'  => __( 'Header Two', 'constructionn' ),
 						),
 						'three' => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/header-three.jpg',
-							'name'  => __( 'Header Three', 'constructionn-pro' ),
+							'name'  => __( 'Header Three', 'constructionn' ),
 						),
 						'four'  => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/header-four.jpg',
-							'name'  => __( 'Header Four', 'constructionn-pro' ),
+							'name'  => __( 'Header Four', 'constructionn' ),
 						),
 						'five'  => array(
 							'image' => trailingslashit( get_template_directory_uri() ) . 'assets/images/header-five.jpg',
-							'name'  => __( 'Header Five', 'constructionn-pro' ),
+							'name'  => __( 'Header Five', 'constructionn' ),
 						),
 					),
-					'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+					'active_callback' => 'constructionn_fronttopbar_active_callback',
 				)
 			)
 		);
@@ -88,7 +88,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_setting(
 			'message_heading',
 			array(
-				'default'           => __( 'Summertime discounts sales.', 'constructionn-pro' ),
+				'default'           => __( 'Summertime discounts sales.', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -99,7 +99,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 			array(
 				'selector'        => '.text-holder p',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'message_heading', __( 'Summertime discounts sales.', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'message_heading', __( 'Summertime discounts sales.', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -107,10 +107,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_control(
 			'message_heading',
 			array(
-				'label'           => esc_html__( 'Message Heading', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Message Heading', 'constructionn' ),
 				'section'         => 'top_bar_section',
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+				'active_callback' => 'constructionn_fronttopbar_active_callback',
 			)
 		);
 
@@ -118,7 +118,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_setting(
 			'msg_btn_txt',
 			array(
-				'default'           => esc_html__( 'Learn More!', 'constructionn-pro' ),
+				'default'           => esc_html__( 'Learn More!', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -129,7 +129,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 			array(
 				'selector'        => '.text-holder a',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'msg_btn_txt', __( 'Learn More!', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'msg_btn_txt', __( 'Learn More!', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -137,10 +137,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_control(
 			'msg_btn_txt',
 			array(
-				'label'           => esc_html__( 'Message Button Text', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Message Button Text', 'constructionn' ),
 				'section'         => 'top_bar_section',
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+				'active_callback' => 'constructionn_fronttopbar_active_callback',
 			)
 		);
 
@@ -156,10 +156,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_control(
 			'msg_btn_link',
 			array(
-				'label'           => esc_html__( 'Message Button Link', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Message Button Link', 'constructionn' ),
 				'section'         => 'top_bar_section',
 				'type'            => 'url',
-				'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+				'active_callback' => 'constructionn_fronttopbar_active_callback',
 			)
 		);
 
@@ -167,7 +167,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_setting(
 			'account_txt',
 			array(
-				'default'           => esc_html__( 'MY ACCOUNT', 'constructionn-pro' ),
+				'default'           => esc_html__( 'MY ACCOUNT', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -178,7 +178,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 			array(
 				'selector'        => 'ul.header-link-list',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'account_txt', __( 'MY ACCOUNT', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'account_txt', __( 'MY ACCOUNT', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -186,10 +186,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_control(
 			'account_txt',
 			array(
-				'label'           => esc_html__( 'Account Text', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Account Text', 'constructionn' ),
 				'section'         => 'top_bar_section',
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+				'active_callback' => 'constructionn_fronttopbar_active_callback',
 			)
 		);
 
@@ -205,10 +205,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_control(
 			'account_link',
 			array(
-				'label'           => esc_html__( 'Account Link', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Account Link', 'constructionn' ),
 				'section'         => 'top_bar_section',
 				'type'            => 'url',
-				'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+				'active_callback' => 'constructionn_fronttopbar_active_callback',
 			)
 		);
 
@@ -216,7 +216,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_setting(
 			'quotes_txt',
 			array(
-				'default'           => esc_html__( 'REQUEST A QUOTE', 'constructionn-pro' ),
+				'default'           => esc_html__( 'REQUEST A QUOTE', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -227,7 +227,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 			array(
 				'selector'        => 'li.quote-wrap',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'quotes_txt', __( 'REQUEST A QUOTE', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'quotes_txt', __( 'REQUEST A QUOTE', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -235,10 +235,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_control(
 			'quotes_txt',
 			array(
-				'label'           => esc_html__( 'Quotes Text', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Quotes Text', 'constructionn' ),
 				'section'         => 'top_bar_section',
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+				'active_callback' => 'constructionn_fronttopbar_active_callback',
 			)
 		);
 
@@ -254,10 +254,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_control(
 			'quotes_link',
 			array(
-				'label'           => esc_html__( 'Quotes Link', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Quotes Link', 'constructionn' ),
 				'section'         => 'top_bar_section',
 				'type'            => 'url',
-				'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+				'active_callback' => 'constructionn_fronttopbar_active_callback',
 			)
 		);
 
@@ -265,7 +265,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_setting(
 			'email',
 			array(
-				'default'           => __( 'info@gl-konstruction.com', 'constructionn-pro' ),
+				'default'           => __( 'info@gl-konstruction.com', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_email',
 				'transport'         => 'postMessage',
 			)
@@ -276,7 +276,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 			array(
 				'selector'        => '.mail',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'email', __( 'info@gl-konstruction.com', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'email', __( 'info@gl-konstruction.com', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -284,10 +284,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_control(
 			'email',
 			array(
-				'label'           => __( 'Email', 'constructionn-pro' ),
+				'label'           => __( 'Email', 'constructionn' ),
 				'section'         => 'top_bar_section',
 				'type'            => 'email',
-				'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+				'active_callback' => 'constructionn_fronttopbar_active_callback',
 			)
 		);
 
@@ -295,7 +295,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_setting(
 			'phone_number',
 			array(
-				'default'           => __( '+1-800-111-2222', 'constructionn-pro' ),
+				'default'           => __( '+1-800-111-2222', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -306,7 +306,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 			array(
 				'selector'        => '.phone',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'phone_number', __( '+1-800-111-2222', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'phone_number', __( '+1-800-111-2222', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -314,10 +314,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_control(
 			'phone_number',
 			array(
-				'label'           => __( 'Phone Number', 'constructionn-pro' ),
+				'label'           => __( 'Phone Number', 'constructionn' ),
 				'section'         => 'top_bar_section',
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+				'active_callback' => 'constructionn_fronttopbar_active_callback',
 			)
 		);
 
@@ -325,7 +325,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_setting(
 			'header_email_title',
 			array(
-				'default'           => __( 'Mail Us:', 'constructionn-pro' ),
+				'default'           => __( 'Mail Us:', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -345,9 +345,9 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 			'header_email_title',
 			array(
 				'section'         => 'top_bar_section',
-				'label'           => __( 'Email Title', 'constructionn-pro' ),
+				'label'           => __( 'Email Title', 'constructionn' ),
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+				'active_callback' => 'constructionn_fronttopbar_active_callback',
 			)
 		);
 
@@ -355,7 +355,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_setting(
 			'header_location_title',
 			array(
-				'default'           => __( 'Location:', 'constructionn-pro' ),
+				'default'           => __( 'Location:', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -366,7 +366,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 			array(
 				'selector'        => 'ul.contact-links.header-four .location',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'header_location_title', __( 'Location:', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'header_location_title', __( 'Location:', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -375,9 +375,9 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 			'header_location_title',
 			array(
 				'section'         => 'top_bar_section',
-				'label'           => __( 'Location Title', 'constructionn-pro' ),
+				'label'           => __( 'Location Title', 'constructionn' ),
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+				'active_callback' => 'constructionn_fronttopbar_active_callback',
 			)
 		);
 
@@ -385,7 +385,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_setting(
 			'header_location',
 			array(
-				'default'           => __( 'Hamburg,Germany', 'constructionn-pro' ),
+				'default'           => __( 'Hamburg,Germany', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -405,9 +405,9 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 			'header_location',
 			array(
 				'section'         => 'top_bar_section',
-				'label'           => __( 'Location', 'constructionn-pro' ),
+				'label'           => __( 'Location', 'constructionn' ),
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+				'active_callback' => 'constructionn_fronttopbar_active_callback',
 			)
 		);
 
@@ -415,7 +415,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_setting(
 			'menu_label',
 			array(
-				'default'           => esc_html__( 'Menu', 'constructionn-pro' ),
+				'default'           => esc_html__( 'Menu', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -426,7 +426,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 			array(
 				'selector'        => '.ham-wrapper.header-five',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'menu_label', __( 'Menu', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'menu_label', __( 'Menu', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -434,10 +434,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_control(
 			'menu_label',
 			array(
-				'label'           => esc_html__( 'Menu Label', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Menu Label', 'constructionn' ),
 				'section'         => 'top_bar_section',
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+				'active_callback' => 'constructionn_fronttopbar_active_callback',
 			)
 		);
 
@@ -445,7 +445,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_setting(
 			'request_txt',
 			array(
-				'default'           => esc_html__( 'Request a Quote', 'constructionn-pro' ),
+				'default'           => esc_html__( 'Request a Quote', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -456,7 +456,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 			array(
 				'selector'        => '.top-right a.btn.btn__primary-outline',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'request_txt', __( 'Request a Quote', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'request_txt', __( 'Request a Quote', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -464,10 +464,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_control(
 			'request_txt',
 			array(
-				'label'           => esc_html__( 'Request Text', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Request Text', 'constructionn' ),
 				'section'         => 'top_bar_section',
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+				'active_callback' => 'constructionn_fronttopbar_active_callback',
 			)
 		);
 
@@ -483,17 +483,17 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontopbar' ) ) :
 		$wp_customize->add_control(
 			'request_link',
 			array(
-				'label'           => esc_html__( 'Request Link', 'constructionn-pro' ),
+				'label'           => esc_html__( 'Request Link', 'constructionn' ),
 				'section'         => 'top_bar_section',
 				'type'            => 'url',
-				'active_callback' => 'constructionn_pro_fronttopbar_active_callback',
+				'active_callback' => 'constructionn_fronttopbar_active_callback',
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_frontopbar' );
+add_action( 'customize_register', 'constructionn_customize_register_frontopbar' );
 
-function constructionn_pro_fronttopbar_active_callback( $control ) {
+function constructionn_fronttopbar_active_callback( $control ) {
 	$topbar_toggle  = $control->manager->get_setting( 'topbar_toggle' )->value();
 	$header_layouts = $control->manager->get_setting( 'header_layouts' )->value();
 

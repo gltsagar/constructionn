@@ -4,11 +4,11 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 $sort_front_sections = get_theme_mod( 'sort_front_sections', 'banner,counter,about,cta,service,project,testimonial,case-studies,process,team,contact,faq,blog,partner,workingstep' );
 
-$home_sections = constructionn_pro_string_to_array( $sort_front_sections );
+$home_sections = constructionn_string_to_array( $sort_front_sections );
 
 if ( 'posts' == get_option( 'show_on_front' ) ) { // Show Static Blog Page
 	include get_home_template();

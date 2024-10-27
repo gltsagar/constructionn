@@ -2,7 +2,7 @@
 /**
  * Constructionn Pro Customizer Repeater Control.
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 
 // Exit if accessed directly.
@@ -10,12 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Constructionn_Pro_Control_Repeater' ) ) {
+if ( ! class_exists( 'Constructionn_Control_Repeater' ) ) {
 	/**
 	 * Repeater control
 	 */
-	class Constructionn_Pro_Control_Repeater extends WP_Customize_Control {
-		public $type              = 'constructionn-pro-repeater';
+	class Constructionn_Control_Repeater extends WP_Customize_Control {
+		public $type              = 'constructionn-repeater';
 		public $option_type       = 'theme_mod';
 		public $fields            = array();
 		protected $filtered_value = array();
@@ -27,7 +27,7 @@ if ( ! class_exists( 'Constructionn_Pro_Control_Repeater' ) ) {
 			// Set up defaults for row labels.
 			$this->row_label = array(
 				'type'  => 'text',
-				'value' => esc_attr__( 'row', 'constructionn-pro' ),
+				'value' => esc_attr__( 'row', 'constructionn' ),
 				'field' => false,
 			);
 
@@ -35,7 +35,7 @@ if ( ! class_exists( 'Constructionn_Pro_Control_Repeater' ) ) {
 			$this->row_label( $args );
 
 			if ( empty( $this->button_label ) ) {
-				$this->button_label = sprintf( esc_attr__( 'Add new %s', 'constructionn-pro' ), $this->row_label['value'] );
+				$this->button_label = sprintf( esc_attr__( 'Add new %s', 'constructionn' ), $this->row_label['value'] );
 			}
 
 			if ( empty( $args['fields'] ) || ! is_array( $args['fields'] ) ) {
@@ -152,8 +152,8 @@ if ( ! class_exists( 'Constructionn_Pro_Control_Repeater' ) ) {
 		 * @access public
 		 */
 		public function enqueue() {
-			wp_enqueue_script( 'constructionn-pro-repeater', get_template_directory_uri() . '/inc/customizer/customizer-controls/repeater/assets/repeater.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable' ), false, true );
-			wp_enqueue_style( 'constructionn-pro-repeater', get_template_directory_uri() . '/inc/customizer/customizer-controls/repeater/assets/repeater.css', null );
+			wp_enqueue_script( 'constructionn-repeater', get_template_directory_uri() . '/inc/customizer/customizer-controls/repeater/assets/repeater.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable' ), false, true );
+			wp_enqueue_style( 'constructionn-repeater', get_template_directory_uri() . '/inc/customizer/customizer-controls/repeater/assets/repeater.css', null );
 		}
 
 		/**
@@ -177,7 +177,7 @@ if ( ! class_exists( 'Constructionn_Pro_Control_Repeater' ) ) {
 			<ul class="repeater-fields"></ul>
 	
 			<?php if ( isset( $this->choices['limit'] ) ) : ?>
-				<p class="limit"><?php printf( esc_html__( 'Limit: %s rows', 'constructionn-pro' ), esc_html( $this->choices['limit'] ) ); ?></p>
+				<p class="limit"><?php printf( esc_html__( 'Limit: %s rows', 'constructionn' ), esc_html( $this->choices['limit'] ) ); ?></p>
 			<?php endif; ?>
 			<button class="button-secondary repeater-add"><?php echo esc_html( $this->button_label ); ?></button>
 	
@@ -310,22 +310,22 @@ if ( ! class_exists( 'Constructionn_Pro_Control_Repeater' ) ) {
 										<# } #>
 									</label>
 	
-									<figure class="constructionn-pro-image-attachment" data-placeholder="<?php esc_attr_e( 'No Image Selected', 'constructionn-pro' ); ?>" >
+									<figure class="constructionn-image-attachment" data-placeholder="<?php esc_attr_e( 'No Image Selected', 'constructionn' ); ?>" >
 										<# if ( field.default ) { #>
 											<# var defaultImageURL = ( field.default.url ) ? field.default.url : field.default; #>
 											<img src="{{{ defaultImageURL }}}">
 										<# } else { #>
-											<?php esc_attr_e( 'No Image Selected', 'constructionn-pro' ); ?>
+											<?php esc_attr_e( 'No Image Selected', 'constructionn' ); ?>
 										<# } #>
 									</figure>
 	
 									<div class="actions">
-										<button type="button" class="button remove-button<# if ( ! field.default ) { #> hidden<# } #>"><?php esc_html_e( 'Remove', 'constructionn-pro' ); ?></button>
-										<button type="button" class="button upload-button" data-label=" <?php esc_attr_e( 'Add Image', 'constructionn-pro' ); ?>" data-alt-label="<?php esc_attr_e( 'Change Image', 'constructionn-pro' ); ?>" >
+										<button type="button" class="button remove-button<# if ( ! field.default ) { #> hidden<# } #>"><?php esc_html_e( 'Remove', 'constructionn' ); ?></button>
+										<button type="button" class="button upload-button" data-label=" <?php esc_attr_e( 'Add Image', 'constructionn' ); ?>" data-alt-label="<?php esc_attr_e( 'Change Image', 'constructionn' ); ?>" >
 											<# if ( field.default ) { #>
-												<?php esc_attr_e( 'Change Image', 'constructionn-pro' ); ?>
+												<?php esc_attr_e( 'Change Image', 'constructionn' ); ?>
 											<# } else { #>
-												<?php esc_attr_e( 'Add Image', 'constructionn-pro' ); ?>
+												<?php esc_attr_e( 'Add Image', 'constructionn' ); ?>
 											<# } #>
 										</button>
 										<# if ( field.default.id ) { #>
@@ -346,22 +346,22 @@ if ( ! class_exists( 'Constructionn_Pro_Control_Repeater' ) ) {
 										<# } #>
 									</label>
 	
-									<figure class="constructionn-pro-file-attachment" data-placeholder="<?php esc_attr_e( 'No File Selected', 'constructionn-pro' ); ?>" >
+									<figure class="constructionn-file-attachment" data-placeholder="<?php esc_attr_e( 'No File Selected', 'constructionn' ); ?>" >
 										<# if ( field.default ) { #>
 											<# var defaultFilename = ( field.default.filename ) ? field.default.filename : field.default; #>
 											<span class="file"><span class="dashicons dashicons-media-default"></span> {{ defaultFilename }}</span>
 										<# } else { #>
-											<?php esc_attr_e( 'No File Selected', 'constructionn-pro' ); ?>
+											<?php esc_attr_e( 'No File Selected', 'constructionn' ); ?>
 										<# } #>
 									</figure>
 	
 									<div class="actions">
 										<button type="button" class="button remove-button<# if ( ! field.default ) { #> hidden<# } #>"></button>
-										<button type="button" class="button upload-button" data-label="<?php esc_attr_e( 'Add File', 'constructionn-pro' ); ?>" data-alt-label="<?php esc_attr_e( 'Change File', 'constructionn-pro' ); ?>" >
+										<button type="button" class="button upload-button" data-label="<?php esc_attr_e( 'Add File', 'constructionn' ); ?>" data-alt-label="<?php esc_attr_e( 'Change File', 'constructionn' ); ?>" >
 											<# if ( field.default ) { #>
-												<?php esc_attr_e( 'Change File', 'constructionn-pro' ); ?>
+												<?php esc_attr_e( 'Change File', 'constructionn' ); ?>
 											<# } else { #>
-												<?php esc_attr_e( 'Add File', 'constructionn-pro' ); ?>
+												<?php esc_attr_e( 'Add File', 'constructionn' ); ?>
 											<# } #>
 										</button>
 										<# if ( field.default.id ) { #>
@@ -385,7 +385,7 @@ if ( ! class_exists( 'Constructionn_Pro_Control_Repeater' ) ) {
 	
 							</div>
 						<# }); #>
-						<button type="button" class="button-link repeater-row-remove"><?php esc_html_e( 'Remove', 'constructionn-pro' ); ?></button>
+						<button type="button" class="button-link repeater-row-remove"><?php esc_html_e( 'Remove', 'constructionn' ); ?></button>
 					</div>
 				</li>
 			</script>

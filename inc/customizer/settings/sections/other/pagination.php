@@ -1,17 +1,17 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_pagination_settings' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_pagination_settings' ) ) :
 	/**
 	 * Pagination Settings
 	 *
-	 * @package Constructionn_Pro
+	 * @package Constructionn
 	 */
-	function constructionn_pro_customize_register_pagination_settings( $wp_customize ) {
+	function constructionn_customize_register_pagination_settings( $wp_customize ) {
 		/** Pagination Settings */
 		$wp_customize->add_section(
 			'pagination_settings',
 			array(
-				'title'    => __( 'Pagination Settings', 'constructionn-pro' ),
+				'title'    => __( 'Pagination Settings', 'constructionn' ),
 				'panel'    => 'general_settings_panel',
 				'priority' => 80,
 			)
@@ -22,7 +22,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pagination_setting
 			'pagination_type',
 			array(
 				'default'           => 'numbered',
-				'sanitize_callback' => 'constructionn_pro_radio_sanitization_header',
+				'sanitize_callback' => 'constructionn_radio_sanitization_header',
 			)
 		);
 
@@ -31,14 +31,14 @@ if ( ! function_exists( 'constructionn_pro_customize_register_pagination_setting
 			array(
 				'type'        => 'radio',
 				'section'     => 'pagination_settings',
-				'label'       => __( 'Pagination Type', 'constructionn-pro' ),
-				'description' => __( 'Select pagination of your choice.', 'constructionn-pro' ),
+				'label'       => __( 'Pagination Type', 'constructionn' ),
+				'description' => __( 'Select pagination of your choice.', 'constructionn' ),
 				'choices'     => array(
-					'default'  => __( 'Default (Older / Newer)', 'constructionn-pro' ),
-					'numbered' => __( 'Numbered (1 2 3 4...)', 'constructionn-pro' ),
+					'default'  => __( 'Default (Older / Newer)', 'constructionn' ),
+					'numbered' => __( 'Numbered (1 2 3 4...)', 'constructionn' ),
 				),
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_pagination_settings' );
+add_action( 'customize_register', 'constructionn_customize_register_pagination_settings' );

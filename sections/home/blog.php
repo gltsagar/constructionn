@@ -2,11 +2,11 @@
 /**
  * Front Blog Section
  *
- * @package constructionn-pro
+ * @package constructionn
  */
-$front_blog_headings = get_theme_mod( 'front_blog_heading', __( 'We provide solution to every queries!', 'constructionn-pro' ) );
-$f_blog_btn_next_txt = get_theme_mod( 'front_blog_btn_next_txt', __( 'Next', 'constructionn-pro' ) );
-$f_blog_btn_prev_txt = get_theme_mod( 'front_blog_btn_prev_txt', __( 'Prev', 'constructionn-pro' ) );
+$front_blog_headings = get_theme_mod( 'front_blog_heading', __( 'We provide solution to every queries!', 'constructionn' ) );
+$f_blog_btn_next_txt = get_theme_mod( 'front_blog_btn_next_txt', __( 'Next', 'constructionn' ) );
+$f_blog_btn_prev_txt = get_theme_mod( 'front_blog_btn_prev_txt', __( 'Prev', 'constructionn' ) );
 $ed_posted_date      = get_theme_mod( 'ed_single_posted_date', true );
 
 $args = array(
@@ -41,7 +41,7 @@ if ( $front_blog_headings || $f_blog_btn_next_txt || $f_blog_btn_prev_txt ) { ?>
 											if ( has_post_thumbnail() ) {
 												the_post_thumbnail( 'blog_card_image' );
 											} else {
-												constructionn_pro_get_fallback_svg( 'blog_card_image' );
+												constructionn_get_fallback_svg( 'blog_card_image' );
 											}
 											?>
 										</a>
@@ -52,11 +52,11 @@ if ( $front_blog_headings || $f_blog_btn_next_txt || $f_blog_btn_prev_txt ) { ?>
 										</a>
 										<div class="blog__bottom">
 											<div class="blog-category">
-												<?php constructionn_pro_category(); ?>
+												<?php constructionn_category(); ?>
 											</div>
 											<?php
 											if ( $ed_posted_date ) {
-												constructionn_pro_posted_on();}
+												constructionn_posted_on();}
 											?>
 										</div>
 									</div>

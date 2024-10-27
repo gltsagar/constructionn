@@ -1,13 +1,13 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_colors' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_colors' ) ) :
 	/**
 	 * Colors Settings
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_colors( $wp_customize ) {
+	function constructionn_customize_register_colors( $wp_customize ) {
 		$wp_customize->add_setting(
 			'primary_color',
 			array(
@@ -21,7 +21,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_colors' ) ) :
 				$wp_customize,
 				'primary_color',
 				array(
-					'label'   => __( 'Primary Color', 'constructionn-pro' ),
+					'label'   => __( 'Primary Color', 'constructionn' ),
 					'section' => 'colors',
 				)
 			)
@@ -40,7 +40,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_colors' ) ) :
 				$wp_customize,
 				'secondary_color',
 				array(
-					'label'   => __( 'Secondary Color', 'constructionn-pro' ),
+					'label'   => __( 'Secondary Color', 'constructionn' ),
 					'section' => 'colors',
 				)
 			)
@@ -59,7 +59,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_colors' ) ) :
 				$wp_customize,
 				'fallback_bg_color',
 				array(
-					'label'   => __( 'Fallback Background Image Color', 'constructionn-pro' ),
+					'label'   => __( 'Fallback Background Image Color', 'constructionn' ),
 					'section' => 'colors',
 				)
 			)
@@ -78,7 +78,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_colors' ) ) :
 				$wp_customize,
 				'white_color',
 				array(
-					'label'   => __( 'White Color', 'constructionn-pro' ),
+					'label'   => __( 'White Color', 'constructionn' ),
 					'section' => 'colors',
 				)
 			)
@@ -97,7 +97,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_colors' ) ) :
 				$wp_customize,
 				'bg_tertiary_color',
 				array(
-					'label'   => __( 'Background Secondary Color', 'constructionn-pro' ),
+					'label'   => __( 'Background Secondary Color', 'constructionn' ),
 					'section' => 'colors',
 				)
 			)
@@ -116,7 +116,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_colors' ) ) :
 				$wp_customize,
 				'text_primary',
 				array(
-					'label'   => __( 'Text Primary Color', 'constructionn-pro' ),
+					'label'   => __( 'Text Primary Color', 'constructionn' ),
 					'section' => 'colors',
 				)
 			)
@@ -135,7 +135,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_colors' ) ) :
 				$wp_customize,
 				'text_secondary',
 				array(
-					'label'   => __( 'Text Secondary Color', 'constructionn-pro' ),
+					'label'   => __( 'Text Secondary Color', 'constructionn' ),
 					'section' => 'colors',
 				)
 			)
@@ -154,11 +154,11 @@ if ( ! function_exists( 'constructionn_pro_customize_register_colors' ) ) :
 				$wp_customize,
 				'text_tertiary',
 				array(
-					'label'   => __( 'Text Tertiary Color', 'constructionn-pro' ),
+					'label'   => __( 'Text Tertiary Color', 'constructionn' ),
 					'section' => 'colors',
 				)
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_colors' );
+add_action( 'customize_register', 'constructionn_customize_register_colors' );

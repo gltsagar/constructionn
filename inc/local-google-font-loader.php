@@ -9,11 +9,11 @@
  * @license https://opensource.org/licenses/MIT
  */
 
-if ( ! class_exists( 'Constructionn_Pro_WebFont_Loader' ) ) {
+if ( ! class_exists( 'Constructionn_WebFont_Loader' ) ) {
 	/**
 	 * Download webfonts locally.
 	 */
-	class Constructionn_Pro_WebFont_Loader {
+	class Constructionn_WebFont_Loader {
 
 		/**
 		 * The font-format.
@@ -549,7 +549,7 @@ if ( ! class_exists( 'Constructionn_Pro_WebFont_Loader' ) ) {
 		 */
 		public function get_base_path() {
 			if ( ! $this->base_path ) {
-				$this->base_path = apply_filters( 'constructionn_pro_get_local_fonts_base_path', $this->get_filesystem()->wp_content_dir() );
+				$this->base_path = apply_filters( 'constructionn_get_local_fonts_base_path', $this->get_filesystem()->wp_content_dir() );
 			}
 			return $this->base_path;
 		}
@@ -577,7 +577,7 @@ if ( ! class_exists( 'Constructionn_Pro_WebFont_Loader' ) ) {
 		 */
 		public function get_subfolder_name() {
 			if ( ! $this->subfolder_name ) {
-				$this->subfolder_name = apply_filters( 'constructionn_pro_get_local_fonts_subfolder_name', 'fonts' );
+				$this->subfolder_name = apply_filters( 'constructionn_get_local_fonts_subfolder_name', 'fonts' );
 			}
 			return $this->subfolder_name;
 		}
@@ -672,7 +672,7 @@ if ( ! class_exists( 'Constructionn_Pro_WebFont_Loader' ) ) {
 	}
 }
 
-if ( ! function_exists( 'constructionn_pro_get_webfont_styles' ) ) {
+if ( ! function_exists( 'constructionn_get_webfont_styles' ) ) {
 	/**
 	 * Get styles for a webfont.
 	 *
@@ -688,14 +688,14 @@ if ( ! function_exists( 'constructionn_pro_get_webfont_styles' ) ) {
 	 *
 	 * @return string Returns the CSS.
 	 */
-	function constructionn_pro_get_webfont_styles( $url, $format = 'woff2' ) {
-		$font = new Constructionn_Pro_WebFont_Loader( $url );
+	function constructionn_get_webfont_styles( $url, $format = 'woff2' ) {
+		$font = new Constructionn_WebFont_Loader( $url );
 		$font->set_font_format( $format );
 		return $font->get_styles();
 	}
 }
 
-if ( ! function_exists( 'constructionn_pro_get_webfont_url' ) ) {
+if ( ! function_exists( 'constructionn_get_webfont_url' ) ) {
 	/**
 	 * Get a stylesheet URL for a webfont.
 	 *
@@ -706,8 +706,8 @@ if ( ! function_exists( 'constructionn_pro_get_webfont_url' ) ) {
 	 *
 	 * @return string Returns the CSS.
 	 */
-	function constructionn_pro_get_webfont_url( $url, $format = 'woff2' ) {
-		$font = new Constructionn_Pro_WebFont_Loader( $url );
+	function constructionn_get_webfont_url( $url, $format = 'woff2' ) {
+		$font = new Constructionn_WebFont_Loader( $url );
 		$font->set_font_format( $format );
 		return $font->get_url();
 	}

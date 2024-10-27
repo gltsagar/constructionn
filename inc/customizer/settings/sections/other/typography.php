@@ -1,18 +1,18 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_typography_body' ) ) :
 	/**
 	 * Typography Body Settings
 	 *
 	 * @package Constructionn Pro
 	 */
-	function constructionn_pro_customize_register_typography_body( $wp_customize ) {
-		$defaults = constructionn_pro_get_typography_defaults();
+	function constructionn_customize_register_typography_body( $wp_customize ) {
+		$defaults = constructionn_get_typography_defaults();
 
 		$wp_customize->add_section(
 			'typography_settings',
 			array(
-				'title'    => __( 'Typography Settings', 'constructionn-pro' ),
+				'title'    => __( 'Typography Settings', 'constructionn' ),
 				'priority' => 50,
 				'panel'    => 'appearance_settings',
 			)
@@ -22,7 +22,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 			'toggle_localgoogle_fonts',
 			array(
 				'default'           => false,
-				'sanitize_callback' => 'constructionn_pro_sanitize_checkbox',
+				'sanitize_callback' => 'constructionn_sanitize_checkbox',
 			)
 		);
 
@@ -31,7 +31,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 				$wp_customize,
 				'toggle_localgoogle_fonts',
 				array(
-					'label'   => __( 'Enable to load the google fonts locally.', 'constructionn-pro' ),
+					'label'   => __( 'Enable to load the google fonts locally.', 'constructionn' ),
 					'section' => 'typography_settings',
 					'type'    => 'checkbox',
 				)
@@ -50,7 +50,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 			'primary_font[variants]',
 			array(
 				'default'           => $defaults['primary_font']['variants'],
-				'sanitize_callback' => 'constructionn_pro_sanitize_variants',
+				'sanitize_callback' => 'constructionn_sanitize_variants',
 			)
 		);
 
@@ -83,7 +83,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 				$wp_customize,
 				'primary_font',
 				array(
-					'label'    => __( 'Primary Font', 'constructionn-pro' ),
+					'label'    => __( 'Primary Font', 'constructionn' ),
 					'section'  => 'typography_settings',
 					'settings' => array(
 						'family'    => 'primary_font[family]',
@@ -101,7 +101,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 			'primary_font[font_size]',
 			array(
 				'default'           => $defaults['primary_font']['font_size'],
-				'sanitize_callback' => 'constructionn_pro_sanitize_empty_absint',
+				'sanitize_callback' => 'constructionn_sanitize_empty_absint',
 			)
 		);
 
@@ -110,7 +110,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 				$wp_customize,
 				'primary_font[font_size]',
 				array(
-					'label'   => __( 'Primary Font Size', 'constructionn-pro' ),
+					'label'   => __( 'Primary Font Size', 'constructionn' ),
 					'section' => 'typography_settings',
 					'choices' => array(
 						'min'  => 10,
@@ -153,7 +153,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 			'heading_one[variants]',
 			array(
 				'default'           => $defaults['heading_one']['variants'],
-				'sanitize_callback' => 'constructionn_pro_sanitize_variants',
+				'sanitize_callback' => 'constructionn_sanitize_variants',
 			)
 		);
 
@@ -187,7 +187,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 				$wp_customize,
 				'heading_one_typography',
 				array(
-					'label'    => __( 'Heading One', 'constructionn-pro' ),
+					'label'    => __( 'Heading One', 'constructionn' ),
 					'section'  => 'typography_settings',
 					'settings' => array(
 						'family'    => 'heading_one[family]',
@@ -205,7 +205,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 			'heading_one[font_size]',
 			array(
 				'default'           => $defaults['heading_one']['font_size'],
-				'sanitize_callback' => 'constructionn_pro_sanitize_empty_absint',
+				'sanitize_callback' => 'constructionn_sanitize_empty_absint',
 			)
 		);
 
@@ -214,7 +214,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 				$wp_customize,
 				'heading_one[font_size]',
 				array(
-					'label'   => __( 'Heading One Font Size', 'constructionn-pro' ),
+					'label'   => __( 'Heading One Font Size', 'constructionn' ),
 					'section' => 'typography_settings',
 					'choices' => array(
 						'min'  => 10,
@@ -257,7 +257,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 			'heading_two[variants]',
 			array(
 				'default'           => $defaults['heading_two']['variants'],
-				'sanitize_callback' => 'constructionn_pro_sanitize_variants',
+				'sanitize_callback' => 'constructionn_sanitize_variants',
 			)
 		);
 
@@ -291,7 +291,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 				$wp_customize,
 				'heading_two_typography',
 				array(
-					'label'    => __( 'Heading Two', 'constructionn-pro' ),
+					'label'    => __( 'Heading Two', 'constructionn' ),
 					'section'  => 'typography_settings',
 					'settings' => array(
 						'family'    => 'heading_two[family]',
@@ -309,7 +309,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 			'heading_two[font_size]',
 			array(
 				'default'           => $defaults['heading_two']['font_size'],
-				'sanitize_callback' => 'constructionn_pro_sanitize_empty_absint',
+				'sanitize_callback' => 'constructionn_sanitize_empty_absint',
 			)
 		);
 
@@ -318,7 +318,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 				$wp_customize,
 				'heading_two[font_size]',
 				array(
-					'label'   => __( 'Heading Two Font Size', 'constructionn-pro' ),
+					'label'   => __( 'Heading Two Font Size', 'constructionn' ),
 					'section' => 'typography_settings',
 					'choices' => array(
 						'min'  => 10,
@@ -361,7 +361,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 			'heading_three[variants]',
 			array(
 				'default'           => $defaults['heading_three']['variants'],
-				'sanitize_callback' => 'constructionn_pro_sanitize_variants',
+				'sanitize_callback' => 'constructionn_sanitize_variants',
 			)
 		);
 
@@ -395,7 +395,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 				$wp_customize,
 				'heading_three_typography',
 				array(
-					'label'    => __( 'Heading Three', 'constructionn-pro' ),
+					'label'    => __( 'Heading Three', 'constructionn' ),
 					'section'  => 'typography_settings',
 					'settings' => array(
 						'family'    => 'heading_three[family]',
@@ -413,7 +413,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 			'heading_three[font_size]',
 			array(
 				'default'           => $defaults['heading_three']['font_size'],
-				'sanitize_callback' => 'constructionn_pro_sanitize_empty_absint',
+				'sanitize_callback' => 'constructionn_sanitize_empty_absint',
 			)
 		);
 
@@ -422,7 +422,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 				$wp_customize,
 				'heading_three[font_size]',
 				array(
-					'label'   => __( 'Heading Three Font Size', 'constructionn-pro' ),
+					'label'   => __( 'Heading Three Font Size', 'constructionn' ),
 					'section' => 'typography_settings',
 					'choices' => array(
 						'min'  => 10,
@@ -465,7 +465,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 			'heading_four[variants]',
 			array(
 				'default'           => $defaults['heading_four']['variants'],
-				'sanitize_callback' => 'constructionn_pro_sanitize_variants',
+				'sanitize_callback' => 'constructionn_sanitize_variants',
 			)
 		);
 
@@ -499,7 +499,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 				$wp_customize,
 				'heading_four_typography',
 				array(
-					'label'    => __( 'Heading Four', 'constructionn-pro' ),
+					'label'    => __( 'Heading Four', 'constructionn' ),
 					'section'  => 'typography_settings',
 					'settings' => array(
 						'family'    => 'heading_four[family]',
@@ -517,7 +517,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 			'heading_four[font_size]',
 			array(
 				'default'           => $defaults['heading_four']['font_size'],
-				'sanitize_callback' => 'constructionn_pro_sanitize_empty_absint',
+				'sanitize_callback' => 'constructionn_sanitize_empty_absint',
 			)
 		);
 
@@ -526,7 +526,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 				$wp_customize,
 				'heading_four[font_size]',
 				array(
-					'label'   => __( 'Heading Four Font Size', 'constructionn-pro' ),
+					'label'   => __( 'Heading Four Font Size', 'constructionn' ),
 					'section' => 'typography_settings',
 					'choices' => array(
 						'min'  => 10,
@@ -569,7 +569,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 			'heading_five[variants]',
 			array(
 				'default'           => $defaults['heading_five']['variants'],
-				'sanitize_callback' => 'constructionn_pro_sanitize_variants',
+				'sanitize_callback' => 'constructionn_sanitize_variants',
 			)
 		);
 
@@ -603,7 +603,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 				$wp_customize,
 				'heading_five_typography',
 				array(
-					'label'    => __( 'Heading Five', 'constructionn-pro' ),
+					'label'    => __( 'Heading Five', 'constructionn' ),
 					'section'  => 'typography_settings',
 					'settings' => array(
 						'family'    => 'heading_five[family]',
@@ -621,7 +621,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 			'heading_five[font_size]',
 			array(
 				'default'           => $defaults['heading_five']['font_size'],
-				'sanitize_callback' => 'constructionn_pro_sanitize_empty_absint',
+				'sanitize_callback' => 'constructionn_sanitize_empty_absint',
 			)
 		);
 
@@ -630,7 +630,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 				$wp_customize,
 				'heading_five[font_size]',
 				array(
-					'label'   => __( 'Heading Five Font Size', 'constructionn-pro' ),
+					'label'   => __( 'Heading Five Font Size', 'constructionn' ),
 					'section' => 'typography_settings',
 					'choices' => array(
 						'min'  => 10,
@@ -662,4 +662,4 @@ if ( ! function_exists( 'constructionn_pro_customize_register_typography_body' )
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_typography_body' );
+add_action( 'customize_register', 'constructionn_customize_register_typography_body' );

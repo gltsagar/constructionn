@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 
 /**
@@ -14,13 +14,13 @@
  * See: https://jetpack.com/support/responsive-videos/
  * See: https://jetpack.com/support/content-options/
  */
-function constructionn_pro_jetpack_setup() {
+function constructionn_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support(
 		'infinite-scroll',
 		array(
 			'container' => 'main',
-			'render'    => 'constructionn_pro_infinite_scroll_render',
+			'render'    => 'constructionn_infinite_scroll_render',
 			'footer'    => 'page',
 		)
 	);
@@ -33,7 +33,7 @@ function constructionn_pro_jetpack_setup() {
 		'jetpack-content-options',
 		array(
 			'post-details'    => array(
-				'stylesheet' => 'constructionn_pro-style',
+				'stylesheet' => 'constructionn-style',
 				'date'       => '.posted-on',
 				'categories' => '.cat-links',
 				'tags'       => '.tags-links',
@@ -48,13 +48,13 @@ function constructionn_pro_jetpack_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'constructionn_pro_jetpack_setup' );
+add_action( 'after_setup_theme', 'constructionn_jetpack_setup' );
 
-if ( ! function_exists( 'constructionn_pro_infinite_scroll_render' ) ) :
+if ( ! function_exists( 'constructionn_infinite_scroll_render' ) ) :
 	/**
 	 * Custom render function for Infinite Scroll.
 	 */
-	function constructionn_pro_infinite_scroll_render() {
+	function constructionn_infinite_scroll_render() {
 		while ( have_posts() ) {
 			the_post();
 			if ( is_search() ) :

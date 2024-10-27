@@ -9,11 +9,11 @@
  */
 require_once get_template_directory() . '/inc/tgmpa/class-tgm-plugin-activation.php';
 
-add_action( 'tgmpa_register', 'constructionn_pro_register_required_plugins' );
-function constructionn_pro_register_required_plugins() {
+add_action( 'tgmpa_register', 'constructionn_register_required_plugins' );
+function constructionn_register_required_plugins() {
 	$plugins = array(
 		array(
-			'name'               => __( 'GL BLocks', 'constructionn-pro' ),
+			'name'               => __( 'GL BLocks', 'constructionn' ),
 			'slug'               => 'gl-blocks',
 			'source'             => get_template_directory() . '/inc/plugins/gl-blocks.zip',
 			'required'           => true,
@@ -24,29 +24,29 @@ function constructionn_pro_register_required_plugins() {
 			'is_callable'        => '',
 		),
 		array(
-			'name'     => __( 'Regenerate Thumbnails', 'constructionn-pro' ),
+			'name'     => __( 'Regenerate Thumbnails', 'constructionn' ),
 			'slug'     => 'regenerate-thumbnails',
 			'required' => false,
 		),
 		array(
-			'name'     => __( 'One Click Demo Import', 'constructionn-pro' ),
+			'name'     => __( 'One Click Demo Import', 'constructionn' ),
 			'slug'     => 'one-click-demo-import',
 			'required' => false,
 		),
 		array(
-			'name'     => __( 'Contact Form 7', 'constructionn-pro' ),
+			'name'     => __( 'Contact Form 7', 'constructionn' ),
 			'slug'     => 'contact-form-7',
 			'required' => false,
 		),
 		array(
-			'name'     => __( 'MailPoet – Newsletters, Email Marketing, and Automation', 'constructionn-pro' ),
+			'name'     => __( 'MailPoet – Newsletters, Email Marketing, and Automation', 'constructionn' ),
 			'slug'     => 'mailpoet',
 			'required' => false,
 		),
 	);
 
 	$config = array(
-		'id'           => 'constructionn-pro',      // Unique ID for hashing notices for multiple instances of TGMPA.
+		'id'           => 'constructionn',      // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path' => '',                      // Default absolute path to bundled plugins.
 		'menu'         => 'tgmpa-install-plugins', // Menu slug.
 		'has_notices'  => true,                    // Show admin notices or not.

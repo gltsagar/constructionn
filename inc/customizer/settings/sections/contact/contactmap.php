@@ -1,17 +1,17 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_contactmap' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_contactmap' ) ) :
 	/**
 	 * ContactPage Map Section
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_contactmap( $wp_customize ) {
+	function constructionn_customize_register_contactmap( $wp_customize ) {
 		$wp_customize->add_section(
 			'contact_map_section',
 			array(
-				'title'    => esc_html__( 'Map Section', 'constructionn-pro' ),
+				'title'    => esc_html__( 'Map Section', 'constructionn' ),
 				'priority' => 20,
 				'panel'    => 'contact_page_settings',
 			)
@@ -22,18 +22,18 @@ if ( ! function_exists( 'constructionn_pro_customize_register_contactmap' ) ) :
 			'contact_map_iframe',
 			array(
 				'default'           => '',
-				'sanitize_callback' => 'constructionn_pro_sanitize_code',
+				'sanitize_callback' => 'constructionn_sanitize_code',
 			)
 		);
 
 		$wp_customize->add_control(
 			'contact_map_iframe',
 			array(
-				'label'   => esc_html__( 'Google Map Iframe', 'constructionn-pro' ),
+				'label'   => esc_html__( 'Google Map Iframe', 'constructionn' ),
 				'section' => 'contact_map_section',
 				'type'    => 'textarea',
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_contactmap' );
+add_action( 'customize_register', 'constructionn_customize_register_contactmap' );

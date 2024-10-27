@@ -285,13 +285,13 @@
 .edit-post-meta-boxes-area.is-side .inside .sidebar-layout .sidebar-option{
     width: calc(50% - 14px);
 }
-.edit-post-meta-boxes-area .inside #constructionn_pro_btn__wrapper{
+.edit-post-meta-boxes-area .inside #constructionn_btn__wrapper{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 12px;
 }
-.edit-post-meta-boxes-area .inside #constructionn_pro_btn__wrapper .button{
+.edit-post-meta-boxes-area .inside #constructionn_btn__wrapper .button{
     background: transparent;
     transition: all ease 0.35s;
     padding: 2px 16px;
@@ -299,12 +299,12 @@
     border-color: #2563EB;
 }
 
-.edit-post-meta-boxes-area .inside #constructionn_pro_btn__wrapper #constructionn_pro_remove_image_button{
+.edit-post-meta-boxes-area .inside #constructionn_btn__wrapper #constructionn_remove_image_button{
     color: #ff2c2c;
     border-color: #ff2c2c;
 }
 
-.edit-post-meta-boxes-area .inside #constructionn_pro_image_preview img {
+.edit-post-meta-boxes-area .inside #constructionn_image_preview img {
     height: 110px; 
     width: 110px;
     object-fit: contain;

@@ -2,15 +2,15 @@
 /**
  * Constructionn Pro Common Function Defination
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
-if ( ! function_exists( 'constructionn_pro_counter_section' ) ) {
+if ( ! function_exists( 'constructionn_counter_section' ) ) {
 	/**
 	 * Constructionn Pro counter Section
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_counter_section( $section_name, $counter_headings, $front_counter_repeaters, $front_count_feature_repeaters ) {
+	function constructionn_counter_section( $section_name, $counter_headings, $front_counter_repeaters, $front_count_feature_repeaters ) {
 		if ( $counter_headings || $front_counter_repeaters || $front_count_feature_repeaters ) { ?>
 			<div id="<?php echo esc_attr( $section_name ); ?>" class="counter-section <?php echo esc_attr( $section_name ); ?>">
 				<div class="container">
@@ -81,13 +81,13 @@ if ( ! function_exists( 'constructionn_pro_counter_section' ) ) {
 	}
 }
 
-if ( ! function_exists( 'constructionn_pro_workingstep_section' ) ) {
+if ( ! function_exists( 'constructionn_workingstep_section' ) ) {
 	/**
 	 * Constructionn Pro Wrokingstep Section
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_workingstep_section( $section_name, $workstep_headings, $front_workstep_repeaters ) {
+	function constructionn_workingstep_section( $section_name, $workstep_headings, $front_workstep_repeaters ) {
 		if ( $workstep_headings || $front_workstep_repeaters ) {
 			?>
 			<div id="<?php echo esc_attr( $section_name ); ?>" class="process-section bg-black  <?php echo esc_attr( $section_name ); ?>">
@@ -135,14 +135,14 @@ if ( ! function_exists( 'constructionn_pro_workingstep_section' ) ) {
 	}
 }
 
-if ( ! function_exists( 'constructionn_pro_partners_section' ) ) {
+if ( ! function_exists( 'constructionn_partners_section' ) ) {
 	/**
 	 * Partner function
 	 *
 	 * @param [type] $partner_repeater
 	 * @return void
 	 */
-	function constructionn_pro_partners_section( $section_name, $partner_repeater ) {
+	function constructionn_partners_section( $section_name, $partner_repeater ) {
 		if ( $partner_repeater ) {
 			?>
 			<div id="<?php echo esc_html( $section_name ); ?>" class="partners-section <?php echo esc_html( $section_name ); ?>">
@@ -170,14 +170,14 @@ if ( ! function_exists( 'constructionn_pro_partners_section' ) ) {
 	}
 }
 
-if ( ! function_exists( 'constructionn_pro_get_faqs_details' ) ) :
+if ( ! function_exists( 'constructionn_get_faqs_details' ) ) :
 	/**
 	 * Function to get the FAQs section
 	 *
 	 * @param [type] $postid
 	 * @return void
 	 */
-	function constructionn_pro_get_faqs_details( $faq_repeater ) {
+	function constructionn_get_faqs_details( $faq_repeater ) {
 		if ( $faq_repeater ) {
 			?>
 			<div class="faq-wrapper">

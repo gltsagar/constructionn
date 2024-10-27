@@ -7,23 +7,23 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 	/**
 	 * Doctype Hook
 	 *
-	 * @hooked constructionn_pro_doctype
+	 * @hooked constructionn_doctype
 	 */
-	do_action( 'constructionn_pro_doctype' );
+	do_action( 'constructionn_doctype' );
 ?>
 <head itemscope itemtype="http://schema.org/WebSite">
 	<?php
 	/**
 	 * Before wp_head
 	 *
-	 * @hooked constructionn_pro_head
+	 * @hooked constructionn_head
 	 */
-	do_action( 'constructionn_pro_before_wp_head' );
+	do_action( 'constructionn_before_wp_head' );
 
 	wp_head();
 	?>
@@ -35,20 +35,20 @@
 	/**
 	 * Before Header
 	 *
-	 * @hooked constructionn_pro_page_start - 20
+	 * @hooked constructionn_page_start - 20
 	 */
-	do_action( 'constructionn_pro_before_header' );
+	do_action( 'constructionn_before_header' );
 
 	/**
 	 * Header
 	 *
-	 * @hooked constructionn_pro_header_inclusion - 10
+	 * @hooked constructionn_header_inclusion - 10
 	*/
-	do_action( 'constructionn_pro_header' );
+	do_action( 'constructionn_header' );
 
 	/**
 	 * Before Content
 	 *
-	 * @hooked constructionn_pro_background_header   -10
+	 * @hooked constructionn_background_header   -10
 	*/
-	do_action( 'constructionn_pro_after_header' );
+	do_action( 'constructionn_after_header' );

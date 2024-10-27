@@ -1,17 +1,17 @@
 <?php
-if ( ! function_exists( 'constructionn_pro_customize_register_frontestimonial' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_frontestimonial' ) ) :
 	/**
 	 * Fronttestimonial
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_frontestimonial( $wp_customize ) {
+	function constructionn_customize_register_frontestimonial( $wp_customize ) {
 
 		$wp_customize->add_section(
 			'testimonial_section',
 			array(
-				'title'    => __( 'Testimonial Settings', 'constructionn-pro' ),
+				'title'    => __( 'Testimonial Settings', 'constructionn' ),
 				'priority' => 130,
 				'panel'    => 'frontpage_settings_panel',
 			)
@@ -21,7 +21,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontestimonial' )
 		$wp_customize->add_setting(
 			'testimonials_headings',
 			array(
-				'default'           => __( 'What clients say about us', 'constructionn-pro' ),
+				'default'           => __( 'What clients say about us', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -32,7 +32,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontestimonial' )
 			array(
 				'selector'        => '.sec-testimon h2.section-heading',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'testimonials_headings', __( 'What clients say about us', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'testimonials_headings', __( 'What clients say about us', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -41,7 +41,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontestimonial' )
 		$wp_customize->add_control(
 			'testimonials_headings',
 			array(
-				'label'   => __( 'Heading', 'constructionn-pro' ),
+				'label'   => __( 'Heading', 'constructionn' ),
 				'section' => 'testimonial_section',
 				'type'    => 'text',
 			)
@@ -51,7 +51,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontestimonial' )
 		$wp_customize->add_setting(
 			'testimonial_btn_next_txt',
 			array(
-				'default'           => esc_html__( 'Next', 'constructionn-pro' ),
+				'default'           => esc_html__( 'Next', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -61,7 +61,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontestimonial' )
 		$wp_customize->add_control(
 			'testimonial_btn_next_txt',
 			array(
-				'label'   => esc_html__( 'Button Next Text', 'constructionn-pro' ),
+				'label'   => esc_html__( 'Button Next Text', 'constructionn' ),
 				'section' => 'testimonial_section',
 				'type'    => 'text',
 			)
@@ -71,7 +71,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontestimonial' )
 		$wp_customize->add_setting(
 			'testimonial_btn_prev_txt',
 			array(
-				'default'           => esc_html__( 'Prev', 'constructionn-pro' ),
+				'default'           => esc_html__( 'Prev', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -81,7 +81,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontestimonial' )
 		$wp_customize->add_control(
 			'testimonial_btn_prev_txt',
 			array(
-				'label'   => esc_html__( 'Button Previous Text', 'constructionn-pro' ),
+				'label'   => esc_html__( 'Button Previous Text', 'constructionn' ),
 				'section' => 'testimonial_section',
 				'type'    => 'text',
 			)
@@ -89,33 +89,33 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontestimonial' )
 
 		/** Dynamic Testimonial Section */
 		$wp_customize->add_setting(
-			new Constructionn_Pro_Repeater_Setting(
+			new Constructionn_Repeater_Setting(
 				$wp_customize,
 				'front_testimonial_repeater',
 				array(
 					'default'           => array(),
-					'sanitize_callback' => array( 'Constructionn_Pro_Repeater_Setting', 'sanitize_repeater_setting' ),
+					'sanitize_callback' => array( 'Constructionn_Repeater_Setting', 'sanitize_repeater_setting' ),
 				)
 			)
 		);
 
 		$wp_customize->add_control(
-			new Constructionn_Pro_Control_Repeater(
+			new Constructionn_Control_Repeater(
 				$wp_customize,
 				'front_testimonial_repeater',
 				array(
 					'section'   => 'testimonial_section',
-					'label'     => __( 'Add Testimonial', 'constructionn-pro' ),
+					'label'     => __( 'Add Testimonial', 'constructionn' ),
 					'fields'    => array(
 						'testimonial' => array(
 							'type'    => 'select',
-							'label'   => __( 'Select Testimonial', 'constructionn-pro' ),
-							'choices' => constructionn_pro_get_posts( 'testimonial' ),
+							'label'   => __( 'Select Testimonial', 'constructionn' ),
+							'choices' => constructionn_get_posts( 'testimonial' ),
 						),
 					),
 					'row_label' => array(
 						'type'  => 'field',
-						'value' => __( 'Testimonial', 'constructionn-pro' ),
+						'value' => __( 'Testimonial', 'constructionn' ),
 						'field' => 'title',
 					),
 				)
@@ -123,4 +123,4 @@ if ( ! function_exists( 'constructionn_pro_customize_register_frontestimonial' )
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_frontestimonial' );
+add_action( 'customize_register', 'constructionn_customize_register_frontestimonial' );

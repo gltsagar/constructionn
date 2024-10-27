@@ -1,16 +1,16 @@
 <?php
-if ( ! function_exists( 'constructionn_pro_customize_register_faqsort' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_faqsort' ) ) :
 	/**
 	 * FAQ Template Sortable function
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_faqsort( $wp_customize ) {
+	function constructionn_customize_register_faqsort( $wp_customize ) {
 		$wp_customize->add_section(
 			'sort_faqpg',
 			array(
-				'title'    => esc_html__( 'Sort Sections', 'constructionn-pro' ),
+				'title'    => esc_html__( 'Sort Sections', 'constructionn' ),
 				'priority' => 200,
 				'panel'    => 'faq_page_settings',
 			)
@@ -19,7 +19,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_faqsort' ) ) :
 			'sort_faq_sections',
 			array(
 				'default'           => 'faq,contact,partner',
-				'sanitize_callback' => 'constructionn_pro_sortable_sanitization',
+				'sanitize_callback' => 'constructionn_sortable_sanitization',
 			)
 		);
 		$wp_customize->add_control(
@@ -27,20 +27,20 @@ if ( ! function_exists( 'constructionn_pro_customize_register_faqsort' ) ) :
 				$wp_customize,
 				'sort_faq_sections',
 				array(
-					'label'       => __( 'Sort FAQ Page', 'constructionn-pro' ),
+					'label'       => __( 'Sort FAQ Page', 'constructionn' ),
 					'section'     => 'sort_faqpg',
 					'input_attrs' => array(
 						'sortable'  => true,
 						'fullwidth' => true,
 					),
 					'choices'     => array(
-						'faq'     => __( 'FAQ', 'constructionn-pro' ),
-						'contact' => __( 'Contact', 'constructionn-pro' ),
-						'partner' => __( 'Partner', 'constructionn-pro' ),
+						'faq'     => __( 'FAQ', 'constructionn' ),
+						'contact' => __( 'Contact', 'constructionn' ),
+						'partner' => __( 'Partner', 'constructionn' ),
 					),
 				)
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_faqsort' );
+add_action( 'customize_register', 'constructionn_customize_register_faqsort' );

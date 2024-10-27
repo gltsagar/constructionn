@@ -1,18 +1,18 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_teampg_service' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_teampg_service' ) ) :
 	/**
 	 * Teampage Service
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_teampg_service( $wp_customize ) {
+	function constructionn_customize_register_teampg_service( $wp_customize ) {
 
 		$wp_customize->add_section(
 			'teampg_service_section',
 			array(
-				'title'    => __( 'Service Settings', 'constructionn-pro' ),
+				'title'    => __( 'Service Settings', 'constructionn' ),
 				'priority' => 30,
 				'panel'    => 'team_page_settings',
 			)
@@ -33,7 +33,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_teampg_service' ) 
 				$wp_customize,
 				'teampg_service_image',
 				array(
-					'description' => esc_html__( 'Upload Image', 'constructionn-pro' ),
+					'description' => esc_html__( 'Upload Image', 'constructionn' ),
 					'section'     => 'teampg_service_section',
 				)
 			)
@@ -43,7 +43,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_teampg_service' ) 
 		$wp_customize->add_setting(
 			'teampg_service_headings',
 			array(
-				'default'           => __( 'Have any projects ?', 'constructionn-pro' ),
+				'default'           => __( 'Have any projects ?', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -54,7 +54,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_teampg_service' ) 
 			array(
 				'selector'        => '.teampg-service h2.section-heading',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'teampg_service_headings', __( 'Have any projects ?', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'teampg_service_headings', __( 'Have any projects ?', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -63,7 +63,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_teampg_service' ) 
 		$wp_customize->add_control(
 			'teampg_service_headings',
 			array(
-				'label'   => __( 'Heading', 'constructionn-pro' ),
+				'label'   => __( 'Heading', 'constructionn' ),
 				'section' => 'teampg_service_section',
 				'type'    => 'text',
 			)
@@ -73,7 +73,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_teampg_service' ) 
 		$wp_customize->add_setting(
 			'teampg_btn_txt',
 			array(
-				'default'           => __( 'View More', 'constructionn-pro' ),
+				'default'           => __( 'View More', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -84,7 +84,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_teampg_service' ) 
 			array(
 				'selector'        => 'section#front-service h2.section-header__title',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'teampg_btn_txt', __( 'View More', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'teampg_btn_txt', __( 'View More', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -93,7 +93,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_teampg_service' ) 
 		$wp_customize->add_control(
 			'teampg_btn_txt',
 			array(
-				'label'   => __( 'Button Text', 'constructionn-pro' ),
+				'label'   => __( 'Button Text', 'constructionn' ),
 				'section' => 'teampg_service_section',
 				'type'    => 'text',
 			)
@@ -101,33 +101,33 @@ if ( ! function_exists( 'constructionn_pro_customize_register_teampg_service' ) 
 
 		/** Dynamic Services Section */
 		$wp_customize->add_setting(
-			new Constructionn_Pro_Repeater_Setting(
+			new Constructionn_Repeater_Setting(
 				$wp_customize,
 				'teampg_services_repeater',
 				array(
 					'default'           => '',
-					'sanitize_callback' => array( 'Constructionn_Pro_Repeater_Setting', 'sanitize_repeater_setting' ),
+					'sanitize_callback' => array( 'Constructionn_Repeater_Setting', 'sanitize_repeater_setting' ),
 				)
 			)
 		);
 
 		$wp_customize->add_control(
-			new Constructionn_Pro_Control_Repeater(
+			new Constructionn_Control_Repeater(
 				$wp_customize,
 				'teampg_services_repeater',
 				array(
 					'section'   => 'teampg_service_section',
-					'label'     => __( 'Add Services', 'constructionn-pro' ),
+					'label'     => __( 'Add Services', 'constructionn' ),
 					'fields'    => array(
 						'service' => array(
 							'type'    => 'select',
-							'label'   => __( 'Select Service', 'constructionn-pro' ),
-							'choices' => constructionn_pro_get_posts( 'service' ),
+							'label'   => __( 'Select Service', 'constructionn' ),
+							'choices' => constructionn_get_posts( 'service' ),
 						),
 					),
 					'row_label' => array(
 						'type'  => 'field',
-						'value' => __( 'Services', 'constructionn-pro' ),
+						'value' => __( 'Services', 'constructionn' ),
 						'field' => 'title',
 					),
 				)
@@ -135,4 +135,4 @@ if ( ! function_exists( 'constructionn_pro_customize_register_teampg_service' ) 
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_teampg_service' );
+add_action( 'customize_register', 'constructionn_customize_register_teampg_service' );

@@ -1,19 +1,19 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_footer_contactform' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_footer_contactform' ) ) :
 	/**
 	 * Footer Panel's Contactform Section
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_footer_contactform( $wp_customize ) {
+	function constructionn_customize_register_footer_contactform( $wp_customize ) {
 
 		/** Contactform Section */
 		$wp_customize->add_section(
 			'footer_contactform_section',
 			array(
-				'title'    => __( 'Contact Form Section', 'constructionn-pro' ),
+				'title'    => __( 'Contact Form Section', 'constructionn' ),
 				'priority' => 10,
 				'panel'    => 'footer_settings',
 			)
@@ -24,7 +24,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_footer_contactform
 			'toggle_footer_contactform',
 			array(
 				'default'           => true,
-				'sanitize_callback' => 'constructionn_pro_sanitize_checkbox',
+				'sanitize_callback' => 'constructionn_sanitize_checkbox',
 			)
 		);
 
@@ -33,8 +33,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_footer_contactform
 				$wp_customize,
 				'toggle_footer_contactform',
 				array(
-					'label'       => __( 'Show/Hide Form Section', 'constructionn-pro' ),
-					'description' => __( 'Enable to show contact form section', 'constructionn-pro' ),
+					'label'       => __( 'Show/Hide Form Section', 'constructionn' ),
+					'description' => __( 'Enable to show contact form section', 'constructionn' ),
 					'section'     => 'footer_contactform_section',
 					'type'        => 'checkbox',
 				)
@@ -54,17 +54,17 @@ if ( ! function_exists( 'constructionn_pro_customize_register_footer_contactform
 		$wp_customize->add_control(
 			'footer_contactform_shortcode',
 			array(
-				'label'           => __( 'Enter Shortcode', 'constructionn-pro' ),
+				'label'           => __( 'Enter Shortcode', 'constructionn' ),
 				'section'         => 'footer_contactform_section',
 				'type'            => 'textarea',
-				'active_callback' => 'constructionn_pro_footer_newsletter_active_callback',
+				'active_callback' => 'constructionn_footer_newsletter_active_callback',
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_footer_contactform' );
+add_action( 'customize_register', 'constructionn_customize_register_footer_contactform' );
 
-function constructionn_pro_footer_newsletter_active_callback( $control ) {
+function constructionn_footer_newsletter_active_callback( $control ) {
 
 	$toggle_footer_contact_form = $control->manager->get_setting( 'toggle_footer_contactform' )->value();
 

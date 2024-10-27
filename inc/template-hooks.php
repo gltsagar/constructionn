@@ -2,7 +2,7 @@
 /**
  * Functions which hooking all the sections of the templates
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 
 /**
@@ -17,11 +17,11 @@ if ( ! empty( $allpagehooks ) ) {
 	}
 }
 
-if ( ! function_exists( 'constructionn_pro_get_about_section' ) ) {
+if ( ! function_exists( 'constructionn_get_about_section' ) ) {
 	/**
 	 * About Us Section
 	 */
-	function constructionn_pro_get_about_section(
+	function constructionn_get_about_section(
 		$sec_name,
 		$about_subheading,
 		$about_headings,

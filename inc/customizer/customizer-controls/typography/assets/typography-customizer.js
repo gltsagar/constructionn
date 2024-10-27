@@ -1,10 +1,10 @@
 ( function( api ) {
 
-	api.controlConstructor['constructionn-pro-typography'] = api.Control.extend( {
+	api.controlConstructor['constructionn-typography'] = api.Control.extend( {
 		ready: function() {
 			var control = this;
 
-			control.container.on( 'change', '.constructionn-pro-font-family select',
+			control.container.on( 'change', '.constructionn-font-family select',
 				function() {
 					var _this = jQuery( this ),
 						_value = _this.val(),
@@ -25,8 +25,8 @@
 							type: 'POST',
 							url: ajaxurl,
 							data: {
-								action: 'constructionn_pro_gf_lists',
-								constructionn_pro_customize_nonce: constructionn_pro_customize.nonce
+								action: 'constructionn_gf_lists',
+								constructionn_customize_nonce: constructionn_customize.nonce
 							},
 							async: false,
 							dataType: 'json',
@@ -43,19 +43,19 @@
 
 							// Get existing variants if this font is already selected
 							var got_variants = false;
-							jQuery( '.constructionn-pro-font-family select' ).not( _this ).each( function( key, select ) {
-								var parent = jQuery( this ).closest( '.constructionn-pro-font-family' );
+							jQuery( '.constructionn-font-family select' ).not( _this ).each( function( key, select ) {
+								var parent = jQuery( this ).closest( '.constructionn-font-family' );
 
 								if ( _value == jQuery( select ).val() && _this.data( 'category' ) !== jQuery( select ).data( 'category' ) ) {
 									if ( ! got_variants ) {
-										updated_variants = jQuery( parent.next( '.constructionn-pro-font-variant' ).find( 'select' ) ).val();
+										updated_variants = jQuery( parent.next( '.constructionn-font-variant' ).find( 'select' ) ).val();
 										got_variants = true;
 									}
 								}
 							} );
 
 							// We're using a Google font, so show the variants field
-							_this.closest( '.constructionn-pro-font-family' ).next( 'div' ).show();
+							_this.closest( '.constructionn-font-family' ).next( 'div' ).show();
 
 							// Remove existing variants
 							jQuery( 'select[name="' + _variantsID + '"]' ).find( 'option' ).remove();
@@ -76,7 +76,7 @@
 							control.settings[ 'category' ].set( fonts[ id ].category );
 							jQuery( 'input[name="' + _categoryID + '"' ).val( fonts[ id ].category );
 						} else {
-							_this.closest( '.constructionn-pro-font-family' ).next( 'div' ).hide();
+							_this.closest( '.constructionn-font-family' ).next( 'div' ).hide();
 							control.settings[ 'category' ].set( '' )
 							control.settings[ 'variant' ].set( '' )
 							jQuery( 'input[name="' + _categoryID + '"' ).val( '' );
@@ -86,16 +86,16 @@
 				}
 			);
 
-			control.container.on( 'change', '.constructionn-pro-font-variant select',
+			control.container.on( 'change', '.constructionn-font-variant select',
 				function() {
 					var _this = jQuery( this );
 					var variants = _this.val();
 
 					control.settings['variant'].set( variants );
 
-					jQuery( '.constructionn-pro-font-variant select' ).each( function( key, value ) {
+					jQuery( '.constructionn-font-variant select' ).each( function( key, value ) {
 						var this_control = jQuery( this ).closest( 'li' ).attr( 'id' ).replace( 'customize-control-', '' );
-						var parent = jQuery( this ).closest( '.constructionn-pro-font-variant' );
+						var parent = jQuery( this ).closest( '.constructionn-font-variant' );
 						var font_val = api.control( this_control ).settings['family'].get();
 
 						if ( font_val == control.settings['family'].get() && _this.attr( 'name' ) !== jQuery( value ).attr( 'name' ) ) {
@@ -106,19 +106,19 @@
 				}
 			);
 
-			control.container.on( 'change', '.constructionn-pro-font-category input',
+			control.container.on( 'change', '.constructionn-font-category input',
 				function() {
 					control.settings['category'].set( jQuery( this ).val() );
 				}
 			);
 
-			control.container.on( 'change', '.constructionn-pro-font-weight select',
+			control.container.on( 'change', '.constructionn-font-weight select',
 				function() {
 					control.settings['weight'].set( jQuery( this ).val() );
 				}
 			);
 
-			control.container.on( 'change', '.constructionn-pro-font-transform select',
+			control.container.on( 'change', '.constructionn-font-transform select',
 				function() {
 					control.settings['transform'].set( jQuery( this ).val() );
 				}
@@ -131,9 +131,9 @@
 
 jQuery( document ).ready( function( $ ) {
 
-	$( '.constructionn-pro-font-family select' ).select2();
+	$( '.constructionn-font-family select' ).select2();
 
-	$( '.constructionn-pro-font-variant' ).each( function( key, value ) {
+	$( '.constructionn-font-variant' ).each( function( key, value ) {
 		var _this = $( this );
 		var value = _this.data( 'saved-value' );
 
@@ -144,10 +144,10 @@ jQuery( document ).ready( function( $ ) {
 		_this.find( 'select' ).select2().val( value ).trigger( 'change.select2' );
 	} );
 
-	$( ".constructionn-pro-font-family" ).each( function( key, value ) {
+	$( ".constructionn-font-family" ).each( function( key, value ) {
 		var _this = $( this );
 		if ( $.inArray( _this.find( 'select' ).val(), typography_defaults ) !== -1 ) {
-			_this.next( '.constructionn-pro-font-variant' ).hide();
+			_this.next( '.constructionn-font-variant' ).hide();
 		}
 	} );
 

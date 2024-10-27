@@ -1,17 +1,17 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_panels' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_panels' ) ) :
 	/**
 	 * Registering Panel
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_panels( $wp_customize ) {
+	function constructionn_customize_register_panels( $wp_customize ) {
 		$wp_customize->add_panel(
 			'appearance_settings',
 			array(
-				'title'    => esc_html__( 'Appearance Settings', 'constructionn-pro' ),
+				'title'    => esc_html__( 'Appearance Settings', 'constructionn' ),
 				'priority' => 10,
 			)
 		);
@@ -19,8 +19,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_panels' ) ) :
 		$wp_customize->add_panel(
 			'frontpage_settings_panel',
 			array(
-				'title'       => esc_html__( 'Front Page Settings', 'constructionn-pro' ),
-				'description' => esc_html__( 'Static Home Page Settings.', 'constructionn-pro' ),
+				'title'       => esc_html__( 'Front Page Settings', 'constructionn' ),
+				'description' => esc_html__( 'Static Home Page Settings.', 'constructionn' ),
 				'priority'    => 10,
 			)
 		);
@@ -28,8 +28,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_panels' ) ) :
 		$wp_customize->add_panel(
 			'general_settings_panel',
 			array(
-				'title'       => esc_html__( 'General Settings', 'constructionn-pro' ),
-				'description' => esc_html__( 'General Desc', 'constructionn-pro' ),
+				'title'       => esc_html__( 'General Settings', 'constructionn' ),
+				'description' => esc_html__( 'General Desc', 'constructionn' ),
 				'priority'    => 10,
 			)
 		);
@@ -38,8 +38,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_panels' ) ) :
 		$wp_customize->add_panel(
 			'contact_page_settings',
 			array(
-				'title'       => esc_html__( 'Contact Page Settings', 'constructionn-pro' ),
-				'description' => esc_html__( 'Contact Page Desc', 'constructionn-pro' ),
+				'title'       => esc_html__( 'Contact Page Settings', 'constructionn' ),
+				'description' => esc_html__( 'Contact Page Desc', 'constructionn' ),
 				'priority'    => 10,
 			)
 		);
@@ -48,8 +48,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_panels' ) ) :
 		$wp_customize->add_panel(
 			'casestudies_page_settings',
 			array(
-				'title'       => esc_html__( 'Case Studies Page Settings', 'constructionn-pro' ),
-				'description' => esc_html__( 'Case Studies Page Desc', 'constructionn-pro' ),
+				'title'       => esc_html__( 'Case Studies Page Settings', 'constructionn' ),
+				'description' => esc_html__( 'Case Studies Page Desc', 'constructionn' ),
 				'priority'    => 10,
 			)
 		);
@@ -58,8 +58,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_panels' ) ) :
 		$wp_customize->add_panel(
 			'team_page_settings',
 			array(
-				'title'       => esc_html__( 'Team Page Settings', 'constructionn-pro' ),
-				'description' => esc_html__( 'Team Page Desc', 'constructionn-pro' ),
+				'title'       => esc_html__( 'Team Page Settings', 'constructionn' ),
+				'description' => esc_html__( 'Team Page Desc', 'constructionn' ),
 				'priority'    => 10,
 			)
 		);
@@ -68,8 +68,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_panels' ) ) :
 		$wp_customize->add_panel(
 			'Service_page_settings',
 			array(
-				'title'       => esc_html__( 'Service Page Settings', 'constructionn-pro' ),
-				'description' => esc_html__( 'Service Page Desc', 'constructionn-pro' ),
+				'title'       => esc_html__( 'Service Page Settings', 'constructionn' ),
+				'description' => esc_html__( 'Service Page Desc', 'constructionn' ),
 				'priority'    => 10,
 			)
 		);
@@ -78,8 +78,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_panels' ) ) :
 		$wp_customize->add_panel(
 			'faq_page_settings',
 			array(
-				'title'       => esc_html__( 'FAQ Page Settings', 'constructionn-pro' ),
-				'description' => esc_html__( 'FAQ Page Desc', 'constructionn-pro' ),
+				'title'       => esc_html__( 'FAQ Page Settings', 'constructionn' ),
+				'description' => esc_html__( 'FAQ Page Desc', 'constructionn' ),
 				'priority'    => 10,
 			)
 		);
@@ -88,8 +88,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_panels' ) ) :
 		$wp_customize->add_panel(
 			'testimonial_page_settings',
 			array(
-				'title'       => esc_html__( 'Testimonial Page Settings', 'constructionn-pro' ),
-				'description' => esc_html__( 'Testimonial Page Desc', 'constructionn-pro' ),
+				'title'       => esc_html__( 'Testimonial Page Settings', 'constructionn' ),
+				'description' => esc_html__( 'Testimonial Page Desc', 'constructionn' ),
 				'priority'    => 10,
 			)
 		);
@@ -98,8 +98,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_panels' ) ) :
 		$wp_customize->add_panel(
 			'about_page_settings',
 			array(
-				'title'       => esc_html__( 'About Page Settings', 'constructionn-pro' ),
-				'description' => esc_html__( 'About Page Desc', 'constructionn-pro' ),
+				'title'       => esc_html__( 'About Page Settings', 'constructionn' ),
+				'description' => esc_html__( 'About Page Desc', 'constructionn' ),
 				'priority'    => 10,
 			)
 		);
@@ -108,8 +108,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_panels' ) ) :
 		$wp_customize->add_panel(
 			'project_page_settings',
 			array(
-				'title'       => esc_html__( 'Project Page Settings', 'constructionn-pro' ),
-				'description' => esc_html__( 'Project Page Desc', 'constructionn-pro' ),
+				'title'       => esc_html__( 'Project Page Settings', 'constructionn' ),
+				'description' => esc_html__( 'Project Page Desc', 'constructionn' ),
 				'priority'    => 10,
 			)
 		);
@@ -117,7 +117,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_panels' ) ) :
 		$wp_customize->add_panel(
 			'project_single_settings',
 			array(
-				'title'    => esc_html__( 'Project Single Settings', 'constructionn-pro' ),
+				'title'    => esc_html__( 'Project Single Settings', 'constructionn' ),
 				'priority' => 10,
 			)
 		);
@@ -126,8 +126,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_panels' ) ) :
 		$wp_customize->add_panel(
 			'details_settings',
 			array(
-				'title'       => esc_html__( 'Details Settings', 'constructionn-pro' ),
-				'description' => esc_html__( 'Details Desc', 'constructionn-pro' ),
+				'title'       => esc_html__( 'Details Settings', 'constructionn' ),
+				'description' => esc_html__( 'Details Desc', 'constructionn' ),
 				'priority'    => 10,
 			)
 		);
@@ -135,8 +135,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_panels' ) ) :
 		$wp_customize->add_panel(
 			'pricing_page_settings',
 			array(
-				'title'       => esc_html__( 'Pricing Page Settings', 'constructionn-pro' ),
-				'description' => esc_html__( 'Pricing Page Desc', 'constructionn-pro' ),
+				'title'       => esc_html__( 'Pricing Page Settings', 'constructionn' ),
+				'description' => esc_html__( 'Pricing Page Desc', 'constructionn' ),
 				'priority'    => 10,
 			)
 		);
@@ -144,11 +144,11 @@ if ( ! function_exists( 'constructionn_pro_customize_register_panels' ) ) :
 		$wp_customize->add_panel(
 			'footer_settings',
 			array(
-				'title'       => esc_html__( 'Footer Settings', 'constructionn-pro' ),
-				'description' => esc_html__( 'Footer Desc', 'constructionn-pro' ),
+				'title'       => esc_html__( 'Footer Settings', 'constructionn' ),
+				'description' => esc_html__( 'Footer Desc', 'constructionn' ),
 				'priority'    => 10,
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_panels' );
+add_action( 'customize_register', 'constructionn_customize_register_panels' );

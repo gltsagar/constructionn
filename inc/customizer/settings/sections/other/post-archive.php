@@ -1,17 +1,17 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_post_archive' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_post_archive' ) ) :
 	/**
 	 * Servive single post and archive
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_post_archive( $wp_customize ) {
+	function constructionn_customize_register_post_archive( $wp_customize ) {
 		$wp_customize->add_section(
 			'post_archive',
 			array(
-				'title'    => __( 'Blog, Search and Archive Settings', 'constructionn-pro' ),
+				'title'    => __( 'Blog, Search and Archive Settings', 'constructionn' ),
 				'panel'    => 'general_settings_panel',
 				'priority' => 30,
 			)
@@ -21,7 +21,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_post_archive' ) ) 
 			'mp_archive_prefix',
 			array(
 				'default'           => true,
-				'sanitize_callback' => 'constructionn_pro_sanitize_checkbox',
+				'sanitize_callback' => 'constructionn_sanitize_checkbox',
 			)
 		);
 
@@ -30,8 +30,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_post_archive' ) ) 
 				$wp_customize,
 				'mp_archive_prefix',
 				array(
-					'label'       => __( 'Show/Hide Prefix', 'constructionn-pro' ),
-					'description' => __( 'Enable to hide prefix in archive page.', 'constructionn-pro' ),
+					'label'       => __( 'Show/Hide Prefix', 'constructionn' ),
+					'description' => __( 'Enable to hide prefix in archive page.', 'constructionn' ),
 					'section'     => 'post_archive',
 					'type'        => 'checkbox',
 				)
@@ -43,7 +43,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_post_archive' ) ) 
 			'mp_excerpt',
 			array(
 				'default'           => true,
-				'sanitize_callback' => 'constructionn_pro_sanitize_checkbox',
+				'sanitize_callback' => 'constructionn_sanitize_checkbox',
 			)
 		);
 
@@ -52,8 +52,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_post_archive' ) ) 
 				$wp_customize,
 				'mp_excerpt',
 				array(
-					'label'       => __( 'Show/Hide Blog Excerpt', 'constructionn-pro' ),
-					'description' => __( 'Enable to show excerpt or disable to hide excerpt', 'constructionn-pro' ),
+					'label'       => __( 'Show/Hide Blog Excerpt', 'constructionn' ),
+					'description' => __( 'Enable to show excerpt or disable to hide excerpt', 'constructionn' ),
 					'section'     => 'post_archive',
 					'type'        => 'checkbox',
 				)
@@ -72,10 +72,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_post_archive' ) ) 
 		$wp_customize->add_control(
 			'mp_excerpt_length',
 			array(
-				'label'           => __( 'Excerpt Length', 'constructionn-pro' ),
+				'label'           => __( 'Excerpt Length', 'constructionn' ),
 				'section'         => 'post_archive',
 				'type'            => 'number',
-				'active_callback' => 'constructionn_pro_excerpt_show_hide_active_callback',
+				'active_callback' => 'constructionn_excerpt_show_hide_active_callback',
 			)
 		);
 
@@ -84,7 +84,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_post_archive' ) ) 
 			array(
 				'default'           => 'comment,category',
 				'transport'         => 'refresh',
-				'sanitize_callback' => 'constructionn_pro_sortable_sanitization',
+				'sanitize_callback' => 'constructionn_sortable_sanitization',
 			)
 		);
 		$wp_customize->add_control(
@@ -92,16 +92,16 @@ if ( ! function_exists( 'constructionn_pro_customize_register_post_archive' ) ) 
 				$wp_customize,
 				'archive_metaboxes',
 				array(
-					'label'       => __( 'Sort Comment and Categories', 'constructionn-pro' ),
-					'description' => __( 'This is used for sorting comment and categories. Drag and drop to arrange the order, and click to hide.', 'constructionn-pro' ),
+					'label'       => __( 'Sort Comment and Categories', 'constructionn' ),
+					'description' => __( 'This is used for sorting comment and categories. Drag and drop to arrange the order, and click to hide.', 'constructionn' ),
 					'section'     => 'post_archive',
 					'input_attrs' => array(
 						'sortable'  => true,
 						'fullwidth' => true,
 					),
 					'choices'     => array(
-						'comment'  => __( 'Comment', 'constructionn-pro' ),
-						'category' => __( 'Category', 'constructionn-pro' ),
+						'comment'  => __( 'Comment', 'constructionn' ),
+						'category' => __( 'Category', 'constructionn' ),
 					),
 				)
 			)
@@ -111,7 +111,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_post_archive' ) ) 
 		$wp_customize->add_setting(
 			'archive_readmore_button',
 			array(
-				'default'           => __( 'Read More', 'constructionn-pro' ),
+				'default'           => __( 'Read More', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -120,23 +120,23 @@ if ( ! function_exists( 'constructionn_pro_customize_register_post_archive' ) ) 
 			array(
 				'selector'        => '.archive-button',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'archive_readmore_button', __( 'Read More', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'archive_readmore_button', __( 'Read More', 'constructionn' ) ) );
 				},
 			)
 		);
 		$wp_customize->add_control(
 			'archive_readmore_button',
 			array(
-				'label'   => __( 'Readmore Button', 'constructionn-pro' ),
+				'label'   => __( 'Readmore Button', 'constructionn' ),
 				'section' => 'post_archive',
 				'type'    => 'text',
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_post_archive' );
+add_action( 'customize_register', 'constructionn_customize_register_post_archive' );
 
-function constructionn_pro_excerpt_show_hide_active_callback( $control ) {
+function constructionn_excerpt_show_hide_active_callback( $control ) {
 
 	$toggle_excerpt = $control->manager->get_setting( 'mp_excerpt' )->value();
 

@@ -7,8 +7,8 @@
  */
 require get_template_directory() . '/inc/customizer/settings/customizer-panel.php';
 
-$constructionn_pro_all_sections = apply_filters(
-	'constructionn_pro_customizer_sections',
+$constructionn_all_sections = apply_filters(
+	'constructionn_customizer_sections',
 	array(
 		'front'        => array( 'frontbanner', 'about', 'frontservices', 'frontteam', 'fronttestimonial', 'frontblog', 'frontfaq', 'frontpartner', 'frontsort', 'frontcasestudies', 'frontcontact', 'frontcounter', 'frontcta', 'frontproject', 'frontworkingstep' ),
 		'header'       => array( 'notificationbar', 'header', 'socialmedia' ),
@@ -29,7 +29,7 @@ $constructionn_pro_all_sections = apply_filters(
 /*
 * Breaking everything into folder
 */
-foreach ( $constructionn_pro_all_sections as $foldername => $sectionslist ) {
+foreach ( $constructionn_all_sections as $foldername => $sectionslist ) {
 	foreach ( $sectionslist as $ind ) {
 		require get_template_directory() . '/inc/customizer/settings/sections/' . $foldername . '/' . $ind . '.php';
 	}

@@ -2,7 +2,7 @@
 /**
  * The Elementor main template file
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 ?>
 <div class="elementor-wrapper">

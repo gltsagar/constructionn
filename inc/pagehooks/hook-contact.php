@@ -3,17 +3,17 @@
 /**
  * This file contains all the functions used in the Comtact Template
  *
- * @package constructionn-pro
+ * @package constructionn
  */
 
 /* FrontContact Contact Form sections */
-if ( ! function_exists( 'constructionn_pro_contact_section' ) ) :
+if ( ! function_exists( 'constructionn_contact_section' ) ) :
 	/**
 	 * Contact Section
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_contact_section(
+	function constructionn_contact_section(
 		$sec_name,
 		$contact_headings,
 		$contact_descriptions,
@@ -36,7 +36,7 @@ if ( ! function_exists( 'constructionn_pro_contact_section' ) ) :
 							</div>
 							<?php
 						}
-						constructionn_pro_social_media_repeater( 'socials_media_repeater', 'contact-section-social-media' );
+						constructionn_social_media_repeater( 'socials_media_repeater', 'contact-section-social-media' );
 						?>
 					</div>
 					<?php if ( $contact_form_shortcode ) { ?>
@@ -55,13 +55,13 @@ if ( ! function_exists( 'constructionn_pro_contact_section' ) ) :
 endif;
 
 /* Contact Template Contact Form sections */
-if ( ! function_exists( 'constructionn_pro_contpage_contact_section' ) ) :
+if ( ! function_exists( 'constructionn_contpage_contact_section' ) ) :
 	/**
 	 * Contact Template, Contact Section
 	 *
 	 * @return void
 	 */
-	function constructionn_pro_contpage_contact_section(
+	function constructionn_contpage_contact_section(
 		$sec_name,
 		$contpg_email_title,
 		$contpg_email_desc,

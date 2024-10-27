@@ -2,7 +2,7 @@
 /**
  * Constructionn Pro Customizer Slider Control.
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 
 // Exit if accessed directly.
@@ -16,7 +16,7 @@ if ( ! class_exists( 'GL_Slider_Control' ) ) {
 	 */
 	class GL_Slider_Control extends WP_Customize_Control {
 
-		public $type = 'constructionn-pro-slider';
+		public $type = 'constructionn-slider';
 
 		public $tooltip = '';
 
@@ -45,8 +45,8 @@ if ( ! class_exists( 'GL_Slider_Control' ) ) {
 		}
 
 		public function enqueue() {
-			wp_enqueue_style( 'constructionn-pro-customizer-slider', get_template_directory_uri() . '/inc/customizer/customizer-controls/slider/slider.css', null );
-			wp_enqueue_script( 'constructionn-pro-customizer-slider', get_template_directory_uri() . '/inc/customizer/customizer-controls/slider/slider.js', array( 'jquery' ), false, true ); // for slider
+			wp_enqueue_style( 'constructionn-customizer-slider', get_template_directory_uri() . '/inc/customizer/customizer-controls/slider/slider.css', null );
+			wp_enqueue_script( 'constructionn-customizer-slider', get_template_directory_uri() . '/inc/customizer/customizer-controls/slider/slider.js', array( 'jquery' ), false, true ); // for slider
 		}
 
 		protected function content_template() {

@@ -2,26 +2,26 @@
 /**
  * Front Counter Section
  *
- * @package constructionn-pro
+ * @package constructionn
  */
-$counter_headings              = get_theme_mod( 'counter_headings', __( 'Our goal is to make the design simple and useful.', 'constructionn-pro' ) );
+$counter_headings              = get_theme_mod( 'counter_headings', __( 'Our goal is to make the design simple and useful.', 'constructionn' ) );
 $front_counter_repeaters       = get_theme_mod(
 	'front_counter_repeaters',
 	array(
 		array(
-			'title'   => __( 'Destinations', 'constructionn-pro' ),
-			'counter' => __( '150', 'constructionn-pro' ),
-			'prefix'  => __( '+', 'constructionn-pro' ),
+			'title'   => __( 'Destinations', 'constructionn' ),
+			'counter' => __( '150', 'constructionn' ),
+			'prefix'  => __( '+', 'constructionn' ),
 		),
 		array(
-			'title'   => __( 'Happy clients', 'constructionn-pro' ),
-			'counter' => __( '100', 'constructionn-pro' ),
-			'prefix'  => __( '+', 'constructionn-pro' ),
+			'title'   => __( 'Happy clients', 'constructionn' ),
+			'counter' => __( '100', 'constructionn' ),
+			'prefix'  => __( '+', 'constructionn' ),
 		),
 		array(
-			'title'   => __( 'Years of experience', 'constructionn-pro' ),
-			'counter' => __( '12', 'constructionn-pro' ),
-			'prefix'  => __( '+', 'constructionn-pro' ),
+			'title'   => __( 'Years of experience', 'constructionn' ),
+			'counter' => __( '12', 'constructionn' ),
+			'prefix'  => __( '+', 'constructionn' ),
 		),
 	)
 );
@@ -29,23 +29,23 @@ $front_count_feature_repeaters = get_theme_mod(
 	'front_count_feature_repeaters',
 	array(
 		array(
-			'text'        => esc_html__( 'Our Mission', 'constructionn-pro' ),
-			'description' => esc_html__( 'Reimagine how world develops by integrating the complete building lifecycle into a seamless platform.', 'constructionn-pro' ),
+			'text'        => esc_html__( 'Our Mission', 'constructionn' ),
+			'description' => esc_html__( 'Reimagine how world develops by integrating the complete building lifecycle into a seamless platform.', 'constructionn' ),
 		),
 
 		array(
-			'text'        => esc_html__( 'Our Core Values', 'constructionn-pro' ),
-			'description' => esc_html__( 'Reimagine how world develops by integrating the complete building lifecycle into a seamless platform.', 'constructionn-pro' ),
+			'text'        => esc_html__( 'Our Core Values', 'constructionn' ),
+			'description' => esc_html__( 'Reimagine how world develops by integrating the complete building lifecycle into a seamless platform.', 'constructionn' ),
 		),
 
 		array(
-			'text'        => esc_html__( 'Our Vision', 'constructionn-pro' ),
-			'description' => esc_html__( 'Reimagine how world develops by integrating the complete building lifecycle into a seamless platform.', 'constructionn-pro' ),
+			'text'        => esc_html__( 'Our Vision', 'constructionn' ),
+			'description' => esc_html__( 'Reimagine how world develops by integrating the complete building lifecycle into a seamless platform.', 'constructionn' ),
 		),
 	)
 );
 
-constructionn_pro_counter_section(
+constructionn_counter_section(
 	'front-counter',         // section id
 	$counter_headings,   // heading text
 	$front_counter_repeaters,  // count repeater key

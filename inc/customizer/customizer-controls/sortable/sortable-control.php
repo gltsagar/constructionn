@@ -2,7 +2,7 @@
 /**
  * Constructionn Pro Customizer Sortable Control.
  *
- * @package Constructionn_Pro
+ * @package Constructionn
  */
 
 // Exit if accessed directly.
@@ -33,8 +33,8 @@ if ( ! class_exists( 'GL_Sortable_Control' ) ) {
 		}
 
 		public function enqueue() {
-			wp_enqueue_style( 'constructionn-pro-sortable-pill', get_template_directory_uri() . '/inc/customizer/customizer-controls/sortable/sortable.css' );
-			wp_enqueue_script( 'constructionn-pro-sortable-pill', get_template_directory_uri() . '/inc/customizer/customizer-controls/sortable/sortable.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable' ), false, true );
+			wp_enqueue_style( 'constructionn-sortable-pill', get_template_directory_uri() . '/inc/customizer/customizer-controls/sortable/sortable.css' );
+			wp_enqueue_script( 'constructionn-sortable-pill', get_template_directory_uri() . '/inc/customizer/customizer-controls/sortable/sortable.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable' ), false, true );
 		}
 		public function render_content() {
 			$reordered_choices = array();

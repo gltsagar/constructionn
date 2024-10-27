@@ -1,18 +1,18 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_testimonialpg_testimonial' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_testimonialpg_testimonial' ) ) :
 	/**
 	 * Testimonialpage Testimonial
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_testimonialpg_testimonial( $wp_customize ) {
+	function constructionn_customize_register_testimonialpg_testimonial( $wp_customize ) {
 
 		$wp_customize->add_section(
 			'testimonialpg_testimon_section',
 			array(
-				'title'    => __( 'Testimonial Settings', 'constructionn-pro' ),
+				'title'    => __( 'Testimonial Settings', 'constructionn' ),
 				'priority' => 10,
 				'panel'    => 'testimonial_page_settings',
 			)
@@ -22,7 +22,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_testimonialpg_test
 		$wp_customize->add_setting(
 			'testimonialpg_testimon_headings',
 			array(
-				'default'           => __( 'What clients say about us', 'constructionn-pro' ),
+				'default'           => __( 'What clients say about us', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -33,7 +33,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_testimonialpg_test
 			array(
 				'selector'        => '.testimonpg h2.section-heading',
 				'render_callback' => function () {
-						return esc_html( get_theme_mod( 'testimonialpg_testimon_headings', __( 'What clients say about us', 'constructionn-pro' ) ) );
+						return esc_html( get_theme_mod( 'testimonialpg_testimon_headings', __( 'What clients say about us', 'constructionn' ) ) );
 				},
 			)
 		);
@@ -41,7 +41,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_testimonialpg_test
 		$wp_customize->add_control(
 			'testimonialpg_testimon_headings',
 			array(
-				'label'   => __( 'Heading', 'constructionn-pro' ),
+				'label'   => __( 'Heading', 'constructionn' ),
 				'section' => 'testimonialpg_testimon_section',
 				'type'    => 'text',
 			)
@@ -51,7 +51,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_testimonialpg_test
 		$wp_customize->add_setting(
 			'testimonialpg_btn_next_txt',
 			array(
-				'default'           => esc_html__( 'Next', 'constructionn-pro' ),
+				'default'           => esc_html__( 'Next', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -61,7 +61,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_testimonialpg_test
 		$wp_customize->add_control(
 			'testimonialpg_btn_next_txt',
 			array(
-				'label'   => esc_html__( 'Button Next Text', 'constructionn-pro' ),
+				'label'   => esc_html__( 'Button Next Text', 'constructionn' ),
 				'section' => 'testimonialpg_testimon_section',
 				'type'    => 'text',
 			)
@@ -71,7 +71,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_testimonialpg_test
 		$wp_customize->add_setting(
 			'testimonialpg_btn_prev_txt',
 			array(
-				'default'           => esc_html__( 'Prev', 'constructionn-pro' ),
+				'default'           => esc_html__( 'Prev', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -81,11 +81,11 @@ if ( ! function_exists( 'constructionn_pro_customize_register_testimonialpg_test
 		$wp_customize->add_control(
 			'testimonialpg_btn_prev_txt',
 			array(
-				'label'   => esc_html__( 'Button Previous Text', 'constructionn-pro' ),
+				'label'   => esc_html__( 'Button Previous Text', 'constructionn' ),
 				'section' => 'testimonialpg_testimon_section',
 				'type'    => 'text',
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_testimonialpg_testimonial' );
+add_action( 'customize_register', 'constructionn_customize_register_testimonialpg_testimonial' );

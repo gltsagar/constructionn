@@ -2,7 +2,7 @@
 /**
  * Front Banner Section
  *
- * @package constructionn-pro
+ * @package constructionn
  */
 $banner_array = array( 'one', 'two', 'three', 'four', 'five' );
 $banner       = get_theme_mod( 'banner_layouts', 'three' );

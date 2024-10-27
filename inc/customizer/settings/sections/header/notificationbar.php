@@ -1,19 +1,19 @@
 <?php
 
-if ( ! function_exists( 'constructionn_pro_customize_register_notificationbar' ) ) :
+if ( ! function_exists( 'constructionn_customize_register_notificationbar' ) ) :
 	/**
 	 * Notifications Bar
 	 *
 	 * @param [type] $wp_customize
 	 * @return void
 	 */
-	function constructionn_pro_customize_register_notificationbar( $wp_customize ) {
+	function constructionn_customize_register_notificationbar( $wp_customize ) {
 
 		// Create notification bar section
 		$wp_customize->add_section(
 			'notification_bar',
 			array(
-				'title'    => __( 'Notification Bar', 'constructionn-pro' ),
+				'title'    => __( 'Notification Bar', 'constructionn' ),
 				'panel'    => 'general_settings_panel',
 				'priority' => 10,
 			)
@@ -24,7 +24,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_notificationbar' )
 			'notification_bar_toggle',
 			array(
 				'default'           => true,
-				'sanitize_callback' => 'constructionn_pro_sanitize_checkbox',
+				'sanitize_callback' => 'constructionn_sanitize_checkbox',
 			)
 		);
 
@@ -33,8 +33,8 @@ if ( ! function_exists( 'constructionn_pro_customize_register_notificationbar' )
 				$wp_customize,
 				'notification_bar_toggle',
 				array(
-					'label'       => __( 'Show/Hide Notification Bar', 'constructionn-pro' ),
-					'description' => __( 'Enable to show Notificaiton Bar', 'constructionn-pro' ),
+					'label'       => __( 'Show/Hide Notification Bar', 'constructionn' ),
+					'description' => __( 'Enable to show Notificaiton Bar', 'constructionn' ),
 					'section'     => 'notification_bar',
 					'type'        => 'checkbox',
 				)
@@ -44,7 +44,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_notificationbar' )
 		$wp_customize->add_setting(
 			'notification_heading',
 			array(
-				'default'           => __( 'Ready for the perfect home. Summertime discounts sales are here.', 'constructionn-pro' ),
+				'default'           => __( 'Ready for the perfect home. Summertime discounts sales are here.', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 				'transport'         => 'postMessage',
 			)
@@ -54,17 +54,17 @@ if ( ! function_exists( 'constructionn_pro_customize_register_notificationbar' )
 			'notification_heading',
 			array(
 				'selector'        => '.notification-bar .notify-text',
-				'render_callback' => 'constructionn_pro_notification_heading_pr',
+				'render_callback' => 'constructionn_notification_heading_pr',
 			)
 		);
 
 		$wp_customize->add_control(
 			'notification_heading',
 			array(
-				'label'           => __( 'Heading', 'constructionn-pro' ),
+				'label'           => __( 'Heading', 'constructionn' ),
 				'section'         => 'notification_bar',
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_notificationbar_active_callback',
+				'active_callback' => 'constructionn_notificationbar_active_callback',
 			)
 		);
 
@@ -72,7 +72,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_notificationbar' )
 		$wp_customize->add_setting(
 			'notification_link_text',
 			array(
-				'default'           => __( 'Register Now', 'constructionn-pro' ),
+				'default'           => __( 'Register Now', 'constructionn' ),
 				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
@@ -81,7 +81,7 @@ if ( ! function_exists( 'constructionn_pro_customize_register_notificationbar' )
 			'notification_link_text',
 			array(
 				'selector'        => '.notification-bar .notify-link',
-				'render_callback' => 'constructionn_pro_notification_heading_pr',
+				'render_callback' => 'constructionn_notification_heading_pr',
 			)
 		);
 
@@ -89,10 +89,10 @@ if ( ! function_exists( 'constructionn_pro_customize_register_notificationbar' )
 		$wp_customize->add_control(
 			'notification_link_text',
 			array(
-				'label'           => __( 'Button text', 'constructionn-pro' ),
+				'label'           => __( 'Button text', 'constructionn' ),
 				'section'         => 'notification_bar',
 				'type'            => 'text',
-				'active_callback' => 'constructionn_pro_notificationbar_active_callback',
+				'active_callback' => 'constructionn_notificationbar_active_callback',
 			)
 		);
 
@@ -109,21 +109,21 @@ if ( ! function_exists( 'constructionn_pro_customize_register_notificationbar' )
 		$wp_customize->add_control(
 			'notification_link',
 			array(
-				'label'           => __( 'Button Link', 'constructionn-pro' ),
+				'label'           => __( 'Button Link', 'constructionn' ),
 				'section'         => 'notification_bar',
 				'type'            => 'url',
-				'active_callback' => 'constructionn_pro_notificationbar_active_callback',
+				'active_callback' => 'constructionn_notificationbar_active_callback',
 			)
 		);
 	}
 endif;
-add_action( 'customize_register', 'constructionn_pro_customize_register_notificationbar' );
+add_action( 'customize_register', 'constructionn_customize_register_notificationbar' );
 
-function constructionn_pro_notification_heading_pr() {
-	return esc_html( get_theme_mod( 'notification_heading', __( 'Ready for the perfect home. Summertime discounts sales are here.', 'constructionn-pro' ) ) );
+function constructionn_notification_heading_pr() {
+	return esc_html( get_theme_mod( 'notification_heading', __( 'Ready for the perfect home. Summertime discounts sales are here.', 'constructionn' ) ) );
 }
 
-function constructionn_pro_notificationbar_active_callback( $control ) {
+function constructionn_notificationbar_active_callback( $control ) {
 	$notification_bar_toggle = $control->manager->get_setting( 'notification_bar_toggle' )->value();
 
 	$id = $control->id;

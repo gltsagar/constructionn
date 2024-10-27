@@ -2,7 +2,7 @@
 /**
  *  Contact Template, Contact Map Section
  *
- *  @package constructionn-pro
+ *  @package constructionn
  */
 $contact_map_url = get_theme_mod( 'contact_map_iframe' );
 
